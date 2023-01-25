@@ -1,13 +1,13 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import { Header, Footer } from "./components/index";
+import { Navbar, Footer } from "./components/index";
 import { Home, Contact, Admin, Cart } from "./pages/index";
 
 function App() {
   return (
     <>
       <BrowserRouter>
-        <Header />
+        <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/contact" element={<Contact />} />

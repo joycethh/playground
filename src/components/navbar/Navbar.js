@@ -18,19 +18,24 @@ const Navbar = () => {
         </div>
 
         <div className="right">
-          <div className="mode">
-            {isDarkMode ? (
-              <button onClick={toggle}>💡</button>
-            ) : (
-              <button onClick={toggle}>🌙</button>
-            )}
-          </div>
-          <div className="user">
-            <span>John</span>
-          </div>
           <Link to="/contact">Contact</Link>
           <Link to="/admin">Admin</Link>
           <Link to="/cart">Cart</Link>
+
+          <div className="setting">
+            {isDarkMode ? (
+              <span onClick={toggle}>💡</span>
+            ) : (
+              <span onClick={toggle}>🌙</span>
+            )}
+          </div>
+          <div className="user">
+            <img
+              src="https://wallpapers.com/images/featured/s52z1uggme5sj92d.jpg"
+              alt="avatar"
+            />
+            <span>Amy</span>
+          </div>
         </div>
       </div>
     </header>

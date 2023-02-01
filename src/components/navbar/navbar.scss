@@ -1,0 +1,97 @@
+@import "../../style.scss";
+
+.navbar{
+    @include themify($themes) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    height: 45px;
+    border-bottom: 1px solid themed('border');
+    background-color: themed("bg");
+    color: themed('textColor');
+
+
+    .left{
+        a {
+            font-weight: bold;
+            font-size: 20px;
+            text-decoration: none;
+            color: #FFC93C;
+
+            span {
+                color: themed('logo'),
+            }
+        }       
+    }
+
+    .nav {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+
+        a {
+        font-weight: 500;
+        font-size: 12px;
+        text-decoration: none;
+        color: themed('textColor');
+        }
+
+        @include mobile{
+            display: none;
+        }
+
+        @include tablet{
+            width: 200px;
+        }
+    
+    }
+
+
+    .right{
+        display: flex;
+        gap: 15px;
+        align-items: center;
+     
+
+        a {
+        text-decoration: none;
+        font-weight: 500;
+        color: themed('textColor');
+        }
+
+        .menu-icon {
+            display: none;
+
+            @include mobile{
+                display: block;
+            }
+    
+          
+        }
+
+    }
+
+    .modal {
+        position: fixed;
+        top: 65px;
+        right: 0;
+        background-color: rgba(219, 213, 213, 0.6);
+        width: 200px;
+        height: 50vh;
+    
+
+
+
+    }
+       
+    .display-block {
+        display: block;
+    }
+
+      .display-none {
+        display: none;
+    }
+
+}
+}

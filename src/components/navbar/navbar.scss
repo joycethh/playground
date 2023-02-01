@@ -52,6 +52,10 @@
         display: flex;
         gap: 15px;
         align-items: center;
+
+        @include mobile{
+            float: right;
+        }
      
 
         a {
@@ -62,29 +66,16 @@
 
         .menu-icon {
             display: none;
+            cursor: pointer;
 
             @include mobile{
                 display: block;
             }
     
-          
         }
 
     }
 
-    .modal {
-        position: fixed;
-        top: 65px;
-        right: 0;
-        background-color: rgba(219, 213, 213, 0.6);
-        width: 200px;
-        height: 50vh;
-    
-
-
-
-    }
-       
     .display-block {
         display: block;
     }
@@ -92,6 +83,48 @@
       .display-none {
         display: none;
     }
+
+    .modal-nav{
+        position: absolute;
+        top: 65px;
+        left: 0;
+        right: 0;
+        background-color: rgba(219, 213, 213, 0.6);
+        width: 100%;
+        height: fit-content;
+
+        padding: 1rem;
+        z-index: 999;
+        transition: all 0.3s;
+     
+    
+        .modal-nav-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+           
+            a {
+                padding: 5px 8px;
+                text-decoration: none;
+                color: themed('textColor');
+               
+            }
+            
+
+
+           
+                
+              
+                 
+          
+
+        }
+
+
+
+    }
+       
+    
 
 }
 }

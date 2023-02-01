@@ -6,7 +6,7 @@ import { CgShoppingBag } from "react-icons/cg";
 import {
   HiOutlineSearch,
   HiOutlineLightBulb,
-  HiMenuAlt1,
+  HiOutlineMenu,
 } from "react-icons/hi";
 import { DarkModeContext } from "../../context/darkModeContext";
 import "./navbar.scss";
@@ -55,32 +55,21 @@ const Navbar = () => {
           </span>
 
           <span onClick={toggleModal} className="menu-icon">
-            <HiMenuAlt1 />
+            <HiOutlineMenu />
           </span>
         </div>
 
         <div
           className={openModal ? "modal display-block" : "modal display-none"}
         >
-          <button type="button" onClick={toggleModal}>
-            Close Menu
-          </button>
-          <div className="modal">
-            <ul>
-              <li>New Arrivals</li>
-              <li>Best Sellers</li>
-              <li>Home</li>
-              <li>About</li>
-              <li>Contact</li>
-              <li>
-                <BiUser />
-              </li>
-              <li>
-                <span onClick={toggle}>
-                  {isDarkMode ? <HiOutlineLightBulb /> : <CiDark />}
-                </span>
-              </li>
-            </ul>
+          <div className="modal-nav">
+            <div className="modal-nav-wrapper">
+              <Link to="/new-arrivals">New Arrivals</Link>
+              <Link to="/best-sellers">Best Sellers</Link>
+              <Link to="/">Home</Link>
+              <Link to="/about">About</Link>
+              <Link to="/contact">Contact</Link>
+            </div>
           </div>
         </div>
       </div>

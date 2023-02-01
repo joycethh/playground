@@ -1,13 +1,14 @@
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
-import { BiUser } from "react-icons/bi";
-import { CiDark, CiCircleList } from "react-icons/ci";
-import { CgShoppingBag } from "react-icons/cg";
 import {
-  HiOutlineSearch,
-  HiOutlineLightBulb,
-  HiOutlineMenu,
-} from "react-icons/hi";
+  BiUser,
+  BiShoppingBag,
+  BiListUl,
+  BiSearch,
+  BiMenuAltLeft,
+} from "react-icons/bi";
+
+import { HiOutlineLightBulb, HiOutlineMoon } from "react-icons/hi";
 import { DarkModeContext } from "../../context/darkModeContext";
 import "./navbar.scss";
 
@@ -19,13 +20,10 @@ const Navbar = () => {
     setOpenModal(!openModal);
   };
 
-  const hideModal = () => {
-    setOpenModal(false);
-  };
   return (
     <header>
       <div className="navbar">
-        <div className="left">
+        <div className="logo">
           <Link to="/">
             Sea<span>Shell</span>
           </Link>
@@ -44,18 +42,18 @@ const Navbar = () => {
             <BiUser />
           </Link>
           <Link to="/cart">
-            <CgShoppingBag />
+            <BiShoppingBag />
           </Link>
           <Link to="/order-history">
-            <CiCircleList />
+            <BiListUl />
           </Link>
-          <HiOutlineSearch />
+          <BiSearch />
           <span onClick={toggle}>
-            {isDarkMode ? <HiOutlineLightBulb /> : <CiDark />}
+            {isDarkMode ? <HiOutlineLightBulb /> : <HiOutlineMoon />}
           </span>
 
           <span onClick={toggleModal} className="menu-icon">
-            <HiOutlineMenu />
+            <BiMenuAltLeft />
           </span>
         </div>
 

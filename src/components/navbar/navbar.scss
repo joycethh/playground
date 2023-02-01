@@ -10,14 +10,16 @@
     border-bottom: 1px solid themed('border');
     background-color: themed("bg");
     color: themed('textColor');
+    position: relative;
 
 
-    .left{
+    .logo{
         a {
             font-weight: bold;
             font-size: 20px;
             text-decoration: none;
-            color: #FFC93C;
+            color: themed('active');
+            cursor: pointer;
 
             span {
                 color: themed('logo'),
@@ -35,6 +37,10 @@
         font-size: 12px;
         text-decoration: none;
         color: themed('textColor');
+
+        &:hover {
+            color: themed('active');
+        }
         }
 
         @include mobile{
@@ -50,12 +56,10 @@
 
     .right{
         display: flex;
-        gap: 15px;
+        gap: 12px;
         align-items: center;
 
-        @include mobile{
-            float: right;
-        }
+       
      
 
         a {
@@ -110,21 +114,8 @@
                
             }
             
-
-
-           
-                
-              
-                 
-          
-
         }
-
-
-
     }
        
-    
-
 }
 }

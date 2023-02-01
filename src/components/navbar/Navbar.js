@@ -56,18 +56,16 @@ const Navbar = () => {
             <BiMenuAltLeft />
           </span>
         </div>
+      </div>
 
-        <div
-          className={openModal ? "modal display-block" : "modal display-none"}
-        >
-          <div className="modal-nav">
-            <div className="modal-nav-wrapper">
-              <Link to="/new-arrivals">New Arrivals</Link>
-              <Link to="/best-sellers">Best Sellers</Link>
-              <Link to="/">Home</Link>
-              <Link to="/about">About</Link>
-              <Link to="/contact">Contact</Link>
-            </div>
+      <div className={openModal ? "modal display-block" : "modal display-none"}>
+        <div className="modal-nav">
+          <div className="modal-nav-wrapper" onClick={toggleModal}>
+            <Link to="/new-arrivals">New Arrivals</Link>
+            <Link to="/best-sellers">Best Sellers</Link>
+            <Link to="/">Home</Link>
+            <Link to="/about">About</Link>
+            <Link to="/contact">Contact</Link>
           </div>
         </div>
       </div>

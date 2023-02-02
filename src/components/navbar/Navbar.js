@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import {
   BiUser,
   BiShoppingBag,
@@ -30,11 +30,22 @@ const Navbar = () => {
         </div>
 
         <div className="nav">
-          <Link to="/new-arrivals">New Arrivals</Link>
-          <Link to="/best-sellers">Best Sellers</Link>
-          <Link to="/">Home</Link>
-          <Link to="/about">About</Link>
-          <Link to="/contact">Contact</Link>
+          <NavLink
+            to="/new-arrivals"
+            // className={(state) => console.log("state", state)}
+            className={({ isActive }) => (isActive ? "active" : null)}
+          >
+            New Arrivals
+          </NavLink>
+          <NavLink to="/best-sellers">Best Sellers</NavLink>
+          <NavLink
+            to="/"
+            className={({ isActive }) => (isActive ? "active" : null)}
+          >
+            Home
+          </NavLink>
+          <NavLink to="/about">About</NavLink>
+          <NavLink to="/contact">Contact</NavLink>
         </div>
 
         <div className="right">

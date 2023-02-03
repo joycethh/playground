@@ -16,6 +16,8 @@ const Navbar = () => {
   const { toggle, isDarkMode } = useContext(DarkModeContext);
   const [openModal, setOpenModal] = useState(false);
 
+  const activeLink = ({ isActive }) => (isActive ? "active" : null);
+
   const toggleModal = () => {
     setOpenModal(!openModal);
   };
@@ -30,22 +32,21 @@ const Navbar = () => {
         </div>
 
         <div className="nav">
-          <NavLink
-            to="/new-arrivals"
-            // className={(state) => console.log("state", state)}
-            className={({ isActive }) => (isActive ? "active" : null)}
-          >
+          <NavLink to="/new-arrivals" className={activeLink}>
             New Arrivals
           </NavLink>
-          <NavLink to="/best-sellers">Best Sellers</NavLink>
-          <NavLink
-            to="/"
-            className={({ isActive }) => (isActive ? "active" : null)}
-          >
+          <NavLink to="/best-sellers" className={activeLink}>
+            Best Sellers
+          </NavLink>
+          <NavLink to="/" className={activeLink}>
             Home
           </NavLink>
-          <NavLink to="/about">About</NavLink>
-          <NavLink to="/contact">Contact</NavLink>
+          <NavLink to="/about" className={activeLink}>
+            About
+          </NavLink>
+          <NavLink to="/contact" className={activeLink}>
+            Contact
+          </NavLink>
         </div>
 
         <div className="right">
@@ -72,11 +73,21 @@ const Navbar = () => {
       <div className={openModal ? "modal display-block" : "modal display-none"}>
         <div className="modal-nav">
           <div className="modal-nav-wrapper" onClick={toggleModal}>
-            <Link to="/new-arrivals">New Arrivals</Link>
-            <Link to="/best-sellers">Best Sellers</Link>
-            <Link to="/">Home</Link>
-            <Link to="/about">About</Link>
-            <Link to="/contact">Contact</Link>
+            <NavLink to="/new-arrivals" className={activeLink}>
+              New Arrivals
+            </NavLink>
+            <NavLink to="/best-sellers" className={activeLink}>
+              Best Sellers
+            </NavLink>
+            <NavLink to="/" className={activeLink}>
+              Home
+            </NavLink>
+            <NavLink to="/about" className={activeLink}>
+              About
+            </NavLink>
+            <NavLink to="/contact" className={activeLink}>
+              Contact
+            </NavLink>
           </div>
         </div>
       </div>

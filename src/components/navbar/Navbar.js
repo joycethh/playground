@@ -56,7 +56,7 @@ const Navbar = () => {
           <Link to="/cart">
             <BiShoppingBag />
           </Link>
-          <Link to="/order-history">
+          <Link to="/my-orders">
             <BiListUl />
           </Link>
           <BiSearch />

@@ -1,0 +1,125 @@
+@import "../../style.scss";
+
+footer {
+  @include themify($themes) {
+    display: flex;
+    flex-direction: column;
+    background-color: themed('bgContrast');
+    color: themed('textContrast');
+    width: 100%;
+    overflow: hidden;
+    
+
+    .main {
+        display: flex;
+        column-gap: 20rem;
+        justify-content: flex-start;
+        padding: 7rem 8rem 5rem;
+        
+        .left {
+            display: flex;
+            flex-direction: column;
+    
+            .input-wrapper {
+                margin-bottom: 4rem;
+                display: flex;
+                
+                input {
+                    color: themed('textContrast');
+                    font-size: 0.8rem;
+                    padding: 1.3rem 1rem; 
+                    text-transform: uppercase;
+                    word-spacing: 0.3rem;
+                    background: transparent;
+                    width: 15rem;
+                    border: 1px solid themed('border');
+                    border-right: none;
+                    opacity: 1;
+                    outline: none;
+                }
+
+                button {
+                    color: themed('textContrast');
+                    font-size: 1rem;
+                    padding: 0 1rem ;
+                    background: transparent;
+                    border: 1px solid themed('border');
+                    border-left: none;
+                    text-align: center;
+                    cursor: pointer;
+                }
+
+            }
+
+        }
+
+        .right {
+            display: flex;
+            column-gap: 5rem;
+            width: 100%;
+
+            .product {
+                box-sizing: border-box;
+                display: block;
+
+                h6{
+                    font-weight: 500;
+                    font-size: 1.2rem;
+                    line-height: 1.6rem;
+                    letter-spacing: .06em;
+                    text-transform: uppercase;
+                    margin-bottom: 1.9rem;
+                }
+
+                ul {
+                    list-style: none;
+                    margin: 0;
+                    padding: 0;
+                    
+                    li {
+                        padding-bottom: 1.2rem;
+                        font-weight: 400;
+                        font-size: 1.3rem;
+                        line-height: 1.9rem;
+
+                        a {
+                            text-decoration: none;
+                            color: themed('textContrast')
+                        }
+                    }
+                }
+
+
+               
+
+            }
+        }
+    }
+    
+    .logo {
+
+      
+
+    }
+    
+    .footer {
+        display: flex;
+        padding: 0.8rem 0.7rem 0.6rem;
+        justify-content: space-between;
+        border-top: 0.1rem solid themed('border');
+        background-clip: padding-box;
+        color: themed('textContrast');
+        justify-content: center;
+
+        div {
+            color: #96989f;
+            font-size: 0.8rem;
+            line-height: 1.9rem;
+            margin-bottom: 0.1rem;
+            text-transform: capitalize;
+        }
+    }
+
+    
+  }
+}

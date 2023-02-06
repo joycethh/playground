@@ -21,7 +21,7 @@ const Footer = () => {
         </div>
 
         <div className="right">
-          <div className="products">
+          <div className="columns">
             <h6>PRODUCTS</h6>
             <ul>
               <li>
@@ -33,17 +33,42 @@ const Footer = () => {
             </ul>
           </div>
 
-          <div className="seaShell">
+          <div className="columns">
             <h6>SEASHELL</h6>
-            <Link to="/about">About Us</Link>
-            <Link to="/our-values">Our Values</Link>
+            <ul>
+              <li>
+                <Link to="/about">About Us</Link>
+              </li>
+              <li>
+                <Link to="/our-values">Our Values</Link>
+              </li>
+            </ul>
           </div>
 
-          <div className="customer-service">
+          <div className="columns">
             <h6>Customer Service</h6>
-            <Link to="/my-account">My Account</Link>
-            <Link to="/my-orders">Order Histroy</Link>
-            <Link to="/contact"> Contact Us</Link>
+            <ul>
+              <li>
+                <Link to="/my-account">My Account</Link>
+              </li>
+              <li>
+                <Link to="/my-orders">Order Histroy</Link>
+              </li>
+              <li>
+                <Link to="/contact"> Contact Us</Link>
+              </li>
+            </ul>
+
+            <h6>Follow Us</h6>
+            <div className="social-column">
+              <a href="https://www.facebook.com">
+                <FaFacebookSquare />
+              </a>
+
+              <a href="https://wwww.instagram.com">
+                <FaInstagram />
+              </a>
+            </div>
           </div>
         </div>
       </section>

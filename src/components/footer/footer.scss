@@ -15,6 +15,12 @@ footer {
         column-gap: 23rem;
         justify-content: flex-start;
         padding: 7rem 8rem 5rem;
+        background-color: aqua;
+
+        @include mobile {
+            display: flex;
+            flex-direction: column;
+        }
         
         .left {
             display: flex;
@@ -103,10 +109,37 @@ footer {
         }
     }
     
+    .mobile-logo-social {
+        display: none; ////display: none in mobile
+        justify-content: space-between;
+        align-items: center;
+        padding: 2rem 4rem;
+        margin-top: 4rem;
+        margin-bottom: 3rem;
+        background-color: aquamarine;
+        
+        @include mobile{
+            display: flex;   
+           }
+
+        .mobile-social-column {
+            display: flex;
+            column-gap: 0.3rem;
+
+            a {
+                color: themed('textContrast');
+                text-decoration: none;
+                font-size: 1.8rem;
+            }
+        }
+    }
+
     .logo {
+       padding-left: 3rem;
 
-      
-
+       @include mobile{
+        display: none;   
+       }
     }
     
     .footer {

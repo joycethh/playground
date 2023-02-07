@@ -9,7 +9,6 @@ footer {
     width: 100%;
     overflow: hidden;
     
-
     .main {
         display: flex;
         column-gap: 23rem;
@@ -26,7 +25,6 @@ footer {
             display: flex;
             column-gap: 8rem;
             width: 100%;
-          
 
             .nav {
                 display: flex;
@@ -56,18 +54,17 @@ footer {
                             color: themed('textContrast')
                         }
                     }
-                }
-
-                    .social-column {
-                      display: flex;
-                      column-gap: 0.4rem;
-                     
-                        a {
-                            color: themed('textContrast');
-                            text-decoration: none;
-                            font-size: 1.4rem;
-                        }
-                    }
+                }    
+                .social {
+                    display: flex;
+                    column-gap: 0.4rem;
+                   
+                      a {
+                          color: themed('textContrast');
+                          text-decoration: none;
+                          font-size: 1.4rem;
+                      }
+                  }
                
             }
 
@@ -82,9 +79,13 @@ footer {
             display: block;
         }
 
-        section {
+        .mobile-right {
             display: flex;
             flex-direction: column;
+
+            &:first-of-type {
+                border-top: 0.75px solid themed('border'); 
+            }
 
             .mobile-nav {
                 padding: 2rem 0;
@@ -134,10 +135,6 @@ footer {
             }
         }
     }
-    
-    // .mobile-right .row  :first-child {
-    //     border-top: 0.75px solid themed('border'); //first child
-    // }
 
     .mobile-logo-social {
         display: none; 
@@ -150,16 +147,16 @@ footer {
         
         @include mobile{
             display: flex;   
-           }
+        }
 
-        .mobile-social-column {
-            display: flex;
-            column-gap: 0.3rem;
-
-            a {
-                color: themed('textContrast');
-                text-decoration: none;
-                font-size: 1.8rem;
+        .social {
+           display: flex;
+           column-gap: 0.4rem;
+                   
+           a {
+            color: themed('textContrast');
+            text-decoration: none;
+            font-size: 1.4rem;
             }
         }
     }

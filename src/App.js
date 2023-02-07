@@ -1,7 +1,14 @@
 import { useContext } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Navbar, Footer } from "./components/index";
-import { Home, Contact, Admin, Cart, NewArrivals } from "./pages/index";
+import {
+  Home,
+  Contact,
+  Admin,
+  Cart,
+  NewArrivals,
+  BestSellers,
+} from "./pages/index";
 import { DarkModeContext } from "./context/darkModeContext";
 
 function App() {
@@ -13,10 +20,11 @@ function App() {
           <Navbar />
           <Routes>
             <Route path="/new-arrivals" element={<NewArrivals />} />
+            <Route path="/best-sellers" element={<BestSellers />} />
             <Route path="/" element={<Home />} />
-            <Route path="/contact" element={<Contact />} />
+            <Route path="/contact-us" element={<Contact />} />
             <Route path="/admin" element={<Admin />} />
-            <Route path="/Cart" element={<Cart />} />
+            <Route path="/cart" element={<Cart />} />
           </Routes>
           <Footer />
         </div>

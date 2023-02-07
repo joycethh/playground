@@ -1,11 +1,67 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { HiOutlineArrowRight } from "react-icons/hi";
+
 import { FaFacebookSquare, FaInstagram } from "react-icons/fa";
 import { RiArrowDropDownLine, RiArrowDropUpLine } from "react-icons/ri";
 import logo from "../../assets/seashell.png";
+import Email from "./email/Email";
 
 import "./footer.scss";
+
+const products = ["best sellers", "gift card"];
+const seaShell = ["about us", "our values"];
+const service = ["my account", "my orders", "contact us"];
+
+const Nav = ({ title, category }) => {
+  return (
+    <div className="nav">
+      <h6>{title}</h6>
+      <ul>
+        {category.map((item, idx) => (
+          <li key={idx}>
+            <Link to={`${item.replace(/\s/g, "-")}`}>{item}</Link>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+const MobileNav = ({ title, isOpen, openMenu, category }) => {
+  return (
+    <div className="mobile-nav">
+      <header>
+        <span>{title}</span>
+        <div className="icon-wrapper" onClick={openMenu}>
+          {isOpen ? <RiArrowDropUpLine /> : <RiArrowDropDownLine />}
+        </div>
+      </header>
+      <section
+        className={isOpen ? "mobile display-block" : "mobile display-none"}
+      >
+        {category.map((item, idx) => (
+          <Link to={`${item.replace(/\s/g, "-")}`} key={idx}>
+            {item}
+          </Link>
+        ))}
+      </section>
+    </div>
+  );
+};
+
+const Social = () => {
+  <div>
+    <h6>Follow Us</h6>
+    <div className="social-column">
+      <a href="https://www.facebook.com">
+        <FaFacebookSquare />
+      </a>
+
+      <a href="https://wwww.instagram.com">
+        <FaInstagram />
+      </a>
+    </div>
+  </div>;
+};
 
 const Footer = () => {
   const [isOpen, setIsMenu] = useState(true);
@@ -16,57 +72,12 @@ const Footer = () => {
   return (
     <footer>
       <section className="main">
-        <div className="left">
-          <h3>Offers, new arrivals and more.</h3>
-          <div className="input-wrapper">
-            <input placeholder="Email Address" />
-            <button>
-              <HiOutlineArrowRight />
-            </button>
-          </div>
-        </div>
-
+        <Email />
         <div className="right">
-          <div className="columns">
-            <h6>PRODUCTS</h6>
-            <ul>
-              <li>
-                <Link to="/best-sellers">Best Sellers</Link>
-              </li>
-              <li>
-                <Link to="/gift-card"> Gift Card</Link>
-              </li>
-            </ul>
-          </div>
-
-          <div className="columns">
-            <h6>SEASHELL</h6>
-            <ul>
-              <li>
-                <Link to="/about">About Us</Link>
-              </li>
-              <li>
-                <Link to="/our-values">Our Values</Link>
-              </li>
-            </ul>
-          </div>
-
-          <div className="columns">
-            <div>
-              <h6>Customer Service</h6>
-              <ul>
-                <li>
-                  <Link to="/my-account">My Account</Link>
-                </li>
-                <li>
-                  <Link to="/my-orders">Order Histroy</Link>
-                </li>
-                <li>
-                  <Link to="/contact"> Contact Us</Link>
-                </li>
-              </ul>
-            </div>
-
+          <Nav title="products" category={products} />
+          <Nav title="seashell" category={seaShell} />
+          <div className="nav">
+            <Nav title="customer service" category={service} />
             <div>
               <h6>Follow Us</h6>
               <div className="social-column">
@@ -82,53 +93,28 @@ const Footer = () => {
           </div>
         </div>
       </section>
-      <div className="mobile-main-right">
+
+      <div className="mobile-main">
+        <Email />
         <section className="mobile-right">
-          <div className="row">
-            <header>
-              Products
-              <div className="icon-wrapper">
-                <span onClick={openMenu}>
-                  {isOpen ? <RiArrowDropUpLine /> : <RiArrowDropDownLine />}
-                </span>
-              </div>
-            </header>
-            <section className="mobile-menu">
-              <Link to="/best-sellers">Best Sellers</Link>
-              <Link to="/gift-card"> Gift Card</Link>
-            </section>
-          </div>
-
-          <div className="row">
-            <header>
-              Seashell
-              <div className="icon-wrapper">
-                <span onClick={openMenu}>
-                  {isOpen ? <RiArrowDropUpLine /> : <RiArrowDropDownLine />}
-                </span>
-              </div>
-            </header>
-            <section className="mobile-menu">
-              <Link to="/about">About Us</Link>
-              <Link to="/our-values">Our Values</Link>
-            </section>
-          </div>
-
-          <div className="row">
-            <header>
-              Customer Service
-              <div className="icon-wrapper">
-                <span onClick={openMenu}>
-                  {isOpen ? <RiArrowDropUpLine /> : <RiArrowDropDownLine />}
-                </span>
-              </div>
-            </header>
-            <section className="mobile-menu">
-              <Link to="/my-account">My Account</Link>
-              <Link to="/my-orders">Order Histroy</Link>
-              <Link to="/contact"> Contact Us</Link>
-            </section>
-          </div>
+          <MobileNav
+            title="Products"
+            isOpen={isOpen}
+            openMenu={openMenu}
+            category={products}
+          />
+          <MobileNav
+            title="Seashell"
+            isOpen={isOpen}
+            openMenu={openMenu}
+            category={seaShell}
+          />
+          <MobileNav
+            title="Customer Service"
+            isOpen={isOpen}
+            openMenu={openMenu}
+            category={service}
+          />
         </section>
       </div>
 
@@ -138,12 +124,12 @@ const Footer = () => {
           <a href="https://www.facebook.com">
             <FaFacebookSquare />
           </a>
-
           <a href="https://wwww.instagram.com">
             <FaInstagram />
           </a>
         </div>
       </section>
+
       <section className="logo">
         <div className="logo">
           <img src={logo} alt="" />

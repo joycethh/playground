@@ -14,7 +14,6 @@ footer {
         column-gap: 23rem;
         justify-content: flex-start;
         padding: 7rem 8rem 5rem;
-        background-color: #96989f;
 
         @include mobile {
             display: none;
@@ -89,9 +88,8 @@ footer {
 
             .mobile-nav {
                 padding: 2rem 0;
-                border-bottom: 0.75px solid themed('border');  //last child
+                border-bottom: 0.75px solid themed('border');  
                 
-
                 header {
                     display: flex;
                     justify-content: space-between;
@@ -140,10 +138,9 @@ footer {
         display: none; 
         justify-content: space-between;
         align-items: center;
-        padding: 2rem 4rem;
-        margin-top: 4rem;
-        margin-bottom: 3rem;
-        background-color: aquamarine;
+        padding: 2rem 3.3rem;
+    
+        
         
         @include mobile{
             display: flex;   

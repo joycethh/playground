@@ -47,7 +47,18 @@ const MobileNav = ({ title, isOpen, openMenu, category }) => {
     </div>
   );
 };
-
+const Social = () => {
+  return (
+    <div className="social">
+      <a href="https://www.facebook.com">
+        <FaFacebookSquare />
+      </a>
+      <a href="https://wwww.instagram.com">
+        <FaInstagram />
+      </a>
+    </div>
+  );
+};
 const Footer = () => {
   const [isOpen, setIsMenu] = useState(true);
 
@@ -65,14 +76,7 @@ const Footer = () => {
             <Nav title="customer service" category={service} />
             <div>
               <h6>Follow Us</h6>
-              <div className="social">
-                <a href="https://www.facebook.com">
-                  <FaFacebookSquare />
-                </a>
-                <a href="https://wwww.instagram.com">
-                  <FaInstagram />
-                </a>
-              </div>
+              <Social />
             </div>
           </div>
         </div>
@@ -104,14 +108,7 @@ const Footer = () => {
 
       <section className="mobile-logo-social">
         <img src={logo} alt="" />
-        <div className="social">
-          <a href="https://www.facebook.com">
-            <FaFacebookSquare />
-          </a>
-          <a href="https://wwww.instagram.com">
-            <FaInstagram />
-          </a>
-        </div>
+        <Social />
       </section>
 
       <section className="logo">

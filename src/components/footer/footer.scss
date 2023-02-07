@@ -8,6 +8,17 @@ footer {
     color: themed('textContrast');
     width: 100%;
     overflow: hidden;
+
+    .social {
+        display: flex;
+        column-gap: 0.4rem;
+       
+          a {
+              color: themed('textContrast');
+              text-decoration: none;
+              font-size: 1.4rem;
+          }
+    }
     
     .main {
         display: flex;
@@ -54,16 +65,16 @@ footer {
                         }
                     }
                 }    
-                .social {
-                    display: flex;
-                    column-gap: 0.4rem;
+                // .social {
+                //     display: flex;
+                //     column-gap: 0.4rem;
                    
-                      a {
-                          color: themed('textContrast');
-                          text-decoration: none;
-                          font-size: 1.4rem;
-                      }
-                  }
+                //       a {
+                //           color: themed('textContrast');
+                //           text-decoration: none;
+                //           font-size: 1.4rem;
+                //       }
+                // }
                
             }
 
@@ -146,20 +157,20 @@ footer {
             display: flex;   
         }
 
-        .social {
-           display: flex;
-           column-gap: 0.4rem;
+        // .social {
+        //    display: flex;
+        //    column-gap: 0.4rem;
                    
-           a {
-            color: themed('textContrast');
-            text-decoration: none;
-            font-size: 1.4rem;
-            }
-        }
+        //    a {
+        //     color: themed('textContrast');
+        //     text-decoration: none;
+        //     font-size: 1.4rem;
+        //     }
+        // }
     }
 
     .logo {
-       padding-left: 3rem;
+       padding-left: 4rem;
 
        @include mobile{
         display: none;   

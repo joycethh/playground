@@ -1,5 +1,5 @@
 import React from "react";
-import "./input.scss";
+// import "./input.scss";
 
 const Input = ({
   name,
@@ -11,18 +11,15 @@ const Input = ({
   handleShowPassword,
 }) => {
   return (
-    <>
-      <div className="grid-item">
-        <input
-          name={name}
-          type={type}
-          onChange={handleChange}
-          placeholder={placeHolder}
-          autoFocus={autoFocus}
-          required
-        />
-      </div>
-    </>
+    <input
+      name={name}
+      type={type}
+      handleChange={handleChange}
+      placeholder={placeHolder}
+      autoFocus={autoFocus}
+      required={required}
+      handleShowPassword={handleShowPassword}
+    />
   );
 };
 

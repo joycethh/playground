@@ -8,6 +8,7 @@ import {
   Cart,
   NewArrivals,
   BestSellers,
+  Auth,
 } from "./pages/index";
 import { DarkModeContext } from "./context/darkModeContext";
 
@@ -25,6 +26,7 @@ function App() {
             <Route path="/contact-us" element={<Contact />} />
             <Route path="/admin" element={<Admin />} />
             <Route path="/cart" element={<Cart />} />
+            <Route path="/auth" element={<Auth />} />
           </Routes>
           <Footer />
         </div>

@@ -59,6 +59,7 @@ const Social = () => {
     </div>
   );
 };
+
 const Footer = () => {
   const [isOpen, setIsMenu] = useState(true);
 

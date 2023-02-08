@@ -1,0 +1,83 @@
+@import "../../style.scss";
+
+.container {
+    @include themify($themes) {
+        height: 100vh;;
+        background-color: themed('bgSoft');
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .card {
+            background-color: palevioletred;
+            width: 50%;
+            border-radius: 5px;
+            min-height: 37rem ;
+            padding: 2rem;
+
+            @include mobile{
+                width: 100%;
+                padding: 10px;
+              
+             }
+     
+             @include tablet{
+                 width: 100%;
+                 padding: 10px;
+               
+              }
+
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(2, 10rem);
+            grid-template-rows: 3rem;
+            color: themed('textColor');
+            background-color: palegoldenrod;
+            justify-content: space-between;
+       
+            .grid-item {
+                display: flex;
+                align-items: center;
+                
+            }
+
+            .title {
+                background-color: paleturquoise;
+
+                h6{
+                    font-weight: 500;
+                    font-size: 1rem;
+    
+                }
+            }
+
+            .toggle {
+
+                p {
+                    display: inline-block;
+                }
+    
+                button {
+                    padding: 5px;
+                    border: none;
+                    background-color: themed('bgHighlight');
+                    color: themed('textContrast');
+                    font-weight: bold;
+                    cursor: pointer;
+                }
+
+            }
+
+
+          
+
+            
+        }
+
+
+
+    }
+}
+

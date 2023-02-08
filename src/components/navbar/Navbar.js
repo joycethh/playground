@@ -50,7 +50,7 @@ const Navbar = () => {
         </div>
 
         <div className="right">
-          <Link to="/login">
+          <Link to="/auth">
             <BiUser />
           </Link>
           <Link to="/cart">

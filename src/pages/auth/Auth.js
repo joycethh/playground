@@ -27,71 +27,67 @@ const Auth = () => {
     setIsRegister(!isRegister);
   };
   return (
-    <section>
-      <div className="container">
-        <div className="card">
-          <div className="grid-container header">
-            <div className="grid-item title">
-              <h6>{isRegister ? "Register" : "Sign In"}</h6>
-            </div>
+    <div className="container">
+      <div className="card">
+        <div className="grid-item title">
+          <h6>{isRegister ? "Register" : "Sign In"}</h6>
+        </div>
 
-            <div className="grid-item toggle">
-              {isRegister ? (
-                <div>
-                  <p>Already a user? </p>
-                  <button onClick={toggleMode}>Sign In</button>
-                </div>
-              ) : (
-                <div>
-                  <p>or</p>
-                  <button onClick={toggleMode}>Register</button>
-                </div>
+        <form onSubmit={handleSubmit}>
+          <div className="grid-container form">
+            <div className="grid-item">
+              {isRegister && <Input placeHolder="Username" type="text" />}
+            </div>
+            <div className="grid-item">
+              <Input
+                placeHolder="Email"
+                type="text"
+                required
+                autoFucus
+                handleChange={handleChange}
+              />
+            </div>
+            <div className="grid-item">
+              <Input
+                placeHolder="Password"
+                type="password"
+                required
+                handleChange={handleChange}
+              />
+            </div>
+            <div className="grid-item">
+              {isRegister && (
+                <Input placeHolder="Repeat Password" type="password" />
               )}
             </div>
-          </div>
 
-          <form onSubmit={handleSubmit}>
-            <div className="grid-container form">
-              <div className="grid-item">
-                {isRegister && <Input placeHolder="Username" type="text" />}
-              </div>
-              <div className="grid-item">
-                <Input
-                  placeHolder="Email"
-                  type="text"
-                  required
-                  autoFucus
-                  handleChange={handleChange}
-                />
-              </div>
-              <div className="grid-item">
-                <Input
-                  placeHolder="Password"
-                  type="password"
-                  required
-                  handleChange={handleChange}
-                />
-              </div>
-              <div className="grid-item">
-                {isRegister && (
-                  <Input placeHolder="Repeat Password" type="password" />
-                )}
-              </div>
-
-              <div className="grid-item">
-                <button type="submit" onClick={handleSubmit}>
-                  {isRegister ? "Register" : "Sign In"}
-                </button>
-              </div>
+            <div className="grid-item">
+              <button type="submit" onClick={handleSubmit}>
+                {isRegister ? "Register" : "Sign In"}
+              </button>
             </div>
-          </form>
-
-          <div className="grid-item google">
-            <button>google login</button>
           </div>
+        </form>
+
+        {/* <div className="grid-item google">
+          <button>google login</button>
+        </div> */}
+
+        <div className="grid-item toggle">
+          {isRegister ? (
+            <div>
+              <p>Already a user? </p>
+              <button onClick={toggleMode}>Sign In</button>
+            </div>
+          ) : (
+            <div>
+              <p>Don't have an account?</p>
+              <button onClick={toggleMode}>Create one</button>
+            </div>
+          )}
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 

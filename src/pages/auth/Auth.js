@@ -29,8 +29,8 @@ const Auth = () => {
   return (
     <div className="container">
       <div className="card">
-        <div className="grid-item title">
-          <h6>{isRegister ? "Register" : "Sign In"}</h6>
+        <div className="title">
+          <h6>{isRegister ? "Register" : "Welcome Back!"}</h6>
         </div>
 
         <form onSubmit={handleSubmit}>
@@ -73,7 +73,7 @@ const Auth = () => {
           <button>google login</button>
         </div> */}
 
-        <div className="grid-item toggle">
+        <div className="toggle">
           {isRegister ? (
             <div>
               <p>Already a user? </p>

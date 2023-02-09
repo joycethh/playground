@@ -69,9 +69,10 @@ const Auth = () => {
           </div>
         </form>
 
-        {/* <div className="grid-item google">
-          <button>google login</button>
-        </div> */}
+        <div className="google">
+          <span>-- or --</span>
+          <button>login in with google</button>
+        </div>
 
         <div className="toggle">
           {isRegister ? (

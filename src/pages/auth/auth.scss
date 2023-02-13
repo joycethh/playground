@@ -11,6 +11,7 @@
             background-color:themed('bgSoft');
             padding: 3rem;
             margin: 3rem;
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
            
 
             @include mobile{
@@ -30,11 +31,12 @@
                 // background-color: bisque;
                
                 h6 {
+                  color: themed('highlight');
                   font-weight: 500;
                   font-size: 1.2rem;
                   text-transform: uppercase;
-                   letter-spacing: 0.05rem;
-                   margin: 1rem;
+                  letter-spacing: 0.05rem;
+                  margin: 1rem;
                 }
             }
             

@@ -18,7 +18,7 @@ header{
             font-weight: bold;
             font-size: 20px;
             text-decoration: none;
-            color: #FFC300;
+            color: themed('highlight');
             cursor: pointer;
 
             span {

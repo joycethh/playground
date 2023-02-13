@@ -24,7 +24,8 @@ footer {
         display: flex;
         column-gap: 23rem;
         justify-content: flex-start;
-        padding: 7rem 8rem 5rem;
+        padding: 4rem 5rem 2rem;
+        
 
         @include mobile {
             display: none;

@@ -43,14 +43,13 @@
             .form {
                 display: flex;
                 flex-direction: column;
-                gap:1rem;
+                gap: 1.2rem;
                 align-items: center;
                 padding: 1rem;
-
+             
                 .grid-item {
                     display: flex;
                     width: 100%;
-
                 }
                  
 
@@ -61,7 +60,22 @@
                     width: 100%;
                     border-radius: 5px;;
                 }
-    
+
+                .link {
+                    align-self: flex-end;
+                    padding-bottom: 1px;
+                    margin-top: -1.9rem;
+                    width: fit-content;
+                    border-bottom: 1px solid themed('textColorSoft');
+
+                    a {
+                        text-decoration: none;
+                        color: themed('textColorSoft');
+                        font-size: 0.8rem;
+                        line-height: 0.8rem;
+                    }
+                }
+
                 button{
                     padding: 1rem;
                     margin: 1rem auto ;

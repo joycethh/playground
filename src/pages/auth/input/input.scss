@@ -1,9 +1,0 @@
-@import "../../../style.scss";
-
-input {
-    @include themify($themes) {
-        border: none;
-        border-bottom: 1px solid red;
-        padding: 20px 10px;
-    }
-}

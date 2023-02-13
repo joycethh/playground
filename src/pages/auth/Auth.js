@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import Input from "./input/Input";
 import "./auth.scss";
 const Auth = () => {
@@ -60,6 +61,11 @@ const Auth = () => {
                 <Input placeHolder="Repeat Password" type="password" />
               )}
             </div>
+            {!isRegister && (
+              <div className="grid-item link">
+                <Link to="/reset-password">I forgot my password</Link>
+              </div>
+            )}
 
             <div className="grid-item">
               <button type="submit" onClick={handleSubmit}>

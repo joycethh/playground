@@ -5,3 +5,4 @@ export { default as Cart } from "./cart/Cart";
 export { default as NewArrivals } from "./newArrivals/NewArrivals";
 export { default as BestSellers } from "./bestSellers/BestSellers";
 export { default as Auth } from "./auth/Auth";
+export { default as Reset } from "./reset/Reset";

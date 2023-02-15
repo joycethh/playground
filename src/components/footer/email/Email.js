@@ -7,7 +7,7 @@ const Email = () => {
     <div className="left">
       <h3>Offers, new arrivals and more.</h3>
       <div className="input-wrapper">
-        <input placeholder="Email Address" />
+        <input className="subscription" placeholder="Email Address" />
         <button>
           <HiOutlineArrowRight />
         </button>

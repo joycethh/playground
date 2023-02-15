@@ -1,4 +1,5 @@
 import React from "react";
+// import "./input.scss";
 
 const Input = ({
   name,
@@ -11,6 +12,7 @@ const Input = ({
 }) => {
   return (
     <input
+      className="userInput"
       name={name}
       type={type}
       handleChange={handleChange}

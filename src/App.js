@@ -9,6 +9,7 @@ import {
   NewArrivals,
   BestSellers,
   Auth,
+  Reset,
 } from "./pages/index";
 import { DarkModeContext } from "./context/darkModeContext";
 
@@ -27,6 +28,7 @@ function App() {
             <Route path="/admin" element={<Admin />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/auth" element={<Auth />} />
+            <Route path="/reset-password" element={<Reset />} />
           </Routes>
           <Footer />
         </div>

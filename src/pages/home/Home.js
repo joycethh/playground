@@ -1,14 +1,12 @@
 import React from "react";
 import "./home.scss";
-import Loader from "../../components/loader/Loader";
+import { Loader } from "../../components/index";
 
 const Home = () => {
   return (
     <main>
       <section>
-        <div className="loader">
-          <Loader />
-        </div>
+        <Loader />
         <div className="flex-grid">
           <div className="col">one</div>
           <div className="col">one</div>

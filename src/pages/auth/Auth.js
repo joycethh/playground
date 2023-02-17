@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { createUserWithEmailAndPassword } from "firebase/auth";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Input from "./input/Input";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from "../../firebase/configure";
+import Input from "./input/Input";
+import Loader from "../../components/loader/Loader";
 import "./auth.scss";
+import { async } from "@firebase/util";
+
 const Auth = () => {
   const [isRegister, setIsRegister] = useState(false);
 
@@ -16,31 +19,44 @@ const Auth = () => {
     repeatPassword: "",
   });
 
-  createUserWithEmailAndPassword(auth, formData.email, formData.password)
-    .then((userCredential) => {
-      // Signed in
-      const user = userCredential.user;
-      // ...
-    })
-    .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      // ..
-    });
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (isRegister) {
       console.log("isRegister-formData", formData);
+
       if (formData.password !== formData.repeatPassword) {
         toast.error(`Repeat password doesn't match`, {
           position: toast.POSITION.TOP_CENTER,
         });
       }
+
+      setIsLoading(true);
+
+      await createUserWithEmailAndPassword(
+        auth,
+        formData.email,
+        formData.password
+      )
+        .then((userCredential) => {
+          // Signed in
+          const user = userCredential.user;
+
+          console.log("user", user);
+
+          setIsLoading(false);
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          console.log("errorCode", error);
+          const errorMessage = error.message;
+          // ..
+        });
     } else {
       console.log("Signin-formaData", formData);
     }
@@ -51,6 +67,7 @@ const Auth = () => {
   return (
     <>
       <ToastContainer />
+      {isLoading && <Loader />}
       <div className="container">
         <div className="card">
           <div className="title">
@@ -60,7 +77,7 @@ const Auth = () => {
           <form onSubmit={handleSubmit}>
             <div className="grid-container form">
               <div className="grid-item">
-                {isRegister && (
+                {/* {isRegister && (
                   <Input
                     name="username"
                     type="text"
@@ -69,7 +86,7 @@ const Auth = () => {
                     required
                     handleChange={handleChange}
                   />
-                )}
+                )} */}
               </div>
               <div className="grid-item">
                 <Input

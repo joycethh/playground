@@ -3,7 +3,7 @@ import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
 
-export const firebaseConfig = {
+const firebaseConfig = {
   apiKey: "AIzaSyDuRfKM7orwtRL8OOeTwkU4GAwxAk70YMY",
   authDomain: "seashell-53beb.firebaseapp.com",
   projectId: "seashell-53beb",

@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Input from "./input/Input";
+import { auth } from "../../firebase/configure";
 import "./auth.scss";
 const Auth = () => {
   const [isRegister, setIsRegister] = useState(false);
@@ -12,8 +15,6 @@ const Auth = () => {
     password: "",
     repeatPassword: "",
   });
-
-  const auth = getAuth();
 
   createUserWithEmailAndPassword(auth, formData.email, formData.password)
     .then((userCredential) => {
@@ -44,89 +45,92 @@ const Auth = () => {
     setIsRegister(!isRegister);
   };
   return (
-    <div className="container">
-      <div className="card">
-        <div className="title">
-          <h6>{isRegister ? "Register" : "Welcome Back!"}</h6>
-        </div>
+    <>
+      <ToastContainer />
+      <div className="container">
+        <div className="card">
+          <div className="title">
+            <h6>{isRegister ? "Register" : "Welcome Back!"}</h6>
+          </div>
 
-        <form onSubmit={handleSubmit}>
-          <div className="grid-container form">
-            <div className="grid-item">
-              {isRegister && (
+          <form onSubmit={handleSubmit}>
+            <div className="grid-container form">
+              <div className="grid-item">
+                {isRegister && (
+                  <Input
+                    name="username"
+                    type="text"
+                    placeHolder="Username"
+                    autoFocus
+                    required
+                    handleChange={handleChange}
+                  />
+                )}
+              </div>
+              <div className="grid-item">
                 <Input
-                  name="username"
+                  name="email"
                   type="text"
-                  placeHolder="Username"
-                  autoFocus
+                  placeHolder="Email"
+                  required
+                  autoFucus
+                  handleChange={handleChange}
+                />
+              </div>
+              <div className="grid-item">
+                <Input
+                  name="password"
+                  type="password"
+                  placeHolder="Password"
                   required
                   handleChange={handleChange}
                 />
+              </div>
+              <div className="grid-item">
+                {isRegister && (
+                  <Input
+                    name="repeatPassword"
+                    type="password"
+                    placeHolder="Repeat Password"
+                    handleChange={handleChange}
+                  />
+                )}
+              </div>
+              {!isRegister && (
+                <div className="grid-item link">
+                  <Link to="/reset-password">I forgot my password</Link>
+                </div>
               )}
+
+              <div className="grid-item">
+                <button type="submit" onClick={handleSubmit}>
+                  {isRegister ? "Register" : "Sign In"}
+                </button>
+              </div>
             </div>
-            <div className="grid-item">
-              <Input
-                name="email"
-                type="text"
-                placeHolder="Email"
-                required
-                autoFucus
-                handleChange={handleChange}
-              />
-            </div>
-            <div className="grid-item">
-              <Input
-                name="password"
-                type="password"
-                placeHolder="Password"
-                required
-                handleChange={handleChange}
-              />
-            </div>
-            <div className="grid-item">
-              {isRegister && (
-                <Input
-                  name="repeatPassword"
-                  type="password"
-                  placeHolder="Repeat Password"
-                  handleChange={handleChange}
-                />
-              )}
-            </div>
-            {!isRegister && (
-              <div className="grid-item link">
-                <Link to="/reset-password">I forgot my password</Link>
+          </form>
+
+          <div className="google">
+            <span>-- or --</span>
+            <button>login in with google</button>
+          </div>
+
+          <div className="toggle">
+            {isRegister ? (
+              <div>
+                <p>Already a user? </p>
+                <button onClick={toggleMode}>Sign In</button>
+              </div>
+            ) : (
+              <div>
+                <p>Don't have an account?</p>
+                <button onClick={toggleMode}>Create one</button>
               </div>
             )}
-
-            <div className="grid-item">
-              <button type="submit" onClick={handleSubmit}>
-                {isRegister ? "Register" : "Sign In"}
-              </button>
-            </div>
           </div>
-        </form>
-
-        <div className="google">
-          <span>-- or --</span>
-          <button>login in with google</button>
-        </div>
-
-        <div className="toggle">
-          {isRegister ? (
-            <div>
-              <p>Already a user? </p>
-              <button onClick={toggleMode}>Sign In</button>
-            </div>
-          ) : (
-            <div>
-              <p>Don't have an account?</p>
-              <button onClick={toggleMode}>Create one</button>
-            </div>
-          )}
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

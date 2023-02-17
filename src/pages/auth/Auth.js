@@ -2,12 +2,14 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
 import { auth } from "../../firebase/configure";
 import Input from "./input/Input";
 import Loader from "../../components/loader/Loader";
 import "./auth.scss";
-import { async } from "@firebase/util";
 
 const Auth = () => {
   const [isRegister, setIsRegister] = useState(false);
@@ -28,8 +30,7 @@ const Auth = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (isRegister) {
-      console.log("isRegister-formData", formData);
-
+      // console.log("isRegister-formData", formData);
       if (formData.password !== formData.repeatPassword) {
         toast.error(`Repeat password doesn't match`, {
           position: toast.POSITION.TOP_CENTER,
@@ -46,19 +47,36 @@ const Auth = () => {
         .then((userCredential) => {
           // Signed in
           const user = userCredential.user;
-
-          console.log("user", user);
+          console.log("new-user", user);
 
           setIsLoading(false);
         })
         .catch((error) => {
-          const errorCode = error.code;
-          console.log("errorCode", error);
+          console.log("register-error", error);
           const errorMessage = error.message;
-          // ..
+          toast.error(`Opps, something went wrong-${errorMessage}`, {
+            position: toast.POSITION.TOP_CENTER,
+          });
         });
     } else {
       console.log("Signin-formaData", formData);
+
+      setIsLoading(true);
+
+      await signInWithEmailAndPassword(auth, formData.email, formData.password)
+        .then((userCredential) => {
+          // Signed in
+          const user = userCredential.user;
+          console.log("login-user", user);
+          setIsLoading(false);
+        })
+        .catch((error) => {
+          console.log("login-error", error);
+          const errorMessage = error.message;
+          toast.error(`Opps, something went wrong-${errorMessage}`, {
+            position: toast.POSITION.TOP_CENTER,
+          });
+        });
     }
   };
   const toggleMode = () => {

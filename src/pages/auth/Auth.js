@@ -4,6 +4,7 @@ import Input from "./input/Input";
 import "./auth.scss";
 const Auth = () => {
   const [isRegister, setIsRegister] = useState(false);
+
   const [formData, setFormData] = useState({
     username: "",
     email: "",
@@ -12,16 +13,16 @@ const Auth = () => {
   });
 
   const handleChange = (e) => {
-    e.preventDefault();
+    console.log("e.target", e.target);
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (isRegister) {
-      console.log("isSignup");
+      console.log("isRegister-formData", formData);
     } else {
-      console.log("Sign in");
+      console.log("Signin-formaData", formData);
     }
   };
   const toggleMode = () => {
@@ -37,12 +38,22 @@ const Auth = () => {
         <form onSubmit={handleSubmit}>
           <div className="grid-container form">
             <div className="grid-item">
-              {isRegister && <Input placeHolder="Username" type="text" />}
+              {isRegister && (
+                <Input
+                  name="username"
+                  type="text"
+                  placeHolder="Username"
+                  autoFocus
+                  required
+                  handleChange={handleChange}
+                />
+              )}
             </div>
             <div className="grid-item">
               <Input
-                placeHolder="Email"
+                name="email"
                 type="text"
+                placeHolder="Email"
                 required
                 autoFucus
                 handleChange={handleChange}
@@ -50,15 +61,21 @@ const Auth = () => {
             </div>
             <div className="grid-item">
               <Input
-                placeHolder="Password"
+                name="password"
                 type="password"
+                placeHolder="Password"
                 required
                 handleChange={handleChange}
               />
             </div>
             <div className="grid-item">
               {isRegister && (
-                <Input placeHolder="Repeat Password" type="password" />
+                <Input
+                  name="repeatPassword"
+                  type="password"
+                  placeHolder="Repeat Password"
+                  handleChange={handleChange}
+                />
               )}
             </div>
             {!isRegister && (

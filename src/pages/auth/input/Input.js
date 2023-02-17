@@ -8,18 +8,15 @@ const Input = ({
   placeHolder,
   autoFocus,
   required,
-  handleShowPassword,
 }) => {
   return (
     <input
-      className="userInput"
       name={name}
       type={type}
-      handleChange={handleChange}
       placeholder={placeHolder}
       autoFocus={autoFocus}
       required={required}
-      handleShowPassword={handleShowPassword}
+      onChange={handleChange}
     />
   );
 };

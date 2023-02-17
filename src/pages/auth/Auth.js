@@ -29,7 +29,6 @@ const Auth = () => {
     });
 
   const handleChange = (e) => {
-    console.log("e.target", e.target);
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
@@ -37,6 +36,11 @@ const Auth = () => {
     e.preventDefault();
     if (isRegister) {
       console.log("isRegister-formData", formData);
+      if (formData.password !== formData.repeatPassword) {
+        toast.error(`Repeat password doesn't match`, {
+          position: toast.POSITION.TOP_CENTER,
+        });
+      }
     } else {
       console.log("Signin-formaData", formData);
     }

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import Input from "./input/Input";
 import "./auth.scss";
 const Auth = () => {
@@ -11,6 +12,20 @@ const Auth = () => {
     password: "",
     repeatPassword: "",
   });
+
+  const auth = getAuth();
+
+  createUserWithEmailAndPassword(auth, formData.email, formData.password)
+    .then((userCredential) => {
+      // Signed in
+      const user = userCredential.user;
+      // ...
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      // ..
+    });
 
   const handleChange = (e) => {
     console.log("e.target", e.target);

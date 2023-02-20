@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -83,7 +82,6 @@ const Auth = () => {
   };
   return (
     <>
-      <ToastContainer />
       {isLoading && <Loader />}
       <div className="container">
         <div className="card">

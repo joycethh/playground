@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import {
   BiUser,
   BiShoppingBag,
@@ -8,6 +8,7 @@ import {
   BiMenuAltLeft,
 } from "react-icons/bi";
 import { HiOutlineLightBulb, HiOutlineMoon, HiLogout } from "react-icons/hi";
+import { toast } from "react-toastify";
 import { signOut } from "firebase/auth";
 import { auth } from "../../firebase/configure";
 import { DarkModeContext } from "../../context/darkModeContext";
@@ -19,18 +20,22 @@ const Navbar = () => {
 
   const activeLink = ({ isActive }) => (isActive ? "active" : null);
 
+  const nativgate = useNavigate();
+
   const toggleModal = () => {
     setOpenModal(!openModal);
   };
   const handleSignOut = () => {
     signOut(auth)
       .then(() => {
-        console.log("signed out successfully");
+        toast.success("Log out successfully");
+        nativgate("/");
       })
       .catch((error) => {
         console.log("signOut-error", error);
       });
   };
+
   return (
     <header>
       <div className="navbar">

@@ -11,6 +11,8 @@ import {
   Auth,
   Reset,
 } from "./pages/index";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { DarkModeContext } from "./context/darkModeContext";
 
 function App() {
@@ -19,6 +21,7 @@ function App() {
     <>
       <BrowserRouter>
         <div className={`theme-${isDarkMode ? "dark" : "light"}`}>
+          <ToastContainer />
           <Navbar />
           <Routes>
             <Route path="/new-arrivals" element={<NewArrivals />} />

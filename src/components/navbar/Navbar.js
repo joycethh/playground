@@ -7,8 +7,9 @@ import {
   BiSearch,
   BiMenuAltLeft,
 } from "react-icons/bi";
-
-import { HiOutlineLightBulb, HiOutlineMoon } from "react-icons/hi";
+import { HiOutlineLightBulb, HiOutlineMoon, HiLogout } from "react-icons/hi";
+import { signOut } from "firebase/auth";
+import { auth } from "../../firebase/configure";
 import { DarkModeContext } from "../../context/darkModeContext";
 import "./navbar.scss";
 
@@ -21,7 +22,15 @@ const Navbar = () => {
   const toggleModal = () => {
     setOpenModal(!openModal);
   };
-
+  const handleSignOut = () => {
+    signOut(auth)
+      .then(() => {
+        console.log("signed out successfully");
+      })
+      .catch((error) => {
+        console.log("signOut-error", error);
+      });
+  };
   return (
     <header>
       <div className="navbar">
@@ -53,6 +62,10 @@ const Navbar = () => {
           <Link to="/auth">
             <BiUser />
           </Link>
+          <span onClick={handleSignOut}>
+            <HiLogout />
+          </span>
+
           <Link to="/cart">
             <BiShoppingBag />
           </Link>

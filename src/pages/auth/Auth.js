@@ -30,7 +30,6 @@ const Auth = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (isRegister) {
-      // console.log("isRegister-formData", formData);
       if (formData.password !== formData.repeatPassword) {
         toast.error(`Repeat password doesn't match`, {
           position: toast.POSITION.TOP_CENTER,
@@ -39,6 +38,7 @@ const Auth = () => {
 
       setIsLoading(true);
 
+      //create user with firebase
       await createUserWithEmailAndPassword(
         auth,
         formData.email,
@@ -48,7 +48,6 @@ const Auth = () => {
           // Signed in
           const user = userCredential.user;
           console.log("new-user", user);
-
           setIsLoading(false);
         })
         .catch((error) => {
@@ -59,10 +58,9 @@ const Auth = () => {
           });
         });
     } else {
-      console.log("Signin-formaData", formData);
-
       setIsLoading(true);
 
+      // sign in user with firebase
       await signInWithEmailAndPassword(auth, formData.email, formData.password)
         .then((userCredential) => {
           // Signed in
@@ -79,6 +77,7 @@ const Auth = () => {
         });
     }
   };
+
   const toggleMode = () => {
     setIsRegister(!isRegister);
   };

@@ -32,7 +32,7 @@ const Navbar = () => {
         nativgate("/");
       })
       .catch((error) => {
-        console.log("signOut-error", error);
+        toast.error(error.message);
       });
   };
 

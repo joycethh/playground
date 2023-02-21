@@ -1,25 +1,28 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../firebase/configure";
+// import { useDispatch } from "react-redux";
+// import { AUTH, SIGN_OUT } from "../redux/feature/authSlice";
 
 const AuthContext = () => {
-  const [displayName, setDisPlayName] = useState("");
+  const [currentUser, setCurrentUser] = useState({});
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
-        // User is signed in, do something with the uid
         console.log("user", user);
-        const uid = user.uid;
-        setDisPlayName(user.displayName);
+        setCurrentUser(user);
       } else {
         // User is signed out
         console.log("user signed out");
+        setCurrentUser(null);
       }
     });
   });
 
-  return <></>;
+  return {
+    currentUser,
+  };
 };
 
 export default AuthContext;

@@ -4,6 +4,7 @@ import { toast } from "react-toastify";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  updateProfile,
 } from "firebase/auth";
 import { auth } from "../../firebase/configure";
 import Input from "./input/Input";
@@ -24,6 +25,15 @@ const Auth = () => {
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleClear = () => {
+    setFormData({
+      username: "",
+      email: "",
+      password: "",
+      repeatPassword: "",
+    });
   };
 
   const handleSubmit = async (e) => {
@@ -49,6 +59,10 @@ const Auth = () => {
           console.log("new-user", user);
           setIsLoading(false);
           toast.success("Your account is created!");
+          updateProfile(auth.currentUser, {
+            displayName: formData.username,
+          });
+          handleClear();
         })
         .catch((error) => {
           console.log("register-error", error);
@@ -68,6 +82,7 @@ const Auth = () => {
           console.log("login-user", user);
           setIsLoading(false);
           toast.success("Signed in successfully.");
+          handleClear();
         })
         .catch((error) => {
           console.log("login-error", error);
@@ -94,7 +109,7 @@ const Auth = () => {
           <form onSubmit={handleSubmit}>
             <div className="grid-container form">
               <div className="grid-item">
-                {/* {isRegister && (
+                {isRegister && (
                   <Input
                     name="username"
                     type="text"
@@ -103,7 +118,7 @@ const Auth = () => {
                     required
                     handleChange={handleChange}
                   />
-                )} */}
+                )}
               </div>
               <div className="grid-item">
                 <Input

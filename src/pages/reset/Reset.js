@@ -17,8 +17,6 @@ const Reset = () => {
       .catch((error) => {
         toast.error(error.message);
       });
-
-    console.log("email", email);
   };
   return (
     <div className="container">

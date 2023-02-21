@@ -1,4 +1,4 @@
-import ProtectedRoute from "./ProtectedRoutes";
+import ProtectedRoute from "./ProtectedRoute";
 import { Routes, Route } from "react-router-dom";
 import {
   Home,

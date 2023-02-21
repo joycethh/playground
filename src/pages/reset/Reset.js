@@ -12,7 +12,7 @@ const Reset = () => {
 
     await sendPasswordResetEmail(auth, email)
       .then(() => {
-        toast.success("Re-set password email is sent");
+        toast.success("Reset password email is sent");
       })
       .catch((error) => {
         toast.error(error.message);

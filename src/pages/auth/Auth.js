@@ -48,6 +48,7 @@ const Auth = () => {
           const user = userCredential.user;
           console.log("new-user", user);
           setIsLoading(false);
+          toast.success("Your account is created!");
         })
         .catch((error) => {
           console.log("register-error", error);
@@ -66,6 +67,7 @@ const Auth = () => {
           const user = userCredential.user;
           console.log("login-user", user);
           setIsLoading(false);
+          toast.success("Signed in successfully.");
         })
         .catch((error) => {
           console.log("login-error", error);

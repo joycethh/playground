@@ -10,13 +10,13 @@ const authSlice = createSlice({
   name: "auth",
   initialState,
   reducers: {
-    auth(state, action) {
+    AUTH(state, action) {
       //do something to get the current user's info
       console.log("auth-action-payload", action.payload);
       state.authData = action.payload;
     },
 
-    signOut(state, action) {
+    SIGN_OUT(state, action) {
       //do something to clear the current user's info
     },
   },
@@ -27,7 +27,7 @@ const authSlice = createSlice({
 export const selectUserById = (state) => state.auth.authData.uid;
 
 //actions
-export const { auth, signOut } = authSlice.actions;
+export const { AUTH, SIGN_OUT } = authSlice.actions;
 
 //reducer
 export default authSlice.reducer;

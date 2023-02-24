@@ -10,16 +10,14 @@ const Input = ({
   required,
 }) => {
   return (
-    <div>
-      <input
-        name={name}
-        type={type}
-        placeholder={placeHolder}
-        autoFocus={autoFocus}
-        required={required}
-        onChange={handleChange}
-      />
-    </div>
+    <input
+      name={name}
+      type={type}
+      placeholder={placeHolder}
+      autoFocus={autoFocus}
+      required={required}
+      onChange={handleChange}
+    />
   );
 };
 

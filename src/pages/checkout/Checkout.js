@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import Input from "../../components/input/Input";
+import "./checkout.scss";
+
 const Checkout = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -17,7 +19,7 @@ const Checkout = () => {
 
   return (
     <section>
-      <container>
+      <div className="checkout">
         <h6>Billing Information</h6>
         <form>
           <Input
@@ -71,7 +73,7 @@ const Checkout = () => {
             handleChange={handleChange}
           />
         </form>
-      </container>
+      </div>
     </section>
   );
 };

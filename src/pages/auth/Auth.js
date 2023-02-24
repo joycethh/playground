@@ -7,7 +7,7 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { auth } from "../../firebase/configure";
-import Input from "./input/Input";
+import Input from "../../components/input/Input";
 import Loader from "../../components/loader/Loader";
 import "./auth.scss";
 

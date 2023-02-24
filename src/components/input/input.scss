@@ -1,14 +1,12 @@
 @import "../../style.scss";
 
-div {
+ input {
     @include themify($themes) {
-        input {
-            background-color:themed('bgSoft');
-            border: 1px solid themed('border');
-            padding: 20px 10px;
-            width: 100%;
-            border-radius: 5px;;
-        }
+    
+    border: 1px solid themed('border');
+    padding: 20px 10px;
+    width: 100%;
+    border-radius: 5px;
 
-}
+    }
 }

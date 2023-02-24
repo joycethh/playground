@@ -1,0 +1,28 @@
+@import "../../style.scss";
+
+.checkout {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 2rem;
+    width: 60%;
+    margin: 2rem auto;
+
+     
+    h6 {
+        font-weight: 500;
+        font-size: 1.5rem;
+        line-height: 2rem;
+    }
+
+
+    form {
+        padding-bottom: 1rem;
+        
+        input {
+           margin-bottom: 1rem;
+        }
+    }
+
+}

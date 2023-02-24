@@ -1,6 +1,6 @@
 import React from "react";
 import "./home.scss";
-import { Loader } from "../../components/index";
+// import { Loader } from "../../components/index";
 import banner from "../../assets/banner.png";
 import ProductList from "../../components/ui/ProductList";
 

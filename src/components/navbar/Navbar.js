@@ -14,13 +14,18 @@ import { auth } from "../../firebase/configure";
 import { DarkModeContext } from "../../context/darkModeContext";
 import "./navbar.scss";
 
+import { useSelector } from "react-redux";
+import { useAuth } from "../../customHooks/useAuth";
+
 const Navbar = () => {
   const { toggle, isDarkMode } = useContext(DarkModeContext);
   const [openModal, setOpenModal] = useState(false);
+  const { currentUser } = useAuth();
 
   const activeLink = ({ isActive }) => (isActive ? "active" : null);
 
   const nativgate = useNavigate();
+  // const dispatch = useDispatch();
 
   const toggleModal = () => {
     setOpenModal(!openModal);
@@ -64,12 +69,15 @@ const Navbar = () => {
         </div>
 
         <div className="right">
-          <Link to="/auth">
-            <BiUser />
-          </Link>
-          <span onClick={handleSignOut}>
-            <HiLogout />
-          </span>
+          {currentUser ? (
+            <p className="profile"> Hi, {currentUser.displayName}</p>
+          ) : (
+            <Link to="/auth">
+              <BiUser />
+            </Link>
+          )}
+
+          {currentUser && <HiLogout onClick={handleSignOut} />}
 
           <Link to="/cart">
             <BiShoppingBag />

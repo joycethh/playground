@@ -4,7 +4,7 @@ import { auth } from "../firebase/configure";
 // import { useDispatch } from "react-redux";
 // import { AUTH, SIGN_OUT } from "../redux/feature/authSlice";
 
-const AuthContext = () => {
+export const useAuth = () => {
   const [currentUser, setCurrentUser] = useState({});
 
   useEffect(() => {
@@ -24,5 +24,3 @@ const AuthContext = () => {
     currentUser,
   };
 };
-
-export default AuthContext;

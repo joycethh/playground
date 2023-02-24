@@ -76,6 +76,12 @@ header{
           }
         }
 
+       .profile {
+         text-transform: capitalize;
+         padding-bottom: 1px;
+         font-size: small;
+       }
+
         .menu-icon {
             display: none;
             cursor: pointer;

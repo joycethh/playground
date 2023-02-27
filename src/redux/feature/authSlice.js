@@ -20,7 +20,6 @@ const authSlice = createSlice({
       //do something to clear the current user's info
     },
   },
-  extraReducers: {},
 });
 
 //seletor

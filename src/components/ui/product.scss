@@ -12,6 +12,7 @@
 
     @include tablet {
         grid-template-columns: repeat(2, 1fr);
+
     }
 
     @include mobile {
@@ -28,7 +29,6 @@
         .product-card-wrapper {
             width: 20rem;
             box-sizing: content-box;
-
             border: 1px solid themed('border');
 
             .product-img-wrapper{

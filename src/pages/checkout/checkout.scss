@@ -4,8 +4,9 @@
     display: flex;
     flex-direction: row;
     margin: 0 auto;
-    max-width: 50rem;
+    max-width: 80rem;
     zoom: 1;
+   
 
     @media phone {
         margin-top: 2rem;
@@ -19,25 +20,16 @@
 
     @include themify($themes) {
         .details-section {
-            // display: flex;
-            // justify-content: center;
-            // align-items: center;
-            // flex-direction: column;
-            // gap: 2rem;
-            // margin: 2rem auto;
             padding-top: 4rem;
-            width: 60%;
+            width: 50%;
             padding-right: 6%;
             float: left;
-            background-color: azure;
         
-             
             h6 {
                 font-weight: 500;
                 font-size: 1.5rem;
                 line-height: 2rem;
             }
-        
         
             form {
                 padding-bottom: 1rem;
@@ -52,16 +44,15 @@
         .summary-section { 
             padding-top: 4rem;
             padding-bottom: 4rem;
-            width: 40%;
+            width: 32%;
             padding-left: 4%;
-            background-position: left top;
             float: right;
-            background-color: bisque;
-
-            // &::after {
-            //     position: relative;
-            //     color: #4f4f4f;
-            // }
+     
+            // need to add grey background color
+            // background-position: left top;
+            // position: relative;
+            // color: #4f4f4f;
+        
 
            .table-wrapper {
             margin-top: 0.75rem;
@@ -71,14 +62,12 @@
             // z-index: 1;
 
             table {
-                border-collapse: collapse;
-                // border-collapse: separate;
-                border-spacing: 0;
                 font-size: 1rem;
                 display: table;
-                border-color: themed('border');
                 box-sizing: border-box;
                 text-indent: initial;
+                width: 100%;
+                // border-color: themed('border'); ///second table needs border
 
                 caption {
                     text-transform: capitalize;
@@ -93,18 +82,17 @@
                     display: table-row-group;
                     vertical-align: middle;
                     border-color: inherit;
+                    border-bottom: 1px solid themed('border');
 
                     tr {
                         display: table-row;
                         vertical-align: inherit;
                         border-color: inherit;
-                        // border-bottom: 1px solid themed('border');
                         
                         td {
                             display: table-cell;
-                            vertical-align: inherit;
                             padding: 0;
-
+    
                             &:last-of-type {
                                 text-align: right;
                             }
@@ -113,15 +101,27 @@
                                 text-align: left;
                             }
                         }
+    
+                        th {
+                            display: table-cell;
+                            text-align: left;
+                            max-width: 80px;
+                            min-width: 80px;
+                        }
                     }
-
                 }
 
+                tfoot {
+                    display: table-footer-group;
+                    vertical-align: middle;
+                    border-color: inherit; 
+                }
             }
 
-            .table-latitute {
-                width: 100%;
-
+            .table-item-list{
+                border-collapse: separate;
+                border-spacing: 0 1em;
+              
                 .item-thumbnail {
                     width: 4.6em;
                     height: 4.6em;
@@ -167,34 +167,39 @@
                         top: -0.75em;
                         z-index: 3;
                     }
+
+                    .item-description-name {
+                        width: 1em;
+                        min-width: 100%;
+                        
+                    }
+
+                    .item-price-number {
+                        font-weight: 500;
+                     
+                    }    
                 }
+            }
 
-
-                
-                tfoot {
-                    border-bottom: 1px solid #f1f1f1;
+            .table-item-total{
+                border-collapse: collapse;
+                border-spacing: 0;
+                border-color: themed('border'); //didn't do anything
+                font-size: 1rem;
                
-                    background-color: aliceblue;
 
-                    tr {
-                        &:last-of-type {
-                            margin-top: 1rem;
-                        }
-                    }
+                .item-total-name {
+                    font-weight: 400;
+                    text-align: left;
 
-                    th {
-                      
-
-                    }
-
-                    td {
-                        padding: 1rem 0.5rem;
-                        &:last-of-type {
-                            text-align: right;
-                        }
-
-                    }
                 }
+
+                .item-total-number {
+                    font-weight: 500;
+                    text-align: right;
+                }
+                
+
             }
 
            

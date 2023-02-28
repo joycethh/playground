@@ -79,10 +79,8 @@ const Checkout = () => {
         </div>
 
         <div className="summary-section">
-          {/* <h2>Order Summary</h2> */}
-
           <div className="table-wrapper">
-            <table className="table-latitute">
+            <table className="table-item-list">
               <caption>Order Summary</caption>
               <tbody className="item-section">
                 <tr className="item">
@@ -94,9 +92,16 @@ const Checkout = () => {
                       <span className="item-thumbnail-qty">1</span>
                     </div>
                   </td>
-                  <td className="item-name">Classic Natural Pearl Necklace</td>
-                  <td className="item-price">$99.00</td>
+                  <th className="item-description">
+                    <span className="item-description-name">
+                      Classic Natural Pearl Necklace
+                    </span>
+                  </th>
+                  <td className="item-price">
+                    <span className="item-price-number">$99.00</span>
+                  </td>
                 </tr>
+
                 <tr className="item">
                   <td className="item-img">
                     <div className="item-thumbnail">
@@ -106,34 +111,47 @@ const Checkout = () => {
                       <span className="item-thumbnail-qty">1</span>
                     </div>
                   </td>
-                  <td className="item-name">Classic Natural Pearl Necklace</td>
-                  <td className="item-price">$99.00</td>
+                  <th className="item-description">
+                    <span className="item-description-name">
+                      Classic Natural Pearl Necklace
+                    </span>
+                  </th>
+                  <td className="item-price">
+                    <span className="item-price-number">$99.00</span>
+                  </td>
                 </tr>
               </tbody>
+            </table>
+          </div>
+
+          <div className="table-wrapper">
+            <table className="table-item-total">
+              <tbody>
+                <tr>
+                  <th className="item-total-name">Subtotal</th>
+                  <td></td>
+                  <td>
+                    <span className="item-total-number">$218.00</span>
+                  </td>
+                </tr>
+
+                <tr>
+                  <th className="item-total-name">Shipping</th>
+                  <td></td>
+                  <td className="item-total-number">$7.00</td>
+                </tr>
+
+                <tr>
+                  <th className="item-total-name">Tax</th>
+                  <td></td>
+                  <td className="item-total-number">$10.00</td>
+                </tr>
+              </tbody>
+
               <tfoot>
-                <tr>
-                  <th>Subtotal</th>
-                  <td></td>
-                  <td>$218.00</td>
-                </tr>
-
-                <tr>
-                  <th>Shipping</th>
-                  <td></td>
-                  <td>$7.00</td>
-                </tr>
-
-                <tr>
-                  <th>Tax</th>
-                  <td></td>
-                  <td>$10.00</td>
-                </tr>
-
-                <tr>
-                  <th>Total</th>
-                  <td></td>
-                  <td>$235.00</td>
-                </tr>
+                <th className="item-total-name tota-line">Total</th>
+                <td></td>
+                <td className="item-total-number">$235.00</td>
               </tfoot>
             </table>
           </div>

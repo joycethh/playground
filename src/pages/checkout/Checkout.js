@@ -85,16 +85,26 @@ const Checkout = () => {
             <table className="table-latitute">
               <caption>Order Summary</caption>
               <tbody className="item-section">
-                <tr>
+                <tr className="item">
                   <td className="item-img">
-                    <img src={necklace} alt="" />
+                    <div className="item-thumbnail">
+                      <div className="img-wrapper">
+                        <img src={necklace} alt="" />
+                      </div>
+                      <span className="item-thumbnail-qty">1</span>
+                    </div>
                   </td>
                   <td className="item-name">Classic Natural Pearl Necklace</td>
                   <td className="item-price">$99.00</td>
                 </tr>
-                <tr>
+                <tr className="item">
                   <td className="item-img">
-                    <img src={necklace} alt="" />
+                    <div className="item-thumbnail">
+                      <div className="img-wrapper">
+                        <img src={necklace} alt="" />
+                      </div>
+                      <span className="item-thumbnail-qty">1</span>
+                    </div>
                   </td>
                   <td className="item-name">Classic Natural Pearl Necklace</td>
                   <td className="item-price">$99.00</td>

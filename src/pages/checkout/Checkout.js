@@ -19,6 +19,10 @@ const Checkout = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  const submitOrder = () => {
+    console.log("submit order button clicked");
+  };
+
   return (
     <section>
       <container className="wrapper">
@@ -129,35 +133,43 @@ const Checkout = () => {
               <tbody>
                 <tr>
                   <th className="item-total-name">Subtotal</th>
-                  <td></td>
-                  <td>
+                  <td colspan="2">
                     <span className="item-total-number">$218.00</span>
                   </td>
                 </tr>
 
                 <tr>
                   <th className="item-total-name">Shipping</th>
-                  <td></td>
-                  <td className="item-total-number">$7.00</td>
+                  <td colspan="2">
+                    <span className="item-total-number">$7.00</span>
+                  </td>
                 </tr>
 
                 <tr>
-                  <th className="item-total-name">Tax</th>
-                  <td></td>
-                  <td className="item-total-number">$10.00</td>
+                  <th className="item-total-name">Est. Tax</th>
+                  <td colspan="2">
+                    <span className="item-total-number">$10.00</span>
+                  </td>
                 </tr>
               </tbody>
 
               <tfoot>
-                <th className="item-total-name tota-line">Total</th>
-                <td></td>
-                <td className="item-total-number">$235.00</td>
+                <tr>
+                  <th className="item-total-name ">Total</th>
+                  <td>
+                    <span className="item-total-number">$235.00</span>
+                  </td>
+                </tr>
               </tfoot>
             </table>
           </div>
 
+          <div className="button-wrapper">
+            <button onClick={submitOrder}>Place Order</button>
+          </div>
+
           <div className="services-wrapper">
-            <div>Need Help?</div>
+            <div className="title">Need Help?</div>
             <div className="icon">
               <FcCustomerSupport />
               <Link to="/contact-us">contact us</Link>

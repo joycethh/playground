@@ -82,7 +82,7 @@
                     display: table-row-group;
                     vertical-align: middle;
                     border-color: inherit;
-                    border-bottom: 1px solid themed('border');
+                    // border-bottom: 1px solid themed('border');
 
                     tr {
                         display: table-row;
@@ -112,9 +112,16 @@
                 }
 
                 tfoot {
-                    display: table-footer-group;
+                    // display: table-footer-group;
+                    display: table;
+                    margin-top: 1rem;
+                    border-top: 1px solid themed('border');
+                    min-width: 100%;
+                    // TODO need to fix the footer width
                     vertical-align: middle;
                     border-color: inherit; 
+                    height: 40px;
+                    
                 }
             }
 
@@ -156,7 +163,7 @@
                         white-space: nowrap;
                         text-align: center;
                         border-radius: 1.75em;
-                        background-color: rgba(114,114,114,0.9);
+                        background-color: rgba(119, 116, 116, 0.9);
                         color: themed ('textContrast');
                         box-sizing: border-box;
                         min-width: 1.75em;
@@ -170,7 +177,7 @@
 
                     .item-description-name {
                         width: 1em;
-                        min-width: 100%;
+                        min-width: 100%;                        
                         
                     }
 
@@ -183,22 +190,26 @@
 
             .table-item-total{
                 border-collapse: collapse;
-                border-spacing: 0;
-                border-color: themed('border'); //didn't do anything
+                border-spacing: 0 1em;
                 font-size: 1rem;
-               
+                // border-top: 1px solid themed('border');
 
                 .item-total-name {
                     font-weight: 400;
                     text-align: left;
-
                 }
 
                 .item-total-number {
                     font-weight: 500;
                     text-align: right;
                 }
-                
+
+            }
+
+            .button-wrapper {
+                display: flex;
+                justify-content: center;
+            
 
             }
 
@@ -207,22 +218,35 @@
             }
 
             .services-wrapper {  
-                background-color: bisque;
-                padding-top: 2rem;
-                border-top: 1px solid themed('border');
+                padding-top: 3rem;
+                // border-top: 1px solid themed('border');
                 display: flex;
                 flex-direction: column;
                 justify-content: center; 
                 gap: 1rem;
                 align-items: center;
+                
+
+                .title {
+                    font-size: 1.5rem;
+                    font-weight: 500;
+                  
+                }
+
 
                 .icon {
                    display: flex;
-                   align-items: center;
-                   
+                   align-items: center; 
+                   padding: 0.5rem;
+
+                   svg {
+                    font-size: 1.8rem;
+                   }
+        
 
                    a {
                     padding-left: 5px;
+                    text-transform: capitalize;
                    }
                 }
             }

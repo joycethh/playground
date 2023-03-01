@@ -154,12 +154,10 @@ const Checkout = () => {
               </tbody>
 
               <tfoot>
-                <tr>
-                  <th className="item-total-name ">Total</th>
-                  <td>
-                    <span className="item-total-number">$235.00</span>
-                  </td>
-                </tr>
+                <th className="item-total-name total-line">Total</th>
+                <td>
+                  <span className="item-total-number total-line">$235.00</span>
+                </td>
               </tfoot>
             </table>
           </div>

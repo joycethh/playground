@@ -46,7 +46,7 @@ const Navbar = () => {
       <div className="navbar">
         <div className="logo">
           <Link to="/">
-            Sea<span>Shell</span>
+            <span> Grit</span> Grace
           </Link>
         </div>
 

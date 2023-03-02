@@ -9,7 +9,7 @@ import Email from "./email/Email";
 import "./footer.scss";
 
 const products = ["best sellers", "gift card"];
-const seaShell = ["about us", "our values"];
+const brand = ["about us", "our values"];
 const service = ["my account", "my orders", "contact us"];
 
 const Nav = ({ title, category }) => {
@@ -72,7 +72,7 @@ const Footer = () => {
         <Email />
         <div className="right">
           <Nav title="products" category={products} />
-          <Nav title="seashell" category={seaShell} />
+          <Nav title="Grit & Grace" category={brand} />
           <div className="nav">
             <Nav title="customer service" category={service} />
             <div>
@@ -93,10 +93,10 @@ const Footer = () => {
             category={products}
           />
           <MobileNav
-            title="Seashell"
+            title="Grit & Grace"
             isOpen={isOpen}
             openMenu={openMenu}
-            category={seaShell}
+            category={brand}
           />
           <MobileNav
             title="Customer Service"

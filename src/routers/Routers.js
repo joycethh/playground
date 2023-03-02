@@ -10,14 +10,18 @@ import {
   Auth,
   Reset,
   Checkout,
+  ProductDetails,
+  Shop,
 } from "../pages/index";
 
 const Routers = () => {
   return (
     <Routes>
-      <Route path="/new-arrivals" element={<NewArrivals />} />
-      <Route path="/best-sellers" element={<BestSellers />} />
       <Route path="/" element={<Home />} />
+      <Route path="/shop" element={<Shop />} />
+      <Route path="/best-sellers" element={<BestSellers />} />
+      <Route path="/new-arrivals" element={<NewArrivals />} />
+      <Route path="/shop/:id" element={<ProductDetails />} />
       <Route path="/contact-us" element={<Contact />} />
       <Route path="/admin" element={<Admin />} />
       <Route path="/cart" element={<Cart />} />

@@ -7,3 +7,5 @@ export { default as BestSellers } from "./bestSellers/BestSellers";
 export { default as Auth } from "./auth/Auth";
 export { default as Reset } from "./reset/Reset";
 export { default as Checkout } from "./checkout/Checkout";
+export { default as ProductDetails } from "./productDetails/ProductDetails";
+export { default as Shop } from "./shop/Shop";

@@ -1,0 +1,272 @@
+@import "../../style.scss";
+
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+    max-width: 80rem;
+    zoom: 1;
+   
+
+    @media phone {
+        margin-top: 2rem;
+    }
+
+    @media tablet {
+        padding: 0 5%;
+        width: 90%;
+        max-width: 75rem;
+    }
+
+    @include themify($themes) {
+        .details-section {
+            padding-top: 4rem;
+            width: 50%;
+            padding-right: 6%;
+            float: left;
+        
+            h6 {
+                font-weight: 500;
+                font-size: 1.5rem;
+                line-height: 2rem;
+            }
+        
+            form {
+                padding-bottom: 1rem;
+                
+                input {
+                   margin-bottom: 1rem;
+                }
+            }
+        
+        }
+
+        .summary-section { 
+            padding-top: 4rem;
+            padding-bottom: 4rem;
+            width: 32%;
+            padding-left: 4%;
+            float: right;
+
+            //TODO: need to add grey background color
+            // background-color: beige;
+            // background-position: left top;
+            // position: relative;
+            // color: #4f4f4f;
+        
+
+           .table-wrapper {
+            margin-top: 0.75rem;
+            margin-bottom: 1.5rem;
+            width: 100%;
+            // position: relative;
+            // z-index: 1;
+
+            table {
+                font-size: 1rem;
+                display: table;
+                box-sizing: border-box;
+                text-indent: initial;
+                width: 100%;
+                // border-color: themed('border'); ///second table needs border
+
+                caption {
+                    text-transform: capitalize;
+                    font-weight: bold;
+                    font-size: 1.5rem;
+                    line-height: 3rem;
+                    text-align: left;
+                    padding-bottom: 3rem;
+                }
+
+                tbody {
+                    display: table-row-group;
+                    vertical-align: middle;
+                    border-color: inherit;
+                    // border-bottom: 1px solid themed('border');
+
+                    tr {
+                        display: table-row;
+                        vertical-align: inherit;
+                        border-color: inherit;
+                        
+                        td {
+                            display: table-cell;
+                            padding: 0;
+    
+                            &:last-of-type {
+                                text-align: right;
+                            }
+                        }
+    
+                        th {
+                            display: table-cell;
+                            text-align: left;
+                            max-width: 80px;
+                            min-width: 80px;
+                        }
+                    }
+                }
+
+                tfoot {
+                    display: table-footer-group;
+                    // display: table;
+                    // margin-top: 1rem;
+                    // border-top: 1px solid themed('border');
+                    // min-width: 100%;
+                    // TODO need to fix the footer width
+                    vertical-align: middle;
+                    border-color: inherit; 
+                    height: 40px;
+                    
+                }
+            }
+
+            .table-item-list{
+                border-collapse: separate;
+                border-spacing: 0 1em;
+              
+                .item-thumbnail {
+                    width: 4.6em;
+                    height: 4.6em;
+                    border-radius: 8px;
+                    background: #fff;
+                    position: relative;
+
+                    .img-wrapper {
+                        width: 100%;
+                        height: 100%;
+                        position: relative;
+                        overflow: hidden;
+                        border-radius: 8px;
+                        z-index: 1;
+                    }
+
+                    img {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        bottom: 0;
+                        max-width: 100%;
+                        max-height: 100%;
+                        margin: auto;
+                    }
+
+                    .item-thumbnail-qty {
+                        font-size: 0.8rem;
+                        font-weight: 500;
+                        line-height: 1.75em;
+                        white-space: nowrap;
+                        text-align: center;
+                        border-radius: 1.75em;
+                        background-color: rgba(119, 116, 116, 0.9);
+                        color: themed ('textContrast');
+                        box-sizing: border-box;
+                        min-width: 1.75em;
+                        height: 1.75em;
+                        padding: 0 0.5rem;
+                        position: absolute;
+                        right: -0.75em;
+                        top: -0.75em;
+                        z-index: 3;
+                    }
+
+                    .item-description-name {
+                        width: 1em;
+                        min-width: 100%;                        
+                        
+                    }
+
+                    .item-price-number {
+                        font-weight: 500;
+                     
+                    }    
+                }
+            }
+
+            .table-item-total{
+                border-collapse: collapse;
+                border-spacing: 0 1em;
+                font-size: 1rem;
+                // border-top: 1px solid themed('border');
+
+                .item-total-name {
+                    font-weight: 400;
+                    text-align: left;
+                }
+
+                .item-total-number {
+                    text-align: right;
+                }
+
+                .total-line {
+                    font-weight: bold;
+                }
+
+            }
+
+            }
+
+            .button-wrapper {
+                display: flex;
+                justify-content: center;
+                margin: 3rem auto;
+                
+                button {
+                    width: 100%;
+                    border-radius: 8px;
+                    background-color: themed('highlight');
+                    border: none;
+                    padding: 1rem;
+                    text-transform: uppercase;
+                    font-weight: bold;
+                    line-height: 1rem;
+                    letter-spacing: 1px;
+                    word-spacing: 2px;
+
+                }
+
+            }
+
+            .services-wrapper {  
+                padding-top: 3rem;
+                // border-top: 1px solid themed('border');
+                display: flex;
+                flex-direction: column;
+                justify-content: center; 
+                gap: 1rem;
+                align-items: center;
+                
+
+                .title {
+                    font-size: 1.5rem;
+                    font-weight: 500;
+                  
+                }
+
+
+                .icon {
+                   display: flex;
+                   align-items: center; 
+                   padding: 0.5rem;
+
+                   svg {
+                    font-size: 1.8rem;
+                   }
+        
+
+                   a {
+                    padding-left: 5px;
+                    text-transform: capitalize;
+                   }
+                }
+            }
+           
+            
+        
+        }
+
+    }
+}
+

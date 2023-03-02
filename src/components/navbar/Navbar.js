@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import {
   BiUser,
   BiShoppingBag,
@@ -8,16 +8,24 @@ import {
   BiMenuAltLeft,
 } from "react-icons/bi";
 import { HiOutlineLightBulb, HiOutlineMoon, HiLogout } from "react-icons/hi";
+import { toast } from "react-toastify";
 import { signOut } from "firebase/auth";
 import { auth } from "../../firebase/configure";
 import { DarkModeContext } from "../../context/darkModeContext";
 import "./navbar.scss";
 
+import { useSelector } from "react-redux";
+import { useAuth } from "../../customHooks/useAuth";
+
 const Navbar = () => {
   const { toggle, isDarkMode } = useContext(DarkModeContext);
   const [openModal, setOpenModal] = useState(false);
+  const { currentUser } = useAuth();
 
   const activeLink = ({ isActive }) => (isActive ? "active" : null);
+
+  const nativgate = useNavigate();
+  // const dispatch = useDispatch();
 
   const toggleModal = () => {
     setOpenModal(!openModal);
@@ -25,12 +33,14 @@ const Navbar = () => {
   const handleSignOut = () => {
     signOut(auth)
       .then(() => {
-        console.log("signed out successfully");
+        toast.success("Log out successfully");
+        nativgate("/");
       })
       .catch((error) => {
-        console.log("signOut-error", error);
+        toast.error(error.message);
       });
   };
+
   return (
     <header>
       <div className="navbar">
@@ -59,12 +69,15 @@ const Navbar = () => {
         </div>
 
         <div className="right">
-          <Link to="/auth">
-            <BiUser />
-          </Link>
-          <span onClick={handleSignOut}>
-            <HiLogout />
-          </span>
+          {currentUser ? (
+            <p className="profile"> Hi, {currentUser.displayName}</p>
+          ) : (
+            <Link to="/auth">
+              <BiUser />
+            </Link>
+          )}
+
+          {currentUser && <HiLogout onClick={handleSignOut} />}
 
           <Link to="/cart">
             <BiShoppingBag />

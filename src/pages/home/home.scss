@@ -5,13 +5,62 @@ section {
         
 
         .banner-wrapper {
-            // box-sizing: content-box;
+            position: relative;
 
             img {
                 width: 100%;
                 height: 45%;
                 object-fit: cover;
             }
+
+            .description {
+                position: absolute;
+                top: 10rem;
+                left: 5rem;
+                width: 40%;
+
+                span {
+                    font-size: large;
+                   
+                }
+
+                h2 {
+                    margin-top: 10px;
+                    font-size: 2.5rem;
+                    font-weight: 500;
+                    text-transform: capitalize;
+                }
+
+                p {
+                    font-size: 1.1rem;
+                    padding-top: 1rem;
+                    
+                }
+
+                .shop-now {
+                    padding-top: 2rem;;
+                    width: 60%;
+                    
+                    button {
+                        border: none;
+                        background-color: themed('highlight');
+                        border-radius: 8px;
+                        padding: 1rem;
+                        width: 100%;
+                        text-transform: uppercase;
+                        font-weight: bold;
+
+                        a {
+                            text-decoration: none;
+                            color: themed('textColor')
+                        }
+                    }
+                }
+
+
+            }
+
+           
         }
     }
 }

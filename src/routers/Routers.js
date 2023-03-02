@@ -1,5 +1,5 @@
 import ProtectedRoute from "./ProtectedRoute";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import {
   Home,
   Contact,
@@ -17,7 +17,8 @@ import {
 const Routers = () => {
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
+      <Route path="/" element={<Navigate to="/home" />} />
+      <Route path="/home" element={<Home />} />
       <Route path="/shop" element={<Shop />} />
       <Route path="/best-sellers" element={<BestSellers />} />
       <Route path="/new-arrivals" element={<NewArrivals />} />

@@ -6,7 +6,7 @@ import "./product.scss";
 const ProductCard = ({ data }) => {
   return (
     <>
-      {data.map((item) => (
+      {data?.map((item) => (
         <div className="product-item-col" key={item.id}>
           <div className="product-card-wrapper">
             <div className="product-img-wrapper">

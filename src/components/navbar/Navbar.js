@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useRef, useEffect } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import {
   BiUser,
@@ -14,13 +14,33 @@ import { auth } from "../../firebase/configure";
 import { DarkModeContext } from "../../context/darkModeContext";
 import "./navbar.scss";
 
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 import { useAuth } from "../../customHooks/useAuth";
 
 const Navbar = () => {
   const { toggle, isDarkMode } = useContext(DarkModeContext);
   const [openModal, setOpenModal] = useState(false);
   const { currentUser } = useAuth();
+
+  const headerRef = useRef();
+
+  const stickyHeader = () => {
+    window.addEventListener("scroll", () => {
+      if (
+        document.body.scrollTop > 80 ||
+        document.documentElement.scrollTop > 80
+      ) {
+        headerRef.current.classList.add("sticky-header");
+      } else {
+        headerRef.current.classList.remove("sticky-header");
+      }
+    });
+  };
+
+  useEffect(() => {
+    stickyHeader();
+    return () => window.removeEventListener("scroll", stickyHeader);
+  });
 
   const activeLink = ({ isActive }) => (isActive ? "active" : null);
 
@@ -42,7 +62,7 @@ const Navbar = () => {
   };
 
   return (
-    <header>
+    <header className="header" ref={headerRef}>
       <div className="navbar">
         <div className="logo">
           <Link to="/">

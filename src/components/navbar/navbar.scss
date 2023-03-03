@@ -1,86 +1,84 @@
 @import "../../style.scss";
 
-header{
+.header{
     @include themify($themes) {
-.navbar{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 20px;
-    height: 40px;
-    border-bottom: 1px solid themed('border');
-    background-color: themed("bg");
-    color: themed('textColor');
-    position: relative;
+        .navbar{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px;
+            height: 40px;
+            border-bottom: 1px solid themed('border');
+            background-color: themed("bg");
+            color: themed('textColor');
+            position: relative;
     
-    .logo{
-        a {
-            font-weight: bold;
-            font-size: 20px;
-            text-decoration: none;
-            color: themed('highlight');
-            cursor: pointer;
+            .logo{
+                a {
+                    font-weight: bold;
+                    font-size: 20px;
+                    text-decoration: none;
+                    color: themed('highlight');
+                    cursor: pointer;
 
-            span {
-                color: themed('logo'),
+                    span {
+                        color: themed('logo'),
+                    }
+                }       
             }
-        }       
-    }
 
-    .nav {
-        display: flex;
-        align-items: center;
-        gap: 20px;
+            .nav {
+                display: flex;
+                align-items: center;
+                gap: 20px;
 
-        a {
-        font-weight: 500;
-        font-size: 12px;
-        text-decoration: none;
-        color: themed('textColor');
-        cursor: pointer;
-        padding: 5px;
+                a {
+                font-weight: 500;
+                font-size: 12px;
+                text-decoration: none;
+                color: themed('textColor');
+                cursor: pointer;
+                padding: 5px;
        
 
-        &:hover {
-            color: themed('highlight');
-        }
-        &.active {
-            border-bottom: 2px solid themed('highlight');
-          }
-        }
+                &:hover {
+                    color: themed('highlight');
+                }
+                &.active {
+                    border-bottom: 2px solid themed('highlight');
+                  }
+                }
 
-        @include mobile{
-            display: none;
-        }
+            @include mobile{
+                display: none;
+            }
 
-        @include tablet{
-            width: 200px;
-        }
+            @include tablet{
+                width: 200px;
+            }
     
-    }
+            }
 
+        .right{
+            display: flex;
+            gap: 12px;
+            align-items: center;
 
-    .right{
-        display: flex;
-        gap: 12px;
-        align-items: center;
+            a {
+            text-decoration: none;
+            font-weight: 500;
+            color: themed('textColor');
 
-
-        a {
-        text-decoration: none;
-        font-weight: 500;
-        color: themed('textColor');
-
-        &.active {
-            border-bottom: 2px solid themed('highlight');
-          }
+            &.active {
+                border-bottom: 2px solid themed('highlight');
+            }
         }
 
        .profile {
          text-transform: capitalize;
          padding-bottom: 1px;
          font-size: small;
-       }
+        }
 
         .menu-icon {
             display: none;
@@ -89,21 +87,20 @@ header{
             @include mobile{
                 display: block;
             }
-    
         }
 
-    }
-}
+        }
+        }
 
-    .display-block {
-        display: block;
-    }
+        .display-block {
+            display: block;
+        }
 
-      .display-none {
-        display: none;
-    }
+        .display-none {
+            display: none;
+        }
 
-    .modal-nav{
+        .modal-nav{
         position: block;
         top: 60px;
         left: 0;
@@ -141,7 +138,20 @@ header{
             }
             
         }
-    }
+        }
        
+      
+    }
+   
 }
-}
+
+  .sticky-header {
+        width: 100%;
+        height: 50px;
+        line-height: 50px;
+        position: sticky;
+        top: 0;
+        left: 0;
+        z-index: 999;
+        box-shadow: 3px 3px 8px -3px #ddd;
+    }

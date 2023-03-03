@@ -15,7 +15,7 @@ const Home = () => {
           <section className="hero-section">
             <div className="banner-wrapper">
               <img src={banner} alt="" />
-              <div className="description">
+              <div className="caption">
                 <span>Aqua treasures are waiting for you</span>
                 <h2>Adorn yourself with the natural beauty of pearls</h2>
                 <p>

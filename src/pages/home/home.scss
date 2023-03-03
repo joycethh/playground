@@ -24,7 +24,6 @@ section {
                     display: none;
                 }
                 
-            
 
                
                 h2 {
@@ -34,12 +33,18 @@ section {
                     font-weight: 500;
                     text-transform: capitalize;
 
-                   
+                    @include tablet {
+                       font-size: 1.1rem;
+                    }   
                 }
 
                 p {
                     font-size: 1.1rem;
                     padding-top: 1rem;
+
+                    @include tablet {
+                        font-size: 0.9rem;
+                    }
                     
                 }
 

@@ -2,11 +2,11 @@ import React from "react";
 import ProductCard from "./ProductCard";
 import "./product.scss";
 
-const ProductList = () => {
+const ProductList = ({ data }) => {
   return (
     <>
       <div className="flex-grid">
-        <ProductCard />
+        <ProductCard data={data} />
         <ProductCard />
         <ProductCard />
         <ProductCard />

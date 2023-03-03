@@ -6,25 +6,25 @@ import "./product.scss";
 const ProductCard = ({ data }) => {
   return (
     <>
-      {data.map((data) => (
-        <div className="product-item-col">
+      {data.map((item) => (
+        <div className="product-item-col" key={item.id}>
           <div className="product-card-wrapper">
             <div className="product-img-wrapper">
               <Link to="/contact">
                 <div className="img">
-                  <img src={data.image} alt="" />
+                  <img src={item.image} alt="" />
                 </div>
               </Link>
             </div>
             <div className="product-info-wrapper">
-              <h3 className="product-name">{data.title}</h3>
+              <h3 className="product-name">{item.title}</h3>
               <div className="tag">
-                <span>{data.category}</span>
+                <span>{item.category}</span>
               </div>
             </div>
 
             <div className="product-bottom-wrapper">
-              <span className="price">{data.price}</span>
+              <span className="price">${item.price}</span>
               <span>
                 <BiShoppingBag />
               </span>

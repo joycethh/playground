@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import "./home.scss";
 // import { Loader } from "../../components/index";
@@ -7,15 +7,6 @@ import banner from "../../assets/banner.png";
 import ProductList from "../../components/ui/ProductList";
 
 const Home = () => {
-  const [apiData, setApiData] = useState();
-  useEffect(() => {
-    fetch("https://fakestoreapi.com/products")
-      .then((res) => res.json())
-      .then((json) => setApiData(json));
-  }, []);
-
-  console.log("apiData", apiData);
-
   return (
     <Badge title={"Home"}>
       <main>
@@ -41,8 +32,7 @@ const Home = () => {
             </div>
           </section>
           <section className="products-section">
-            {/* <ProductList data={data} /> */}
-            <ProductList data={apiData} />
+            <ProductList />
           </section>
         </main>
       </main>

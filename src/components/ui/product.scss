@@ -18,18 +18,22 @@
     @include mobile {
         grid-template-columns: repeat(1, 1fr);
         max-width: max-content;
+      
     }
 
 
     .product-item-col {
         color: thmed('textColor');
-        background-color: aliceblue;
+        // background-color: aliceblue;
+        border: 1px solid themed('border');
+        box-shadow: 1px 1px 1px 0px rgba(176,168,168,0.72);
+        
     
         
         .product-card-wrapper {
             width: 20rem;
             box-sizing: content-box;
-            border: 1px solid themed('border');
+          
 
             .product-img-wrapper{
                display: flex;

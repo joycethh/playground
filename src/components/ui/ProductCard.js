@@ -5,11 +5,12 @@ import { useDispatch } from "react-redux";
 import "./product.scss";
 import { ADD_ITEM } from "../../redux/feature/cartSlice";
 
-const ProductCard = ({ data }) => {
+const ProductCard = ({ item }) => {
   const dispatch = useDispatch();
 
-  const addItem = ({ item }) => {
+  const addItem = () => {
     console.log("add button clicked");
+    console.log("item", item);
     dispatch(
       ADD_ITEM({
         id: item.id,
@@ -22,32 +23,30 @@ const ProductCard = ({ data }) => {
 
   return (
     <>
-      {data?.map((item) => (
-        <div className="product-item-col" key={item.id}>
-          <div className="product-card-wrapper">
-            <div className="product-img-wrapper">
-              <Link to="/contact">
-                <div className="img">
-                  <img src={item.image} alt="" />
-                </div>
-              </Link>
-            </div>
-            <div className="product-info-wrapper">
-              <h3 className="product-name">{item.title}</h3>
-              <div className="tag">
-                <span>{item.category}</span>
+      <div className="product-item-col" key={item.id}>
+        <div className="product-card-wrapper">
+          <div className="product-img-wrapper">
+            <Link to="/contact">
+              <div className="img">
+                <img src={item.image} alt="" />
               </div>
-            </div>
-
-            <div className="product-bottom-wrapper">
-              <span className="price">${item.price}</span>
-              <span onClick={addItem}>
-                <BsFillCartPlusFill />
-              </span>
+            </Link>
+          </div>
+          <div className="product-info-wrapper">
+            <h3 className="product-name">{item.title}</h3>
+            <div className="tag">
+              <span>{item.category}</span>
             </div>
           </div>
+
+          <div className="product-bottom-wrapper">
+            <span className="price">${item.price}</span>
+            <span onClick={addItem}>
+              <BsFillCartPlusFill />
+            </span>
+          </div>
         </div>
-      ))}
+      </div>
     </>
   );
 };

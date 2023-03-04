@@ -10,12 +10,13 @@ const ProductList = () => {
       .then((res) => res.json())
       .then((json) => setApiData(json));
   }, []);
-  console.log("apiData", apiData);
+  // console.log("apiData", apiData);
 
   return (
     <>
       <div className="flex-grid">
-        {apiData && <ProductCard data={apiData} />}
+        {apiData &&
+          apiData.map((item, key) => <ProductCard item={item} key={key} />)}
       </div>
     </>
   );

@@ -67,9 +67,7 @@ const Auth = () => {
         .catch((error) => {
           console.log("register-error", error);
           const errorMessage = error.message;
-          toast.error(`Opps, something went wrong-${errorMessage}`, {
-            position: toast.POSITION.TOP_CENTER,
-          });
+          toast.error(`Opps, something went wrong-${errorMessage}`);
         });
     } else {
       setIsLoading(true);
@@ -87,9 +85,7 @@ const Auth = () => {
         .catch((error) => {
           console.log("login-error", error);
           const errorMessage = error.message;
-          toast.error(`Opps, something went wrong-${errorMessage}`, {
-            position: toast.POSITION.TOP_CENTER,
-          });
+          toast.error(`Opps, something went wrong-${errorMessage}`);
         });
     }
   };

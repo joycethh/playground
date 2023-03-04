@@ -4,13 +4,12 @@ import { BsFillCartPlusFill } from "react-icons/bs";
 import { useDispatch } from "react-redux";
 import "./product.scss";
 import { ADD_ITEM } from "../../redux/feature/cartSlice";
+import { toast } from "react-toastify";
 
 const ProductCard = ({ item }) => {
   const dispatch = useDispatch();
 
   const addItem = () => {
-    console.log("add button clicked");
-    console.log("item", item);
     dispatch(
       ADD_ITEM({
         id: item.id,
@@ -19,6 +18,7 @@ const ProductCard = ({ item }) => {
         image: item.image,
       })
     );
+    toast.success("The item is waiting for you in the cart");
   };
 
   return (

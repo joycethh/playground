@@ -1,9 +1,25 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { BiShoppingBag } from "react-icons/bi";
+import { BsFillCartPlusFill } from "react-icons/bs";
+import { useDispatch } from "react-redux";
 import "./product.scss";
+import { ADD_ITEM } from "../../redux/feature/cartSlice";
 
 const ProductCard = ({ data }) => {
+  const dispatch = useDispatch();
+
+  const addItem = ({ item }) => {
+    console.log("add button clicked");
+    dispatch(
+      ADD_ITEM({
+        id: item.id,
+        productName: item.title,
+        price: item.price,
+        image: item.image,
+      })
+    );
+  };
+
   return (
     <>
       {data?.map((item) => (
@@ -25,8 +41,8 @@ const ProductCard = ({ data }) => {
 
             <div className="product-bottom-wrapper">
               <span className="price">${item.price}</span>
-              <span>
-                <BiShoppingBag />
+              <span onClick={addItem}>
+                <BsFillCartPlusFill />
               </span>
             </div>
           </div>

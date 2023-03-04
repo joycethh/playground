@@ -10,6 +10,8 @@ const ProductList = () => {
       .then((res) => res.json())
       .then((json) => setApiData(json));
   }, []);
+  console.log("apiData", apiData);
+
   return (
     <>
       <div className="flex-grid">

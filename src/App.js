@@ -12,7 +12,14 @@ function App() {
     <>
       <BrowserRouter>
         <div className={`theme-${isDarkMode ? "dark" : "light"}`}>
-          <ToastContainer />
+          <ToastContainer
+            position="top-right"
+            autoClose={2000}
+            hideProgressBar={false}
+            clooseOnClick
+            draggable
+            pauseOnHover={false}
+          />
           <Layout />
         </div>
       </BrowserRouter>

@@ -14,21 +14,29 @@ import { auth } from "../../firebase/configure";
 import { DarkModeContext } from "../../context/darkModeContext";
 import "./navbar.scss";
 
-// import { useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { useAuth } from "../../customHooks/useAuth";
+// import { totalQty } from "../../redux/feature/cartSlice";
 
 const Navbar = () => {
   const { toggle, isDarkMode } = useContext(DarkModeContext);
   const [openModal, setOpenModal] = useState(false);
   const { currentUser } = useAuth();
 
+  const totalQty = useSelector((state) => state.totalQty);
+
+  console.log("totalQty", totalQty);
+
   const headerRef = useRef();
 
   const stickyHeader = () => {
+    console.log("headerRef", headerRef);
     window.addEventListener("scroll", () => {
       if (
-        document.body.scrollTop > 80 ||
-        document.documentElement.scrollTop > 80
+        (document.body.scrollTop > 80 ||
+          document.documentElement.scrollTop > 80) &&
+        headerRef &&
+        headerRef.current
       ) {
         headerRef.current.classList.add("sticky-header");
       } else {

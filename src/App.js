@@ -13,7 +13,7 @@ function App() {
       <BrowserRouter>
         <div className={`theme-${isDarkMode ? "dark" : "light"}`}>
           <ToastContainer
-            position="top-right"
+            position="top-left"
             autoClose={2000}
             hideProgressBar={false}
             clooseOnClick

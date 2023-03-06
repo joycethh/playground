@@ -16,21 +16,18 @@ import "./navbar.scss";
 
 import { useSelector } from "react-redux";
 import { useAuth } from "../../customHooks/useAuth";
-// import { totalQty } from "../../redux/feature/cartSlice";
 
 const Navbar = () => {
   const { toggle, isDarkMode } = useContext(DarkModeContext);
   const [openModal, setOpenModal] = useState(false);
   const { currentUser } = useAuth();
 
-  const totalQty = useSelector((state) => state.totalQty);
-
+  const totalQty = useSelector((state) => state.cart.totalQty);
   console.log("totalQty", totalQty);
 
   const headerRef = useRef();
 
   const stickyHeader = () => {
-    console.log("headerRef", headerRef);
     window.addEventListener("scroll", () => {
       if (
         (document.body.scrollTop > 80 ||
@@ -107,9 +104,13 @@ const Navbar = () => {
 
           {currentUser && <HiLogout onClick={handleSignOut} />}
 
-          <Link to="/cart">
-            <BiShoppingBag />
-          </Link>
+          <span>
+            <Link to="/cart">
+              <BiShoppingBag />
+            </Link>
+            <span className="qty"> {totalQty} </span>
+          </span>
+
           <Link to="/my-orders">
             <BiListUl />
           </Link>

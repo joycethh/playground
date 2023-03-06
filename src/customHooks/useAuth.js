@@ -10,7 +10,7 @@ export const useAuth = () => {
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
-        console.log("user", user);
+        // console.log("user", user);
         setCurrentUser(user);
       } else {
         // User is signed out

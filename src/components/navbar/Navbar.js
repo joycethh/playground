@@ -7,7 +7,12 @@ import {
   BiSearch,
   BiMenuAltLeft,
 } from "react-icons/bi";
-import { HiOutlineLightBulb, HiOutlineMoon, HiLogout } from "react-icons/hi";
+import {
+  HiOutlineLightBulb,
+  HiOutlineMoon,
+  HiLogout,
+  HiOutlineShoppingCart,
+} from "react-icons/hi";
 import { toast } from "react-toastify";
 import { signOut } from "firebase/auth";
 import { auth } from "../../firebase/configure";
@@ -23,7 +28,6 @@ const Navbar = () => {
   const { currentUser } = useAuth();
 
   const totalQty = useSelector((state) => state.cart.totalQty);
-  console.log("totalQty", totalQty);
 
   const headerRef = useRef();
 
@@ -93,23 +97,31 @@ const Navbar = () => {
           </NavLink>
         </div>
 
-        <div className="right">
+        <div className="icons">
           {currentUser ? (
-            <p className="profile"> Hi, {currentUser.displayName}</p>
+            <div className="icon-wrapper">
+              <p className="profile"> Hi, {currentUser.displayName}</p>
+            </div>
           ) : (
-            <Link to="/auth">
-              <BiUser />
-            </Link>
+            <div className="icon-wrapper">
+              <Link to="/auth">
+                <BiUser />
+              </Link>
+            </div>
           )}
 
-          {currentUser && <HiLogout onClick={handleSignOut} />}
+          {currentUser && (
+            <div className="icon-wrapper">
+              <HiLogout onClick={handleSignOut} />
+            </div>
+          )}
 
-          <span>
+          <div className="icon-wrapper cart">
             <Link to="/cart">
-              <BiShoppingBag />
+              <HiOutlineShoppingCart />
             </Link>
-            <span className="qty"> {totalQty} </span>
-          </span>
+            <span className="cart-thunmbnail-qty"> {totalQty} </span>
+          </div>
 
           <Link to="/my-orders">
             <BiListUl />

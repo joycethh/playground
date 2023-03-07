@@ -71,9 +71,8 @@ const Header = () => {
             <span> Grit</span> Grace
           </Link>
         </div>
-        <div className="nav">
-          <Nav />
-        </div>
+
+        <Nav />
 
         <div className="icons">
           {currentUser ? (
@@ -101,9 +100,6 @@ const Header = () => {
             <span className="cart-thunmbnail-qty"> {totalQty} </span>
           </div>
 
-          <Link to="/my-orders">
-            <BiListUl />
-          </Link>
           <BiSearch />
           <span onClick={toggle}>
             {isDarkMode ? <HiOutlineLightBulb /> : <HiOutlineMoon />}

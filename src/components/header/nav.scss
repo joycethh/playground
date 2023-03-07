@@ -1,1 +1,86 @@
 @import "../../style.scss";
+
+.nav {
+    @include themify($themes) {
+        display: flex;
+        position: relative;
+        justify-content: center;
+
+        ul {
+            display: flex;
+            gap: 1rem;
+            position: relative;
+            justify-content: center;
+           
+           
+
+            list-style: none;
+
+            li {
+                font-weight: 300;
+                font-style: normal;
+                font-size: 1rem;
+                line-height: 1.5;
+
+                a {
+                    position: relative;
+                    font-size: .875rem;
+                    display: inline-flex;
+                    white-space: nowrap;
+                }
+            }
+
+            .sub-nav {
+                display: none;
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: 100%;
+                width: 100%;
+                z-index: 21;
+                background: #fff;
+                padding-top: 40px;
+                padding-bottom: 56px;
+
+                .inner {
+                    display: flex;
+                    max-width: 1176px;
+                    margin: 0 auto;             
+                }
+
+                h3 {
+                    font-size: .875rem;
+                    color: #000;
+                    line-height: 1.71;
+                    letter-spacing: normal;
+                    font-family: Santral W01;
+                    font-weight: 400;
+                    font-style: normal;
+                    margin-bottom: 8px;
+                    font-weight: 600;
+                }
+
+                ul {
+                    list-style: none;
+
+                    li {
+                        font-family: Santral W01;
+                        font-weight: 300;
+                        font-style: normal;
+                        font-size: 1rem;
+                        line-height: 1.5;
+
+                        a {
+                            display: inline-block;
+                            position: relative;
+                            font-size: .875rem;
+                            margin: 8px 0;
+                        }
+                    }
+
+                }
+
+            }
+        }
+    }
+}

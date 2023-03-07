@@ -1,6 +1,6 @@
 import React, { useContext, useState, useRef, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { BiUser, BiListUl, BiSearch, BiMenuAltLeft } from "react-icons/bi";
+import { BiUser, BiSearch, BiMenuAltLeft } from "react-icons/bi";
 import {
   HiOutlineLightBulb,
   HiOutlineMoon,
@@ -24,27 +24,27 @@ const Header = () => {
 
   const totalQty = useSelector((state) => state.cart.totalQty);
 
-  const headerRef = useRef();
+  // const headerRef = useRef();
 
-  const stickyHeader = () => {
-    window.addEventListener("scroll", () => {
-      if (
-        (document.body.scrollTop > 80 ||
-          document.documentElement.scrollTop > 80) &&
-        headerRef &&
-        headerRef.current
-      ) {
-        headerRef.current.classList.add("sticky-header");
-      } else {
-        headerRef.current.classList.remove("sticky-header");
-      }
-    });
-  };
+  // const stickyHeader = () => {
+  //   window.addEventListener("scroll", () => {
+  //     if (
+  //       (document.body.scrollTop > 80 ||
+  //         document.documentElement.scrollTop > 80) &&
+  //       headerRef &&
+  //       headerRef.current
+  //     ) {
+  //       headerRef.current.classList.add("sticky-header");
+  //     } else {
+  //       headerRef.current.classList.remove("sticky-header");
+  //     }
+  //   });
+  // };
 
-  useEffect(() => {
-    stickyHeader();
-    return () => window.removeEventListener("scroll", stickyHeader);
-  });
+  // useEffect(() => {
+  //   stickyHeader();
+  //   return () => window.removeEventListener("scroll", stickyHeader);
+  // });
 
   const nativgate = useNavigate();
   // const dispatch = useDispatch();
@@ -64,7 +64,8 @@ const Header = () => {
   };
 
   return (
-    <header className="header" ref={headerRef}>
+    // <header className="header" ref={headerRef}>
+    <header className="header">
       <div className="navbar">
         <div className="logo">
           <Link to="/">

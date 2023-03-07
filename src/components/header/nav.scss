@@ -7,11 +7,6 @@
         justify-content: center;
 
         ul {
-            display: flex;
-            gap: 1rem;
-            position: relative;
-            justify-content: center;
-
             list-style: none;
 
             li {
@@ -19,7 +14,27 @@
                 font-style: normal;
                 font-size: 1rem;
                 line-height: 1.5;
+            }
+        }
 
+        a {
+            text-decoration: none;
+            color: themed('textColor');
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 1rem;
+            position: relative;
+            justify-content: center;
+            flex: 1 0 100%;
+           
+            // hover display block
+            .nav-menu-item {
+                padding: 0 12px;
+                position: relative;
+              
+               
                 a {
                     position: relative;
                     font-size: .875rem;
@@ -33,16 +48,16 @@
                 position: absolute;
                 left: 0;
                 right: 0;
-                top: 100%;
+                top: 43px;
                 width: 100%;
                 z-index: 21;
-                background: #fff;
+                background: rgb(151, 149, 149);
                 padding-top: 40px;
-                padding-bottom: 56px;
-
-                .inner {
+                padding-bottom: 65px;
+               
+                .dropdown-wrapper {
+                    width: 100%;
                     display: flex;
-                    max-width: 1176px;
                     margin: 0 auto;             
                 }
 
@@ -50,24 +65,17 @@
                     font-size: .875rem;
                     color: #000;
                     line-height: 1.71;
-                    letter-spacing: normal;
-                    font-family: Santral W01;
                     font-weight: 400;
-                    font-style: normal;
                     margin-bottom: 8px;
                     font-weight: 600;
                 }
 
-                ul {
-                    list-style: none;
-
-                    li {
-                        font-family: Santral W01;
-                        font-weight: 300;
-                        font-style: normal;
-                        font-size: 1rem;
-                        line-height: 1.5;
-
+                .sub-menu {
+                    .sub-menu-item {
+                        &:hover {
+                            background-color: #ddd;
+                        }
+                      
                         a {
                             display: inline-block;
                             position: relative;
@@ -75,10 +83,12 @@
                             margin: 8px 0;
                         }
                     }
-
                 }
-
             }
+        } 
+        
+        .nav-menu:hover .sub-nav{
+            display: block;
         }
     }
 }

@@ -7,32 +7,36 @@ const Nav = () => {
   return (
     <>
       <div className="nav">
-        <ul>
-          <li>
+        <ul className="nav-menu">
+          <li className="nav-menu-item">
             <NavLink to="/jewelry" className={activeLink}>
-              Jewelry
+              <span>Jewelry</span>
             </NavLink>
           </li>
           <div className="sub-nav">
-            <div className="inner">
+            <div className="dropdown-wrapper">
               <div>
                 <h3>Shop by Category</h3>
-                <ul>
-                  <li>
-                    <NavLink to="">Necklace</NavLink>
-                    <span className="sub-nav-item">Necklace</span>
+                <ul className="sub-menu">
+                  <li className="sub-menu-item">
+                    <NavLink to="">
+                      <span className="sub-nav-item">Necklace</span>
+                    </NavLink>
                   </li>
                   <li>
-                    <NavLink to="">Necklace</NavLink>
-                    <span className="sub-nav-item">Eearrings</span>
+                    <NavLink to="">
+                      <span className="sub-nav-item">Eearrings</span>
+                    </NavLink>
                   </li>
                   <li>
-                    <NavLink to="">Necklace</NavLink>
-                    <span className="sub-nav-item">Rings</span>
+                    <NavLink to="">
+                      <span className="sub-nav-item">Rings</span>
+                    </NavLink>
                   </li>
                   <li>
-                    <NavLink to="">Necklace</NavLink>
-                    <span className="sub-nav-item">Bracelets</span>
+                    <NavLink to="">
+                      <span className="sub-nav-item">Bracelets</span>
+                    </NavLink>
                   </li>
                 </ul>
               </div>
@@ -40,33 +44,37 @@ const Nav = () => {
                 <h3>Shop by Material</h3>
                 <ul>
                   <li>
-                    <NavLink to="">All Pearls</NavLink>
-                    <span className="sub-nav-item">All Pearls</span>
+                    <NavLink to="">
+                      <span className="sub-nav-item">All Pearls</span>
+                    </NavLink>
                   </li>
                   <li>
-                    <NavLink to="">Diamonds</NavLink>
-                    <span className="sub-nav-item">Diamonds</span>
+                    <NavLink to="">
+                      <span className="sub-nav-item">Diamonds</span>
+                    </NavLink>
                   </li>
                   <li>
-                    <NavLink to="">Gold</NavLink>
-                    <span className="sub-nav-item">Gold</span>
+                    <NavLink to="">
+                      <span className="sub-nav-item">Gold</span>
+                    </NavLink>
                   </li>
                 </ul>
               </div>
             </div>
           </div>
 
-          <li>
+          <li className="nav-menu-item">
             <NavLink to="/men" className={activeLink}>
               Men's
             </NavLink>
           </li>
-          <li>
+
+          <li className="nav-menu-item">
             <NavLink to="/electronics" className={activeLink}>
               Electronics
             </NavLink>
           </li>
-          <li>
+          <li className="nav-menu-item">
             <NavLink to="/gift card" className={activeLink}>
               Gift Card
             </NavLink>

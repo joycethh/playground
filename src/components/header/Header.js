@@ -1,5 +1,5 @@
 import React, { useContext, useState, useRef, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, NavLink } from "react-router-dom";
 import { BiUser, BiSearch, BiMenuAltLeft } from "react-icons/bi";
 import {
   HiOutlineLightBulb,
@@ -24,27 +24,29 @@ const Header = () => {
 
   const totalQty = useSelector((state) => state.cart.totalQty);
 
-  // const headerRef = useRef();
+  const headerRef = useRef();
 
-  // const stickyHeader = () => {
-  //   window.addEventListener("scroll", () => {
-  //     if (
-  //       (document.body.scrollTop > 80 ||
-  //         document.documentElement.scrollTop > 80) &&
-  //       headerRef &&
-  //       headerRef.current
-  //     ) {
-  //       headerRef.current.classList.add("sticky-header");
-  //     } else {
-  //       headerRef.current.classList.remove("sticky-header");
-  //     }
-  //   });
-  // };
+  const activeLink = ({ isActive }) => (isActive ? "active" : null);
 
-  // useEffect(() => {
-  //   stickyHeader();
-  //   return () => window.removeEventListener("scroll", stickyHeader);
-  // });
+  const stickyHeader = () => {
+    window.addEventListener("scroll", () => {
+      if (
+        (document.body.scrollTop > 80 ||
+          document.documentElement.scrollTop > 80) &&
+        headerRef &&
+        headerRef.current
+      ) {
+        headerRef.current.classList.add("sticky-header");
+      } else {
+        headerRef.current.classList.remove("sticky-header");
+      }
+    });
+  };
+
+  useEffect(() => {
+    stickyHeader();
+    return () => window.removeEventListener("scroll", stickyHeader);
+  });
 
   const nativgate = useNavigate();
   // const dispatch = useDispatch();
@@ -64,8 +66,7 @@ const Header = () => {
   };
 
   return (
-    // <header className="header" ref={headerRef}>
-    <header className="header">
+    <header className="header" ref={headerRef}>
       <div className="navbar">
         <div className="logo">
           <Link to="/">
@@ -73,7 +74,23 @@ const Header = () => {
           </Link>
         </div>
 
-        <Nav />
+        <div className="nav">
+          <NavLink to="/jewelry" className={activeLink}>
+            <span>Jewelry</span>
+          </NavLink>
+
+          <NavLink to="/men" className={activeLink}>
+            Men's
+          </NavLink>
+
+          <NavLink to="/electronics" className={activeLink}>
+            Electronics
+          </NavLink>
+
+          <NavLink to="/gift card" className={activeLink}>
+            Gift Card
+          </NavLink>
+        </div>
 
         <div className="icons">
           {currentUser ? (
@@ -115,7 +132,21 @@ const Header = () => {
       <div className={openModal ? "modal display-block" : "modal display-none"}>
         <div className="modal-nav">
           <div className="modal-nav-wrapper" onClick={toggleModal}>
-            <Nav />
+            <NavLink to="/jewelry" className={activeLink}>
+              <span>Jewelry</span>
+            </NavLink>
+
+            <NavLink to="/men" className={activeLink}>
+              Men's
+            </NavLink>
+
+            <NavLink to="/electronics" className={activeLink}>
+              Electronics
+            </NavLink>
+
+            <NavLink to="/gift card" className={activeLink}>
+              Gift Card
+            </NavLink>
           </div>
         </div>
       </div>

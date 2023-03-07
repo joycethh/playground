@@ -61,7 +61,6 @@ const Nav = () => {
               Men's
             </NavLink>
           </li>
-
           <li>
             <NavLink to="/electronics" className={activeLink}>
               Electronics

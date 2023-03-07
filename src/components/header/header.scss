@@ -27,37 +27,37 @@
                 }       
             }
 
-            .nav {
-                display: flex;
-                align-items: center;
-                gap: 20px;
+            // .nav {
+            //     display: flex;
+            //     align-items: center;
+            //     gap: 20px;
 
-                a {
-                font-weight: 500;
-                font-size: 0.8rem;
-                text-decoration: none;
-                color: themed('textColor');
-                cursor: pointer;
-                padding: 5px;
+            //     a {
+            //     font-weight: 500;
+            //     font-size: 0.8rem;
+            //     text-decoration: none;
+            //     color: themed('textColor');
+            //     cursor: pointer;
+            //     padding: 5px;
        
 
-                &:hover {
-                    color: themed('highlight');
-                }
-                &.active {
-                    border-bottom: 2px solid themed('highlight');
-                  }
-                }
+            //     &:hover {
+            //         color: themed('highlight');
+            //     }
+            //     &.active {
+            //         border-bottom: 2px solid themed('highlight');
+            //       }
+            //     }
 
-                @include mobile{
-                    display: none;
-                }
+            //     @include mobile{
+            //         display: none;
+            //     }
 
-                @include tablet{
-                    width: 200px;
-                }
+            //     @include tablet{
+            //         width: 200px;
+            //     }
     
-            }
+            // }
 
             .icons{
                 display: flex;

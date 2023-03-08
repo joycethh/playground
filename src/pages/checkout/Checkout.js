@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Input from "../../components/input/Input";
 import "./checkout.scss";
-import necklace from "../../assets/necklace.png";
+import necklace from "../../assets/jewelry.jpg";
 import { FcCustomerSupport } from "react-icons/fc";
 import { Link } from "react-router-dom";
 const Checkout = () => {

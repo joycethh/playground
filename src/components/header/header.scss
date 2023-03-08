@@ -127,6 +127,7 @@
         }
 
         .modal-nav{
+            display: none;
             position: block;
             top: 60px;
             left: 0;
@@ -135,6 +136,14 @@
             z-index: 999;
             transition: all 0.3s;
             cursor: pointer;
+
+            @include mobile {
+                display: block;
+            }
+
+            @include tablet {
+                display: block;
+            }
     
             .modal-nav-wrapper {
                 display: flex;

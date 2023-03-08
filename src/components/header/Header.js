@@ -15,7 +15,6 @@ import "./header.scss";
 
 import { useSelector } from "react-redux";
 import { useAuth } from "../../customHooks/useAuth";
-import Nav from "./Nav";
 
 const Header = () => {
   const { toggle, isDarkMode } = useContext(DarkModeContext);

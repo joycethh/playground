@@ -18,9 +18,15 @@
             .option-wrapper {
                 display: flex;
                 border: 1px solid red;
-             
+                position: relative;
                 cursor: pointer;
                 align-items: center;
+
+                &:hover {
+                    .selectBody {
+                        display: block;
+                    }
+                }
 
                 //use btn here
                 .optionHeader-btn {
@@ -31,6 +37,13 @@
                     display: flex;
                     align-items: center;
                     cursor: pointer;
+
+                    &:hover  {
+                        color: blue;
+                        .selectBody {
+                            display: block;
+                        }
+                    }
 
                     svg {
                         font-size: 2rem;
@@ -62,7 +75,7 @@
                     background: themed('bgSoft');     
                     border: 1px solid themed('border');
                     position: absolute;
-                    top: 4.8rem;
+                    top: 2rem;
                     z-index: 4;
 
                     .select-wrapper {
@@ -85,9 +98,9 @@
                     }
                 }
 
-                .show {
-                    display: flex;
-                } 
+                // .show {
+                //     display: flex;
+                // } 
             }
         }
 

@@ -1,10 +1,9 @@
-import React, { useState, useRef } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useRef, useEffect } from "react";
 import CommonSection from "../../components/ui/CommonSection";
 import Badge from "../../components/badge/Badge";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import "./shop.scss";
-import { useOnHoverOutside } from "../../customHooks/useOnHoverOutside";
+
 import { menuItems } from "./menuItems";
 import Dropdown from "./Dropdown";
 
@@ -12,11 +11,24 @@ const Shop = () => {
   const dropdownRef = useRef(null);
   const [isMenuDropDownOpen, setMenuDropDownOpen] = useState(false);
 
-  const closeHoverMenu = () => {
-    setMenuDropDownOpen(false);
-  };
+  useEffect(() => {
+    const handler = (event) => {
+      if (
+        isMenuDropDownOpen &&
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target)
+      ) {
+        setMenuDropDownOpen(false);
+      }
+    };
 
-  useOnHoverOutside(dropdownRef, closeHoverMenu);
+    document.addEventListener("mouseover", handler);
+    document.addEventListener("touchstart", handler);
+    return () => {
+      document.removeEventListener("mouseout", handler);
+      document.removeEventListener("touchstart", handler);
+    };
+  }, [isMenuDropDownOpen]);
 
   return (
     <Badge title="shop">
@@ -25,22 +37,19 @@ const Shop = () => {
         <div className="filterSection-container">
           <div className="filterSection-wrapper">
             {menuItems.map((item, idx) => (
-              <div className="options-container" key={idx}>
-                <div className="option-wrapper">
-                  <button
-                    className="optionHeader-btn"
-                    aria-expanded={isMenuDropDownOpen ? "true" : "false"}
-                    onMouseOver={() => setMenuDropDownOpen((prev) => !prev)}
-                  >
-                    {item.title}
-                    <RiArrowDropDownLine />
-                  </button>
-                  {/* dropdown Menu body */}
-                  <Dropdown
-                    submenu={item.submenu}
-                    isMenuDropDownOpen={isMenuDropDownOpen}
-                  />
-                </div>
+              <div className="option-wrapper" key={idx} ref={dropdownRef}>
+                <button
+                  className="optionHeader-btn"
+                  onMouseOver={() => setMenuDropDownOpen((prev) => !prev)}
+                >
+                  {item.title}
+                  <RiArrowDropDownLine />
+                </button>
+                {/* dropdown Menu body */}
+                <Dropdown
+                  submenu={item.submenu}
+                  isMenuDropDownOpen={isMenuDropDownOpen}
+                />
               </div>
             ))}
 

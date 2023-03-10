@@ -22,10 +22,10 @@ const Shop = () => {
       }
     };
 
-    document.addEventListener("mouseover", handler);
+    document.addEventListener("mousedown", handler);
     document.addEventListener("touchstart", handler);
     return () => {
-      document.removeEventListener("mouseout", handler);
+      document.removeEventListener("mousedown", handler);
       document.removeEventListener("touchstart", handler);
     };
   }, [isMenuDropDownOpen]);
@@ -37,7 +37,7 @@ const Shop = () => {
         <div className="filterSection-container">
           <div className="filterSection-wrapper">
             {menuItems.map((item, idx) => (
-              <div className="option-wrapper" key={idx}>
+              <div className="option-wrapper" key={idx} ref={dropdownRef}>
                 <button
                   className="optionHeader-btn"
                   onClick={() => setMenuDropDownOpen((prev) => !prev)}

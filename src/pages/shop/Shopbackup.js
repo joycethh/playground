@@ -5,7 +5,6 @@ import Badge from "../../components/badge/Badge";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import "./shop.scss";
 import { useOnHoverOutside } from "../../customHooks/useOnHoverOutside";
-import { menuItems } from "./menuItems";
 
 const Shop = () => {
   const dropdownRef = useRef(null);
@@ -23,28 +22,37 @@ const Shop = () => {
       <section>
         <div className="filterSection-container">
           <div className="filterSection-wrapper">
-            {menuItems.map((item, idx) => (
-              <div className="options-container" key={idx}>
-                <div className="option-wrapper">
-                  <button
-                    className="optionHeader-btn"
+            <div className="options-container">
+              <div
+                id="productType"
+                className="option-wrapper"
+                ref={dropdownRef}
+              >
+                <div className="optionHeader">Product Type</div>
+                <div className="icon-wrapper">
+                  <RiArrowDropDownLine
                     onMouseOver={() => setMenuDropDownOpen(true)}
-                  >
-                    {item.title}
-                    <RiArrowDropDownLine />
-                  </button>
-                  {/* dropdown Menu body */}
-                  <div className="selectBody">
-                    {item.submenu?.map((subItem, idx) => (
-                      <div className="select-wrapper" key={idx}>
-                        <Link to={subItem.url}>{subItem.title}</Link>
-                      </div>
-                    ))}
-                  </div>
+                  />
                 </div>
-              </div>
-            ))}
+                {isMenuDropDownOpen && (
+                  <div className="selectBody">
+                    <div className="select-wrapper">
+                      <Link to="/jewelry">Jewelry</Link>
+                    </div>
+                    <div className="select-wrapper">
+                      <Link to="/electronic">electronic</Link>
+                    </div>
 
+                    <div className="select-wrapper">
+                      <Link to="/men">Men</Link>
+                    </div>
+                    <div className="select-wrapper">
+                      <Link to="/women">Women</Link>
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
             <div className="sort-container">sort section</div>
           </div>
         </div>

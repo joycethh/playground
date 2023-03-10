@@ -37,10 +37,10 @@ const Shop = () => {
         <div className="filterSection-container">
           <div className="filterSection-wrapper">
             {menuItems.map((item, idx) => (
-              <div className="option-wrapper" key={idx} ref={dropdownRef}>
+              <div className="option-wrapper" key={idx}>
                 <button
                   className="optionHeader-btn"
-                  onMouseOver={() => setMenuDropDownOpen((prev) => !prev)}
+                  onClick={() => setMenuDropDownOpen((prev) => !prev)}
                 >
                   {item.title}
                   <RiArrowDropDownLine />

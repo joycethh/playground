@@ -8,27 +8,27 @@ import { menuItems } from "./menuItems";
 import Dropdown from "./Dropdown";
 
 const Shop = () => {
-  const dropdownRef = useRef(null);
-  const [isMenuDropDownOpen, setMenuDropDownOpen] = useState(false);
+  // const dropdownRef = useRef(null);
+  // const [isMenuDropDownOpen, setMenuDropDownOpen] = useState(false);
 
-  useEffect(() => {
-    const handler = (event) => {
-      if (
-        isMenuDropDownOpen &&
-        dropdownRef.current &&
-        !dropdownRef.current.contains(event.target)
-      ) {
-        setMenuDropDownOpen(false);
-      }
-    };
+  // useEffect(() => {
+  //   const handler = (event) => {
+  //     if (
+  //       isMenuDropDownOpen &&
+  //       dropdownRef.current &&
+  //       !dropdownRef.current.contains(event.target)
+  //     ) {
+  //       setMenuDropDownOpen(false);
+  //     }
+  //   };
 
-    document.addEventListener("mouseover", handler);
-    // document.addEventListener("touchstart", handler);
-    return () => {
-      document.removeEventListener("mouseout", handler);
-      // document.removeEventListener("touchstart", handler);
-    };
-  }, [isMenuDropDownOpen]);
+  //   document.addEventListener("mouseover", handler);
+  //   // document.addEventListener("touchstart", handler);
+  //   return () => {
+  //     document.removeEventListener("mouseout", handler);
+  //     // document.removeEventListener("touchstart", handler);
+  //   };
+  // }, [isMenuDropDownOpen]);
 
   return (
     <Badge title="shop">
@@ -40,7 +40,7 @@ const Shop = () => {
               <div className="option-wrapper" key={idx}>
                 <button
                   className="optionHeader-btn"
-                  onMouseOver={() => setMenuDropDownOpen(true)}
+                  // onMouseOver={() => setMenuDropDownOpen(true)}
                 >
                   {item.title}
                   <RiArrowDropDownLine />
@@ -48,7 +48,7 @@ const Shop = () => {
                 {/* dropdown Menu body */}
                 <Dropdown
                   submenu={item.submenu}
-                  isMenuDropDownOpen={isMenuDropDownOpen}
+                  // isMenuDropDownOpen={isMenuDropDownOpen}
                 />
               </div>
             ))}

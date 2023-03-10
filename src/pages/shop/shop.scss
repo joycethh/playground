@@ -21,6 +21,8 @@
                 position: relative;
                 cursor: pointer;
                 align-items: center;
+                
+                //this works
 
                 &:hover {
                     .selectBody {
@@ -38,12 +40,13 @@
                     align-items: center;
                     cursor: pointer;
 
-                    &:hover  {
-                        color: blue;
-                        .selectBody {
-                            display: block;
-                        }
-                    }
+                    //this works
+                    // &:hover  {
+                    //     color: blue;
+                    //     .selectBody {
+                    //         display: block;
+                    //     }
+                    // }
 
                     svg {
                         font-size: 2rem;
@@ -99,7 +102,7 @@
                 }
 
                 // .show {
-                //     display: flex;
+                //     display: block;
                 // } 
             }
         }

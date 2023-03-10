@@ -6,36 +6,29 @@ import "./shop.scss";
 
 import { menuItems } from "./menuItems";
 import Dropdown from "./Dropdown";
-import { useOnHoverOutside } from "../../customHooks/useOnHoverOutside";
 
 const Shop = () => {
   const dropdownRef = useRef(null);
   const [isMenuDropDownOpen, setMenuDropDownOpen] = useState(false);
 
-  const closeHoverMenu = () => {
-    setMenuDropDownOpen(false);
-  };
+  useEffect(() => {
+    const handler = (event) => {
+      if (
+        isMenuDropDownOpen &&
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target)
+      ) {
+        setMenuDropDownOpen(false);
+      }
+    };
 
-  useOnHoverOutside(dropdownRef, closeHoverMenu);
-
-  // useEffect(() => {
-  //   const handler = (event) => {
-  //     if (
-  //       isMenuDropDownOpen &&
-  //       dropdownRef.current &&
-  //       !dropdownRef.current.contains(event.target)
-  //     ) {
-  //       setMenuDropDownOpen(false);
-  //     }
-  //   };
-
-  //   document.addEventListener("mouseover", handler);
-  //   // document.addEventListener("touchstart", handler);
-  //   return () => {
-  //     document.removeEventListener("mousedout", handler);
-  //     // document.removeEventListener("touchstart", handler);
-  //   };
-  // }, [isMenuDropDownOpen]);
+    document.addEventListener("mouseover", handler);
+    // document.addEventListener("touchstart", handler);
+    return () => {
+      document.removeEventListener("mouseout", handler);
+      // document.removeEventListener("touchstart", handler);
+    };
+  }, [isMenuDropDownOpen]);
 
   return (
     <Badge title="shop">

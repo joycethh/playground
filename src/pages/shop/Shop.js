@@ -1,35 +1,12 @@
-import React, { useState, useRef, useEffect } from "react";
+import React from "react";
 import CommonSection from "../../components/ui/CommonSection";
 import Badge from "../../components/badge/Badge";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import "./shop.scss";
-
 import { menuItems } from "./menuItems";
 import Dropdown from "./Dropdown";
 
 const Shop = () => {
-  // const dropdownRef = useRef(null);
-  // const [isMenuDropDownOpen, setMenuDropDownOpen] = useState(false);
-
-  // useEffect(() => {
-  //   const handler = (event) => {
-  //     if (
-  //       isMenuDropDownOpen &&
-  //       dropdownRef.current &&
-  //       !dropdownRef.current.contains(event.target)
-  //     ) {
-  //       setMenuDropDownOpen(false);
-  //     }
-  //   };
-
-  //   document.addEventListener("mouseover", handler);
-  //   // document.addEventListener("touchstart", handler);
-  //   return () => {
-  //     document.removeEventListener("mouseout", handler);
-  //     // document.removeEventListener("touchstart", handler);
-  //   };
-  // }, [isMenuDropDownOpen]);
-
   return (
     <Badge title="shop">
       <CommonSection title="product" />
@@ -38,21 +15,13 @@ const Shop = () => {
           <div className="filterSection-wrapper">
             {menuItems.map((item, idx) => (
               <div className="option-wrapper" key={idx}>
-                <button
-                  className="optionHeader-btn"
-                  // onMouseOver={() => setMenuDropDownOpen(true)}
-                >
+                <button className="optionHeader-btn">
                   {item.title}
                   <RiArrowDropDownLine />
                 </button>
-                {/* dropdown Menu body */}
-                <Dropdown
-                  submenu={item.submenu}
-                  // isMenuDropDownOpen={isMenuDropDownOpen}
-                />
+                <Dropdown submenu={item.submenu} />
               </div>
             ))}
-
             <div className="sort-container">sort section</div>
           </div>
         </div>

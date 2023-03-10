@@ -5,7 +5,6 @@
     flex-direction: row;
     min-height: 6.8rem;
     height: auto;
-    background-color: beige;
     position: relative;
    
     @include themify($themes) {
@@ -17,13 +16,11 @@
 
             .option-wrapper {
                 display: flex;
-                border: 1px solid red;
                 position: relative;
                 cursor: pointer;
                 align-items: center;
                 
                 //this works
-
                 &:hover {
                     .selectBody {
                         display: block;
@@ -33,6 +30,7 @@
                 //use btn here
                 .optionHeader-btn {
                     border: 0;
+                    background-color: #fff;
                     text-transform: uppercase;
                     letter-spacing: 0.06rem;
                     font-size: 1rem;
@@ -40,36 +38,11 @@
                     align-items: center;
                     cursor: pointer;
 
-                    //this works
-                    // &:hover  {
-                    //     color: blue;
-                    //     .selectBody {
-                    //         display: block;
-                    //     }
-                    // }
-
                     svg {
                         font-size: 2rem;
                     }
 
                 }
-                
-                // .optionHeader {
-                //     text-transform: uppercase;
-                //     letter-spacing: 0.06rem;  
-                //     font-weight: 400;
-                //     font-size: 1rem;
-                   
-                // }
-
-                // .icon-wrapper {
-                //     display: flex;
-                //     justify-content: center;
-                    
-                //     svg {
-                //         font-size: 2rem;
-                //     }
-                // }
 
                 .selectBody {
                     display: none; 
@@ -100,10 +73,6 @@
                         }
                     }
                 }
-
-                // .show {
-                //     display: block;
-                // } 
             }
         }
 

@@ -37,7 +37,7 @@ export const menuItems = [
     ],
   },
   {
-    title: "Gemstone",
+    title: "Gem stone",
     url: "/",
     submenu: [
       {

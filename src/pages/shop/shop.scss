@@ -3,11 +3,22 @@
 .filterSection-container {
     display: flex;
     flex-direction: row;
-    min-height: 6.8rem;
+    min-height: 6rem;
     height: auto;
     position: relative;
+    margin: 0 3rem;
+
    
     @include themify($themes) {
+        .filterBy-wrapper {
+            display: flex;
+            font-size: 0.8rem;
+            align-items: center;
+            width: 6rem;
+            color: themed('textColorSoft');
+            padding-left: 1rem;
+
+        }
         .filterSection-wrapper {
             display: flex;
             margin: auto 7.6rem;

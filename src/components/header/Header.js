@@ -74,21 +74,20 @@ const Header = () => {
         </div>
 
         <div className="nav">
+          <NavLink to="/home" className={activeLink}>
+            <span>Home</span>
+          </NavLink>
           <NavLink to="/shop" className={activeLink}>
             <span>Shop</span>
           </NavLink>
 
-          <NavLink to="/jewelry" className={activeLink}>
-            Jewelry
-          </NavLink>
-
-          <NavLink to="/electronics" className={activeLink}>
+          {/* <NavLink to="/electronics" className={activeLink}>
             Electronics
           </NavLink>
 
           <NavLink to="/cloth" className={activeLink}>
             Cloth
-          </NavLink>
+          </NavLink> */}
         </div>
 
         <div className="icons">
@@ -131,21 +130,20 @@ const Header = () => {
       <div className={openModal ? "modal display-block" : "modal display-none"}>
         <div className="modal-nav">
           <div className="modal-nav-wrapper" onClick={toggleModal}>
-            <NavLink to="/jewelry" className={activeLink}>
-              <span>Jewelry</span>
+            <NavLink to="/home" className={activeLink}>
+              <span>Home</span>
+            </NavLink>
+            <NavLink to="/shop" className={activeLink}>
+              <span>Shop</span>
             </NavLink>
 
-            <NavLink to="/men" className={activeLink}>
-              Men's
-            </NavLink>
+            {/* <NavLink to="/electronics" className={activeLink}>
+            Electronics
+          </NavLink>
 
-            <NavLink to="/electronics" className={activeLink}>
-              Electronics
-            </NavLink>
-
-            <NavLink to="/gift card" className={activeLink}>
-              Gift Card
-            </NavLink>
+          <NavLink to="/cloth" className={activeLink}>
+            Cloth
+          </NavLink> */}
           </div>
         </div>
       </div>

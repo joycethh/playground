@@ -23,13 +23,17 @@
 
 
     .product-item-col {
-        color: thmed('textColor');
-        border: 1px solid themed('border');
-        box-shadow: 1px 1px 1px 0px rgba(176,168,168,0.72);
+        color: themed('textColor');
         
         .product-card-wrapper {
             width: 20rem;
             box-sizing: content-box;
+            border: 1px solid themed('border');
+            box-shadow: 1px 1px 1px 0px rgba(176,168,168,0.72);
+            &:hover {
+                transition: height .4s ease-in-out;
+                box-shadow: 2px 2px 2px 0px rgba(110, 119, 131, 0.72);
+            }
           
 
             .product-img-wrapper{
@@ -52,9 +56,11 @@
 
        
         .product-info-wrapper{
-            padding: 0 2rem;
-        
-        
+            padding: 0 2rem;        
+        .product-name {
+            max-height: 140px;
+            height: 140px;
+        }
             h3 {
                 font-size: 1.2rem;
                 color: themed('textColor');
@@ -83,6 +89,9 @@
                  font-weight: 500;
                  font-size: 1.1rem;
                 padding: 5px;
+                &:hover {
+                    color: themed('highlight')
+                }
                 
             }
         }

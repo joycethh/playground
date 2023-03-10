@@ -6,6 +6,7 @@ import { RiArrowDropDownLine } from "react-icons/ri";
 import "./shop.scss";
 import { useOnHoverOutside } from "../../customHooks/useOnHoverOutside";
 import { menuItems } from "./menuItems";
+import Dropdown from "./Dropdown";
 
 const Shop = () => {
   const dropdownRef = useRef(null);
@@ -28,19 +29,17 @@ const Shop = () => {
                 <div className="option-wrapper">
                   <button
                     className="optionHeader-btn"
-                    onMouseOver={() => setMenuDropDownOpen(true)}
+                    aria-expanded={isMenuDropDownOpen ? "true" : "false"}
+                    onMouseOver={() => setMenuDropDownOpen((prev) => !prev)}
                   >
                     {item.title}
                     <RiArrowDropDownLine />
                   </button>
                   {/* dropdown Menu body */}
-                  <div className="selectBody">
-                    {item.submenu?.map((subItem, idx) => (
-                      <div className="select-wrapper" key={idx}>
-                        <Link to={subItem.url}>{subItem.title}</Link>
-                      </div>
-                    ))}
-                  </div>
+                  <Dropdown
+                    submenu={item.submenu}
+                    isMenuDropDownOpen={isMenuDropDownOpen}
+                  />
                 </div>
               </div>
             ))}

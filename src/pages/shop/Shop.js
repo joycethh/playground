@@ -6,29 +6,36 @@ import "./shop.scss";
 
 import { menuItems } from "./menuItems";
 import Dropdown from "./Dropdown";
+import { useOnHoverOutside } from "../../customHooks/useOnHoverOutside";
 
 const Shop = () => {
   const dropdownRef = useRef(null);
   const [isMenuDropDownOpen, setMenuDropDownOpen] = useState(false);
 
-  useEffect(() => {
-    const handler = (event) => {
-      if (
-        isMenuDropDownOpen &&
-        dropdownRef.current &&
-        !dropdownRef.current.contains(event.target)
-      ) {
-        setMenuDropDownOpen(false);
-      }
-    };
+  const closeHoverMenu = () => {
+    setMenuDropDownOpen(false);
+  };
 
-    document.addEventListener("mousedown", handler);
-    document.addEventListener("touchstart", handler);
-    return () => {
-      document.removeEventListener("mousedown", handler);
-      document.removeEventListener("touchstart", handler);
-    };
-  }, [isMenuDropDownOpen]);
+  useOnHoverOutside(dropdownRef, closeHoverMenu);
+
+  // useEffect(() => {
+  //   const handler = (event) => {
+  //     if (
+  //       isMenuDropDownOpen &&
+  //       dropdownRef.current &&
+  //       !dropdownRef.current.contains(event.target)
+  //     ) {
+  //       setMenuDropDownOpen(false);
+  //     }
+  //   };
+
+  //   document.addEventListener("mouseover", handler);
+  //   // document.addEventListener("touchstart", handler);
+  //   return () => {
+  //     document.removeEventListener("mousedout", handler);
+  //     // document.removeEventListener("touchstart", handler);
+  //   };
+  // }, [isMenuDropDownOpen]);
 
   return (
     <Badge title="shop">
@@ -40,7 +47,7 @@ const Shop = () => {
               <div className="option-wrapper" key={idx} ref={dropdownRef}>
                 <button
                   className="optionHeader-btn"
-                  onClick={() => setMenuDropDownOpen((prev) => !prev)}
+                  onMouseOver={() => setMenuDropDownOpen(true)}
                 >
                   {item.title}
                   <RiArrowDropDownLine />

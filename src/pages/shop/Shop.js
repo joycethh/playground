@@ -23,20 +23,38 @@ const Shop = () => {
   return (
     <Badge title="shop">
       <CommonSection title="product" />
-      <section>
+      <section className="filter-section">
         <div className="filterSection-container">
           <div className="filterBy-wrapper">Filter By:</div>
-          <div className="filterSection-wrapper">
-            {menuItems.map((item, idx) => (
-              <div className="option-wrapper" key={idx}>
-                <button className="optionHeader-btn">
-                  {item.title}
-                  <RiArrowDropDownLine />
-                </button>
-                <Dropdown submenu={item.submenu} />
-              </div>
-            ))}
-            <div className="sort-container">sort section</div>
+          <div className="filterOption-wrapper">
+            <div className="select-wrapper">
+              <select>
+                <option> Product Type</option>
+                <option value="jewelery">jewelery</option>
+                <option value="electronics">electronics</option>
+                <option value="clothes">clothes</option>
+              </select>
+            </div>
+
+            <div className="select-wrapper">
+              <select>
+                <option> Material</option>
+                <option value="diamond">diamond</option>
+                <option value="silver">silver</option>
+                <option value="fabric">fabric</option>
+              </select>
+            </div>
+
+            <div className="select-wrapper">
+              <select>
+                <option>color</option>
+                <option value="">purple</option>
+              </select>
+            </div>
+          </div>
+
+          <div className="search-wrapper">
+            <input placeholder="Search..." />
           </div>
         </div>
       </section>

@@ -1,15 +1,16 @@
 @import "../../style.scss";
 
-.filterSection-container {
-    display: flex;
-    flex-direction: row;
-    min-height: 6rem;
-    height: auto;
-    position: relative;
-    margin: 0 3rem;
-
-   
+.filter-section {
     @include themify($themes) {
+    .filterSection-container {
+        display: flex;
+        flex-direction: row;
+        min-height: 6rem;
+        height: auto;
+        position: relative;
+        margin: 0 3rem;
+        align-items: center;
+
         .filterBy-wrapper {
             display: flex;
             font-size: 0.8rem;
@@ -17,86 +18,59 @@
             width: 6rem;
             color: themed('textColorSoft');
             padding-left: 1rem;
-
         }
-        .filterSection-wrapper {
+        .filterOption-wrapper {
             display: flex;
-            margin: auto 7.6rem;
-            justify-content: space-between;
-            width: 100%;
+            column-gap: 3rem;
+            align-items: center;
+           
 
-            @include mobile {
-                flex-direction: column;
-                margin: 0.5rem;
+            .select-wrapper {
+                min-width: 15rem;
+                position: relative;
+
+                select {
+                    text-transform: capitalize;
+                    padding: 0.5rem 1.2rem;
+                    border: 0;
+                    cursor: pointer;
+                    border-radius: 5px;
+
+
+                    &:focus {
+                        outline: none;
+                    }
+
+                    option {
+                        font-size: 0.9rem;
+
+                        &:first-child {
+                            text-transform: uppercase;
+                        }
+                    }
+
+                }
             }
 
-            .option-wrapper {
+            .search-wrapper {
+                width: 100%;
                 display: flex;
-                position: relative;
-                cursor: pointer;
                 align-items: center;
+                justify-content: center;
+                border: 1px solid themed('border');
+                border-radius: 5px;
 
-             
-                
-                //this works
-                &:hover {
-                    .selectBody {
-                        display: block;
-                    }
-                }
-
-                //use btn here
-                .optionHeader-btn {
+                input {
+                    width: 100%;
                     border: 0;
-                    background-color: #fff;
-                    text-transform: uppercase;
-                    letter-spacing: 0.06rem;
-                    font-size: 1rem;
-                    display: flex;
-                    align-items: center;
-                    cursor: pointer;
-
-                    @include mobile {
-                       width: 100%;
-                    }
-
-                    svg {
-                        font-size: 2rem;
-                    }
-
-                }
-
-                .selectBody {
-                    display: none; 
-                    flex-direction: column;
-                    row-gap: 0.5rem;
-                    background: themed('bgSoft');     
-                    border: 1px solid themed('border');
-                    position: absolute;
-                    top: 2rem;
-                    z-index: 4;
-
-                    .select-wrapper {
-                        min-width: 12rem;
-                        font-weight: 400;
-                        font-size: 1rem;
-                        text-transform: capitalize;
-                        cursor: pointer;
-                        display: flex;
-                        line-height: 2rem;
-                        padding: 0.5rem;
-                        &:hover {
-                            background-color: themed('border');
-                        }
-
-                        a {
-                            text-decoration: none;
-                            color: themed('textColor');    
-                        }
-                    }
+                    padding: 1rem 1.2rem;
+                    outline: none;
                 }
             }
         }
-
     }
+
+}
+
+
 }

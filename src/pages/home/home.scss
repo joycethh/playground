@@ -1,101 +1,102 @@
 @import "../../style.scss";
 
-section {
+main{
     @include themify($themes) {
-   
-        .banner-wrapper {
-            position: relative;
-        
-        
-            img {
-                width: 100%;
-                height: auto;
-                object-fit: cover; 
-                
-                @include mobile {
-                    height: 400px;
+        .hero-section {
+            .banner-wrapper {
+                position: relative;
+            
+            
+                img {
                     width: 100%;
-                }
-            }
-
-            .caption {
-                display: block;
-                position: absolute;
-                top: 15%;
-                left: 10%;
-                width: 40%;
-
-                @include mobile {
-                    width: 50%;
-                }
-
-                span{
-                    font-size: 1rem;
-
-                    @include mobile {
-                        font-size: 0.8rem;
-                    }
-                }
-
-                h2 {
-                    display: block;
-                    margin-top: 10px;
-                    font-size: 2.5rem;
-                    font-weight: 500;
-                    text-transform: capitalize;
-
-                    @include tablet {
-                       font-size: 1.1rem;
-                    }  
+                    height: auto;
+                    object-fit: cover; 
                     
                     @include mobile {
-                        font-size: 1.1rem;
-                    }
-                }
-
-                p {
-                    font-size: 1.1rem;
-                    padding-top: 1rem;
-
-                    @include tablet {
-                        font-size: 0.9rem;
-                    }
-
-                    @include mobile {
-                        font-size: 0.9rem;
-                    }
-                    
-                }
-
-                .shop-now {
-                    padding-top: 2rem;;
-                    width: 60%;
-                   
-                    button {
-                        border: none;
-                        background-color: themed('highlight');
-                        border-radius: 8px;
-                        padding: 1rem;
+                        height: 400px;
                         width: 100%;
-                        text-transform: uppercase;
-                        font-weight: bold;
-                        transition: all .2s ease-in-out;
-                        cursor: pointer;
-
-                        &:hover {
-                            background-color: themed('logo')
-                        }
-                      
-                        a {
-                            text-decoration: none;
-                            color: themed('textColor')    
-                        }
                     }
                 }
-
+    
+                .caption {
+                    display: block;
+                    position: absolute;
+                    top: 15%;
+                    left: 10%;
+                    width: 40%;
+    
+                    @include mobile {
+                        width: 50%;
+                    }
+    
+                    span{
+                        font-size: 1rem;
+    
+                        @include mobile {
+                            font-size: 0.8rem;
+                        }
+                    }
+    
+                    h2 {
+                        display: block;
+                        margin-top: 10px;
+                        font-size: 2.5rem;
+                        font-weight: 500;
+                        text-transform: capitalize;
+    
+                        @include tablet {
+                           font-size: 1.1rem;
+                        }  
+                        
+                        @include mobile {
+                            font-size: 1.1rem;
+                        }
+                    }
+    
+                    p {
+                        font-size: 1.1rem;
+                        padding-top: 1rem;
+    
+                        @include tablet {
+                            font-size: 0.9rem;
+                        }
+    
+                        @include mobile {
+                            font-size: 0.9rem;
+                        }
+                        
+                    }
+    
+                    .shop-now {
+                        padding-top: 2rem;;
+                        width: 60%;
+                       
+                        button {
+                            border: none;
+                            background-color: themed('highlight');
+                            border-radius: 8px;
+                            padding: 1rem;
+                            width: 100%;
+                            text-transform: uppercase;
+                            font-weight: bold;
+                            transition: all .2s ease-in-out;
+                            cursor: pointer;
+    
+                            &:hover {
+                                background-color: themed('logo')
+                            }
+                          
+                            a {
+                                text-decoration: none;
+                                color: themed('textColor')    
+                            }
+                        }
+                    }
+    
+                }
+    
+               
             }
-
-           
         }
         
     }

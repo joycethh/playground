@@ -25,32 +25,38 @@
             align-items: center;
            
 
-            .select-wrapper {
+            .select-wrapper{
                 min-width: 15rem;
-                position: relative;
-
-                select {
-                    text-transform: capitalize;
-                    padding: 0.5rem 1.2rem;
-                    border: 0;
-                    cursor: pointer;
-                    border-radius: 5px;
-
-
-                    &:focus {
-                        outline: none;
-                    }
-
-                    option {
-                        font-size: 0.9rem;
-
-                        &:first-child {
-                            text-transform: uppercase;
-                        }
-                    }
-
-                }
+                position: relative;  
             }
+            .sort-wrapper {
+                min-width: 15rem;
+                position: relative; 
+            }
+
+            select {
+                text-transform: capitalize;
+                padding: 0.5rem 1.2rem;
+                border: 0;
+                cursor: pointer;
+                border-radius: 5px;
+
+
+                &:focus {
+                    outline: none;
+                }
+
+                option {
+                    font-size: 0.9rem;
+
+                    &:first-child {
+                        text-transform: uppercase;
+                    }
+                }
+
+            }
+
+         
 
             .search-wrapper {
                 width: 100%;

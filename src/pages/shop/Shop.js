@@ -17,6 +17,7 @@ const Shop = () => {
       .then((res) => res.json())
       .then((json) => setApiData(json));
   }, []);
+  console.log("apiData", apiData);
 
   const handleFilter = (e) => {
     const filterVal = e.target.value;
@@ -50,6 +51,15 @@ const Shop = () => {
     }
   };
 
+  const handleSearch = (e) => {
+    const searchVal = e.target.value;
+
+    const searchedItem = apiData.filter((item) =>
+      item.title.toLowerCase().includes(searchVal.toLowerCase())
+    );
+
+    setFilterData(searchedItem);
+  };
   return (
     <Badge title="shop">
       <CommonSection title="product" />
@@ -67,21 +77,13 @@ const Shop = () => {
               </select>
             </div>
 
-            {/* <div className="select-wrapper">
+            <div className="sort-wrapper">
               <select onChange={handleFilter}>
-                <option> Material</option>
                 <option value="diamond">diamond</option>
                 <option value="silver">silver</option>
                 <option value="fabric">fabric</option>
               </select>
             </div>
-
-            <div className="select-wrapper">
-              <select onChange={handleFilter}>
-                <option>color</option>
-                <option value="">purple</option>
-              </select>
-            </div> */}
           </div>
 
           <div className="search-wrapper">

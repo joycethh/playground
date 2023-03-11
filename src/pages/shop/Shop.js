@@ -10,6 +10,7 @@ import ProductCard from "../../components/ui/ProductCard";
 
 const Shop = () => {
   const [apiData, setApiData] = useState();
+  const [filterData, setFilterData] = useState();
 
   useEffect(() => {
     fetch("https://fakestoreapi.com/products")
@@ -17,8 +18,37 @@ const Shop = () => {
       .then((json) => setApiData(json));
   }, []);
 
-  const filltered =
-    apiData && apiData.filter((item) => item.category === "jewelery");
+  const handleFilter = (e) => {
+    const filterVal = e.target.value;
+    if (filterVal === "jewelery") {
+      const filltered =
+        apiData && apiData.filter((item) => item.category === "jewelery");
+
+      setFilterData(filltered);
+    }
+
+    if (filterVal === "electronics") {
+      const filltered =
+        apiData && apiData.filter((item) => item.category === "electronics");
+
+      setFilterData(filltered);
+    }
+
+    if (filterVal === "women's clothing") {
+      const filltered =
+        apiData &&
+        apiData.filter((item) => item.category === `women's clothing`);
+
+      setFilterData(filltered);
+    }
+
+    if (filterVal === "men's clothing") {
+      const filltered =
+        apiData && apiData.filter((item) => item.category === `men's clothing`);
+
+      setFilterData(filltered);
+    }
+  };
 
   return (
     <Badge title="shop">
@@ -28,16 +58,17 @@ const Shop = () => {
           <div className="filterBy-wrapper">Filter By:</div>
           <div className="filterOption-wrapper">
             <div className="select-wrapper">
-              <select>
+              <select onChange={handleFilter}>
                 <option> Product Type</option>
                 <option value="jewelery">jewelery</option>
                 <option value="electronics">electronics</option>
-                <option value="clothes">clothes</option>
+                <option value="women's clothing">women's clothing</option>
+                <option value="men's clothing">men's clothing</option>
               </select>
             </div>
 
-            <div className="select-wrapper">
-              <select>
+            {/* <div className="select-wrapper">
+              <select onChange={handleFilter}>
                 <option> Material</option>
                 <option value="diamond">diamond</option>
                 <option value="silver">silver</option>
@@ -46,11 +77,11 @@ const Shop = () => {
             </div>
 
             <div className="select-wrapper">
-              <select>
+              <select onChange={handleFilter}>
                 <option>color</option>
                 <option value="">purple</option>
               </select>
-            </div>
+            </div> */}
           </div>
 
           <div className="search-wrapper">
@@ -60,8 +91,10 @@ const Shop = () => {
       </section>
       <section>
         <div className="flex-grid">
-          {filltered &&
-            filltered.map((item, key) => <ProductCard item={item} key={key} />)}
+          {filterData &&
+            filterData.map((item, key) => (
+              <ProductCard item={item} key={key} />
+            ))}
         </div>
       </section>
     </Badge>

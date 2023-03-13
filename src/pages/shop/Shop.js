@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from "react";
 import CommonSection from "../../components/ui/CommonSection";
 import Badge from "../../components/badge/Badge";
-import { RiArrowDropDownLine, RiSearch2Line } from "react-icons/ri";
+import { RiSearch2Line } from "react-icons/ri";
 import "./shop.scss";
-import { menuItems } from "./menuItems";
-import Dropdown from "./Dropdown";
 
 import ProductCard from "../../components/ui/ProductCard";
 
@@ -59,6 +57,7 @@ const Shop = () => {
 
     setFilterData(searchedItem);
   };
+
   return (
     <Badge title="shop">
       <CommonSection title="product" />
@@ -100,10 +99,13 @@ const Shop = () => {
       </section>
       <section>
         <div className="flex-grid">
-          {filterData &&
-            filterData.map((item, key) => (
-              <ProductCard item={item} key={key} />
-            ))}
+          {filterData.length ? (
+            filterData.map((item, key) => <ProductCard item={item} key={key} />)
+          ) : (
+            <div className="info-wrapper">
+              <h2>Sorry, we do not have such product at the moment!</h2>
+            </div>
+          )}
         </div>
       </section>
     </Badge>

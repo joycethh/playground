@@ -14,7 +14,6 @@ export const useAuth = () => {
         setCurrentUser(user);
       } else {
         // User is signed out
-        console.log("user signed out");
         setCurrentUser(null);
       }
     });

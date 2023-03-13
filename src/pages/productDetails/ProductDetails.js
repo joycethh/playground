@@ -5,18 +5,30 @@ import CommonSection from "../../components/ui/CommonSection";
 import Badge from "../../components/badge/Badge";
 import useProductData from "../../customHooks/useProductData";
 import "./productDetail.scss";
+import { ADD_ITEM } from "../../redux/feature/cartSlice";
+import { useDispatch } from "react-redux";
 
 const ProductDetails = () => {
   const { apiData } = useProductData();
-
-  // console.log("apiData in detail", apiData);
-
+  const dispatch = useDispatch();
   const { id } = useParams();
-  console.log(id);
 
   // eslint-disable-next-line
   const item = apiData?.find((item) => item.id == id);
+  // console.log("apiData in detail", apiData);
+  // console.log(id);
   // console.log("item", item);
+
+  const addItem = () => {
+    dispatch(
+      ADD_ITEM({
+        id: item.id,
+        productName: item.title,
+        price: item.price,
+        image: item.image,
+      })
+    );
+  };
 
   return (
     apiData && (
@@ -30,12 +42,10 @@ const ProductDetails = () => {
             <div className="info-wrapper">
               <h2>{item.title}</h2>
               <div className="rating-wrapper">
-                <div className="star">
-                  <span>
-                    <AiFillStar />
-                  </span>
-                  <p>{item.rating.rate}</p>
-                </div>
+                <AiFillStar />
+
+                <p>{item.rating.rate}</p>
+
                 <span>({item.rating.count} reviews)</span>
               </div>
               <div className="price-wrapper">
@@ -53,7 +63,9 @@ const ProductDetails = () => {
                 </div>
               </div>
               <div className="addBtn-wrapper">
-                <button className="add-btn">add to cart</button>
+                <button className="add-btn" onClick={addItem}>
+                  add to cart
+                </button>
               </div>
             </div>
           </div>

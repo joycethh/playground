@@ -1,6 +1,11 @@
 @import "../../style.scss";
 
 .productDetail-section {
+    margin: 0 15rem;
+
+    @include tablet {
+        margin: 0;
+    }
     @include themify($themes) {
         .productDetail {
         display: flex;
@@ -25,25 +30,20 @@
                 width: 80%;
                 font-weight: 400;
                 font-size: 2.5rem;
-          
+                color: themed('textColorSoft');      
             }
 
             .rating-wrapper {
                 display: flex;
-                gap: 1rem;
+                gap: 0.2rem;
                 height: 1.9rem;
                 margin-bottom: 2.3rem;
                 cursor: pointer;
-                background-color: red;
-                
-                .star {
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    gap: 0.2rem;
-                  
+                align-items: center;
+
+                span {
+                    padding-left: 0.3rem;
                 }
-                
             }
 
             .price-wrapper {

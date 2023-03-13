@@ -1,23 +1,20 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import CommonSection from "../../components/ui/CommonSection";
 import Badge from "../../components/badge/Badge";
 import { RiSearch2Line } from "react-icons/ri";
 import "./shop.scss";
+import useProductData from "../../customHooks/useProductData";
 
-import ProductCard from "../../components/ui/ProductCard";
+import ProductList from "../../components/ui/ProductList";
 
 const Shop = () => {
-  const [apiData, setApiData] = useState();
-  const [filterData, setFilterData] = useState();
+  const { apiData } = useProductData();
 
-  useEffect(() => {
-    fetch("https://fakestoreapi.com/products")
-      .then((res) => res.json())
-      .then((json) => setApiData(json));
-  }, []);
+  const [filterData, setFilterData] = useState(apiData);
 
   const handleFilter = (e) => {
     const filterVal = e.target.value;
+    if (filterVal === "nan") setFilterData(apiData);
     if (filterVal === "jewelery") {
       const filltered =
         apiData && apiData.filter((item) => item.category === "jewelery");
@@ -67,7 +64,7 @@ const Shop = () => {
           <div className="filterOption-wrapper">
             <div className="select-wrapper">
               <select onChange={handleFilter}>
-                <option> Product Type</option>
+                <option onChange={handleFilter}>Product Type</option>
                 <option value="jewelery">jewelery</option>
                 <option value="electronics">electronics</option>
                 <option value="women's clothing">women's clothing</option>
@@ -98,15 +95,13 @@ const Shop = () => {
         </div>
       </section>
       <section>
-        <div className="flex-grid">
-          {filterData.length ? (
-            filterData.map((item, key) => <ProductCard item={item} key={key} />)
-          ) : (
-            <div className="info-wrapper">
-              <h2>Sorry, we do not have such product at the moment!</h2>
-            </div>
-          )}
-        </div>
+        {filterData?.length ? (
+          <ProductList data={filterData} />
+        ) : (
+          <div className="info-wrapper">
+            <h2>Sorry, we do not have such product at the moment!</h2>
+          </div>
+        )}
       </section>
     </Badge>
   );

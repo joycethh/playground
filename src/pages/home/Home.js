@@ -5,8 +5,10 @@ import "./home.scss";
 import Badge from "../../components/badge/Badge";
 import banner from "../../assets/banner.png";
 import ProductList from "../../components/ui/ProductList";
+import useProductData from "../../customHooks/useProductData";
 
 const Home = () => {
+  const { apiData } = useProductData();
   return (
     <Badge title={"Home"}>
       <main>
@@ -31,7 +33,7 @@ const Home = () => {
           </div>
         </section>
         <section className="products-section">
-          <ProductList />
+          <ProductList data={apiData} />
         </section>
       </main>
     </Badge>

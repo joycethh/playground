@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import CommonSection from "../../components/ui/CommonSection";
 import Badge from "../../components/badge/Badge";
-import { RiArrowDropDownLine } from "react-icons/ri";
+import { RiArrowDropDownLine, RiSearch2Line } from "react-icons/ri";
 import "./shop.scss";
 import { menuItems } from "./menuItems";
 import Dropdown from "./Dropdown";
@@ -17,7 +17,6 @@ const Shop = () => {
       .then((res) => res.json())
       .then((json) => setApiData(json));
   }, []);
-  console.log("apiData", apiData);
 
   const handleFilter = (e) => {
     const filterVal = e.target.value;
@@ -79,15 +78,23 @@ const Shop = () => {
 
             <div className="sort-wrapper">
               <select onChange={handleFilter}>
-                <option value="diamond">diamond</option>
-                <option value="silver">silver</option>
-                <option value="fabric">fabric</option>
+                <option value="ascending">ascending</option>
+                <option value="decending">decending</option>
               </select>
             </div>
           </div>
 
           <div className="search-wrapper">
-            <input placeholder="Search..." />
+            <input
+              name="search"
+              onChange={handleSearch}
+              type="text"
+              className="searchInput"
+              placeholder="Search..."
+            />
+            <span>
+              <RiSearch2Line />
+            </span>
           </div>
         </div>
       </section>

@@ -1,0 +1,106 @@
+@import "../../style.scss";
+
+.flex-grid {
+    @include themify($themes) {
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    // grid-template-rows: repeat(4, 27vw);
+    row-gap: 2.5rem;
+    grid-gap: 1rem;
+    max-width: min-content;
+
+    @include tablet {
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+
+    @include mobile {
+        grid-template-columns: repeat(1, 1fr);
+        max-width: max-content;
+      
+    }
+
+
+    .product-item-col {
+        color: themed('textColor');
+        
+        .product-card-wrapper {
+            width: 20rem;
+            box-sizing: content-box;
+            border: 1px solid themed('border');
+            box-shadow: 1px 1px 1px 0px rgba(176,168,168,0.72);
+            &:hover {
+                transition: height .4s ease-in-out;
+                box-shadow: 2px 2px 2px 0px rgba(110, 119, 131, 0.72);
+            }
+          
+
+            .product-img-wrapper{
+               display: flex;
+               justify-content: center;
+               overflow: hidden;
+        
+                img {
+                    width: 15rem;
+                    height: 15rem;
+                    object-fit: cover;
+                    transition: all .2s ease-in-out;
+                    
+                    &:hover {
+                        scale: 1.2;
+                    }
+                }
+            }
+        }
+
+       
+        .product-info-wrapper{
+            padding: 0 2rem;        
+        .product-name {
+            max-height: 140px;
+            height: 140px;
+        }
+            h3 {
+                font-size: 1.2rem;
+                color: themed('textColor');
+                font-weight: 500;
+                margin-top: 1.5rem;
+            }
+
+            .tag {
+                margin-top: -1.5rem;
+
+                span {
+                    font-size: 0.9rem;
+                }
+            }
+            
+        }
+
+        .product-bottom-wrapper {
+            display: flex;
+            justify-content: space-between;
+            padding: 0 1.5rem;
+            margin-top: 1.2rem;
+            
+            span {
+                color: themed('textColor');
+                 font-weight: 500;
+                 font-size: 1.1rem;
+                padding: 5px;
+                &:hover {
+                    color: themed('highlight')
+                }
+                
+            }
+        }
+
+
+       
+
+        
+    }
+}
+
+}

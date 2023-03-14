@@ -15,9 +15,8 @@ const ProductDetails = () => {
 
   // eslint-disable-next-line
   const item = apiData?.find((item) => item.id == id);
-  // console.log("apiData in detail", apiData);
-  // console.log(id);
-  // console.log("item", item);
+
+  // console.log("item", item.rating);
 
   const addItem = () => {
     dispatch(
@@ -33,7 +32,7 @@ const ProductDetails = () => {
   return (
     apiData && (
       <Badge title="detail">
-        <CommonSection />
+        <CommonSection title={item.title} />
         <section className="productDetail-section">
           <div className="productDetail">
             <div className="img-wrapper">

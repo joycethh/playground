@@ -15,7 +15,6 @@ const ProductDetails = () => {
 
   // eslint-disable-next-line
   const item = apiData?.find((item) => item.id == id);
-
   // console.log("item", item.rating);
 
   const addItem = () => {

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Input from "../../components/input/Input";
 import "./checkout.scss";
-import necklace from "../../assets/jewelry.jpg";
+import necklace from "../../assets/jewelery.jpg";
 import { FcCustomerSupport } from "react-icons/fc";
 import { Link } from "react-router-dom";
 const Checkout = () => {
@@ -25,7 +25,7 @@ const Checkout = () => {
 
   return (
     <section>
-      <container className="wrapper">
+      <div className="wrapper">
         <div className="details-section">
           <h6>Shipping Address</h6>
           <form>
@@ -133,28 +133,28 @@ const Checkout = () => {
               <tbody>
                 <tr>
                   <th className="item-total-name">Subtotal</th>
-                  <td colspan="2">
+                  <td colSpan="2">
                     <span className="item-total-number">$218.00</span>
                   </td>
                 </tr>
 
                 <tr>
                   <th className="item-total-name">Shipping</th>
-                  <td colspan="2">
+                  <td colSpan="2">
                     <span className="item-total-number">$7.00</span>
                   </td>
                 </tr>
 
                 <tr>
                   <th className="item-total-name">Est. Tax</th>
-                  <td colspan="2">
+                  <td colSpan="2">
                     <span className="item-total-number">$10.00</span>
                   </td>
                 </tr>
               </tbody>
 
               <tfoot>
-                <th className="item-total-name total-line">Total</th>
+                <td className="item-total-name total-line">Total</td>
                 <td>
                   <span className="item-total-number total-line">$235.00</span>
                 </td>
@@ -174,7 +174,7 @@ const Checkout = () => {
             </div>
           </div>
         </div>
-      </container>
+      </div>
     </section>
   );
 };

@@ -39,29 +39,28 @@ const ProductDetails = () => {
             <div className="img-wrapper">
               <img src={item.image} alt="" />
             </div>
+
             <div className="info-wrapper">
               <h2>{item.title}</h2>
               <div className="rating-wrapper">
                 <AiFillStar />
-
                 <p>{item.rating.rate}</p>
-
                 <span>({item.rating.count} reviews)</span>
               </div>
               <div className="price-wrapper">
-                <span>${item.price}</span>
+                <span>${item.price}.00</span>
               </div>
 
               <div className="des-wrapper">
                 <span>{item.description}</span>
               </div>
-              <div className="qty">
+              {/* <div className="qty">
                 <div className="action-wrapper">
                   <button>-</button>
                   <p>2</p>
                   <button>+</button>
                 </div>
-              </div>
+              </div> */}
               <div className="addBtn-wrapper">
                 <button className="add-btn" onClick={addItem}>
                   add to cart

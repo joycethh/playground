@@ -93,40 +93,33 @@ const Cart = () => {
             </div>
           </div>
           <div className="cart-right">
-            <div className="table-wrapper">
-              <table className="table-item-total">
-                <tbody>
-                  <tr>
-                    <th className="item-total-name">Subtotal</th>
-                    <td colSpan="2">
-                      <span className="item-total-number">$218.00</span>
-                    </td>
-                  </tr>
+            <div className="cart-right-content">
+              <div id="orderDetails" className="orderDetails-wrapper">
+                <h4>Order Summary</h4>
+                <div className="subtotal">
+                  Subtotal
+                  <span className="number">$400.00</span>
+                </div>
+                <div className="shipping">
+                  Shipping
+                  <span className="number">$20.00</span>
+                </div>
+                <div className="tax">
+                  Estimated Tax
+                  <span className="number">$30.00</span>
+                </div>
+                <div className="total">
+                  Estimated total
+                  <span className="number">$450.00</span>
+                </div>
 
-                  <tr>
-                    <th className="item-total-name">Shipping</th>
-                    <td colSpan="2">
-                      <span className="item-total-number">$7.00</span>
-                    </td>
-                  </tr>
+                <button>Checkout</button>
+              </div>
 
-                  <tr>
-                    <th className="item-total-name">Est. Tax</th>
-                    <td colSpan="2">
-                      <span className="item-total-number">$10.00</span>
-                    </td>
-                  </tr>
-                </tbody>
-
-                <tfoot>
-                  <td className="item-total-name total-line">Total</td>
-                  <td>
-                    <span className="item-total-number total-line">
-                      $235.00
-                    </span>
-                  </td>
-                </tfoot>
-              </table>
+              <div className="service-wrapper">
+                <div className="title">Need Help?</div>
+                <Link to="/contact-us">contact us</Link>
+              </div>
             </div>
           </div>
         </div>

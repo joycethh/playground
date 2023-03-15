@@ -9,7 +9,7 @@ import useProductData from "../../customHooks/useProductData";
 
 const Home = () => {
   const { apiData } = useProductData();
-  console.log("apiData in home", apiData);
+  // console.log("apiData in home", apiData);
   return (
     <Badge title={"Home"}>
       <main>

@@ -5,7 +5,7 @@ import CommonSection from "../../components/ui/CommonSection";
 import Badge from "../../components/badge/Badge";
 import useProductData from "../../customHooks/useProductData";
 import "./productDetail.scss";
-import { ADD_ITEM } from "../../redux/feature/cartSlice";
+import { ADD_TO_CART } from "../../redux/feature/cartSlice";
 import { useDispatch } from "react-redux";
 
 const ProductDetails = () => {
@@ -19,7 +19,7 @@ const ProductDetails = () => {
 
   const addItem = () => {
     dispatch(
-      ADD_ITEM({
+      ADD_TO_CART({
         id: item.id,
         productName: item.title,
         price: item.price,

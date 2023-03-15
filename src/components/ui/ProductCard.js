@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { BsFillCartPlusFill } from "react-icons/bs";
 import { useDispatch } from "react-redux";
 import "./product.scss";
-import { ADD_ITEM } from "../../redux/feature/cartSlice";
+import { ADD_TO_CART } from "../../redux/feature/cartSlice";
 import { toast } from "react-toastify";
 
 const ProductCard = ({ item }) => {
@@ -11,7 +11,7 @@ const ProductCard = ({ item }) => {
 
   const addItem = () => {
     dispatch(
-      ADD_ITEM({
+      ADD_TO_CART({
         id: item.id,
         productName: item.title,
         price: item.price,

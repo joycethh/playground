@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, current } from "@reduxjs/toolkit";
 
 const initialState = {
   cartItems: [],
@@ -10,40 +10,35 @@ const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
-    ADD_ITEM(state, action) {
-      const newItem = action.payload;
+    ADD_TO_CART: (state, action) => {
       const exisitngItem = state.cartItems.find(
-        (item) => item.id === newItem.id
+        (item) => item.id === action.payload.id
       );
 
       state.totalQty++;
 
-      if (!exisitngItem) {
-        state.cartItems.push({
-          id: newItem.id,
-          productName: newItem.productName,
-          image: newItem.imgUrl,
-          price: newItem.price,
-          qty: 1,
-          totalPrice: newItem.price,
-        });
-      } else {
+      if (exisitngItem) {
         exisitngItem.qty++;
         exisitngItem.totalPrice =
-          Number(exisitngItem.totalPrice) + Number(newItem.price);
+          exisitngItem.totalPrice + action.payload.price;
+      } else {
+        state.cartItems.push({
+          ...action.payload,
+          qty: 1,
+          totalPrice: action.payload.price,
+        });
       }
 
-      state.totalAmount = state.cartItems.reduce(
-        (total, item) => total + Number(item.price) * Number(item.qty)
-      );
+      const subTotal = state.cartItems.reduce((a, b) => a + b.totalPrice, 0);
+      state.totalAmount = Math.round((subTotal + Number.EPSILON) * 100) / 100;
 
-      // console.log("exisitngitem", exisitngItem);
-      console.log("state.totalQty", state.totalQty);
-      // console.log("state.totalAmount", state.totalAmount);
+      // console.log("state.totalQty", state.totalQty);
+      // console.log("cartItem", current(state.cartItems));
+      console.log("totalAmount", state.totalAmount);
     },
   },
 });
 
-export const { ADD_ITEM } = cartSlice.actions;
+export const { ADD_TO_CART } = cartSlice.actions;
 
 export default cartSlice.reducer;

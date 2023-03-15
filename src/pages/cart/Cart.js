@@ -8,9 +8,10 @@ import CommonSection from "../../components/ui/CommonSection";
 import { useSelector } from "react-redux";
 const Cart = () => {
   const itemsInCart = useSelector((state) => state.cart.cartItems);
-  const subtotal = useSelector((state) => state.cart.totalAmount);
-  // console.log("subtotal", subtotal);
-  // console.log("itemsInCart", itemsInCart);
+  const subtotal = useSelector((state) => state.cart.itemSubtotal);
+  const tax = useSelector((state) => state.cart.tax);
+  const total = useSelector((state) => state.cart.totalAmount);
+
   return (
     <Badge title="My Cart">
       {/* <CommonSection title="My Cart" /> */}
@@ -69,11 +70,11 @@ const Cart = () => {
                 </div>
                 <div className="tax">
                   Estimated Tax
-                  <span className="number">${subtotal * 0.08}</span>
+                  <span className="number">${tax}</span>
                 </div>
                 <div className="total">
                   Estimated total
-                  <span className="number">${subtotal * 1.08}</span>
+                  <span className="number">${total}</span>
                 </div>
 
                 <button>Checkout</button>

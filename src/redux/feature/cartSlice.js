@@ -2,6 +2,8 @@ import { createSlice, current } from "@reduxjs/toolkit";
 
 const initialState = {
   cartItems: [],
+  itemSubtotal: 0,
+  tax: 0,
   totalAmount: 0,
   totalQty: 0,
 };
@@ -30,11 +32,10 @@ const cartSlice = createSlice({
       }
 
       const subTotal = state.cartItems.reduce((a, b) => a + b.totalPrice, 0);
-      state.totalAmount = Math.round((subTotal + Number.EPSILON) * 100) / 100;
-
-      // console.log("state.totalQty", state.totalQty);
-      // console.log("cartItem", current(state.cartItems));
-      console.log("totalAmount", state.totalAmount);
+      state.itemSubtotal = Math.round((subTotal + Number.EPSILON) * 100) / 100;
+      state.tax = Math.round((subTotal * 0.08 + Number.EPSILON) * 100) / 100;
+      state.totalAmount =
+        Math.round((subTotal * 1.08 + Number.EPSILON) * 100) / 100;
     },
   },
 });

@@ -3,18 +3,13 @@ import { Link } from "react-router-dom";
 import { MdKeyboardArrowLeft, MdDeleteOutline } from "react-icons/md";
 import "./cart.scss";
 import Badge from "../../components/badge/Badge";
-// import { DELETE_FROM_CART } from "../../redux/feature/cartSlice";
+import { DELETE_FROM_CART } from "../../redux/feature/cartSlice";
 
 import { useSelector, useDispatch } from "react-redux";
 const Cart = () => {
   const { cartItems, itemSubtotal } = useSelector((state) => state.cart);
 
   const dispatch = useDispatch();
-
-  const handleDelete = (id) => {
-    // dispatch(DELETE_FROM_CART(id));
-    console.log("delete btn clicked");
-  };
 
   return (
     <Badge title="My Cart">
@@ -33,7 +28,10 @@ const Cart = () => {
                 cartItems.map((item, idx) => (
                   <div className="cartItem" key={idx}>
                     <div className="item-container">
-                      <button className="item-delete" onClick={handleDelete}>
+                      <button
+                        className="item-delete"
+                        onClick={() => dispatch(DELETE_FROM_CART(item.id))}
+                      >
                         <MdDeleteOutline />
                       </button>
                       <div className="item-details-left">

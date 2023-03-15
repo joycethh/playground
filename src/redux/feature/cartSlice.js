@@ -36,21 +36,18 @@ const cartSlice = createSlice({
       // state.totalAmount =
       //   Math.round((subTotal * 1.08 + Number.EPSILON) * 100) / 100;
     },
-    // DELETE_FROM_CART: (state, action) => {
-    //   console.log("delete got here");
-    //   const id = action.payload;
-    //   const seletToRemove = state.cartItems.find((item) => item.id === id);
-    //   if (seletToRemove) {
-    //     state.cartItems = state.cartItems.filter((item) => item.id !== id);
-    //     state.totalQty = state.totalQty - seletToRemove.qty;
-    //     const subTotal = state.cartItems.reduce((a, b) => a + b.totalPrice, 0);
-    //     state.itemSubtotal =
-    //       Math.round((subTotal + Number.EPSILON) * 100) / 100;
-    //     state.tax = Math.round((subTotal * 0.08 + Number.EPSILON) * 100) / 100;
-    //     state.totalAmount =
-    //       Math.round((subTotal * 1.08 + Number.EPSILON) * 100) / 100;
-    //   }
-    // },
+    DELETE_FROM_CART: (state, action) => {
+      const id = action.payload;
+      const seletToRemove = state.cartItems.find((item) => item.id === id);
+      if (seletToRemove) {
+        state.cartItems = state.cartItems.filter((item) => item.id !== id);
+        state.totalQty = state.totalQty - seletToRemove.qty;
+
+        const subTotal = state.cartItems.reduce((a, b) => a + b.totalPrice, 0);
+        state.itemSubtotal =
+          Math.round((subTotal + Number.EPSILON) * 100) / 100;
+      }
+    },
   },
 });
 

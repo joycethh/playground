@@ -3,13 +3,18 @@ import { Link } from "react-router-dom";
 import { MdKeyboardArrowLeft, MdDeleteOutline } from "react-icons/md";
 import "./cart.scss";
 import Badge from "../../components/badge/Badge";
-import CommonSection from "../../components/ui/CommonSection";
+// import { DELETE_FROM_CART } from "../../redux/feature/cartSlice";
 
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 const Cart = () => {
-  const { cartItems, itemSubtotal, tax, totalAmount } = useSelector(
-    (state) => state.cart
-  );
+  const { cartItems, itemSubtotal } = useSelector((state) => state.cart);
+
+  const dispatch = useDispatch();
+
+  const handleDelete = (id) => {
+    // dispatch(DELETE_FROM_CART(id));
+    console.log("delete btn clicked");
+  };
 
   return (
     <Badge title="My Cart">
@@ -28,7 +33,7 @@ const Cart = () => {
                 cartItems.map((item, idx) => (
                   <div className="cartItem" key={idx}>
                     <div className="item-container">
-                      <button className="item-delete">
+                      <button className="item-delete" onClick={handleDelete}>
                         <MdDeleteOutline />
                       </button>
                       <div className="item-details-left">
@@ -69,11 +74,19 @@ const Cart = () => {
                 </div>
                 <div className="tax">
                   Estimated Tax
-                  <span className="number">${tax}</span>
+                  <span className="number">
+                    $
+                    {Math.round((itemSubtotal * 0.08 + Number.EPSILON) * 100) /
+                      100}
+                  </span>
                 </div>
                 <div className="total">
                   Estimated total
-                  <span className="number">${totalAmount}</span>
+                  <span className="number">
+                    $
+                    {Math.round((itemSubtotal * 1.08 + Number.EPSILON) * 100) /
+                      100}
+                  </span>
                 </div>
 
                 <button>Checkout</button>

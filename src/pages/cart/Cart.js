@@ -87,7 +87,9 @@ const Cart = () => {
                   </span>
                 </div>
 
-                <button>Checkout</button>
+                <button>
+                  <Link to="/checkout">Checkout</Link>
+                </button>
               </div>
 
               <div className="service-wrapper">

@@ -7,10 +7,9 @@ import CommonSection from "../../components/ui/CommonSection";
 
 import { useSelector } from "react-redux";
 const Cart = () => {
-  const itemsInCart = useSelector((state) => state.cart.cartItems);
-  const subtotal = useSelector((state) => state.cart.itemSubtotal);
-  const tax = useSelector((state) => state.cart.tax);
-  const total = useSelector((state) => state.cart.totalAmount);
+  const { cartItems, itemSubtotal, tax, totalAmount } = useSelector(
+    (state) => state.cart
+  );
 
   return (
     <Badge title="My Cart">
@@ -25,8 +24,8 @@ const Cart = () => {
               <h1>Shopping Cart</h1>
             </div>
             <div className="cartItems-container">
-              {itemsInCart.length ? (
-                itemsInCart.map((item, idx) => (
+              {cartItems.length ? (
+                cartItems.map((item, idx) => (
                   <div className="cartItem" key={idx}>
                     <div className="item-container">
                       <button className="item-delete">
@@ -62,7 +61,7 @@ const Cart = () => {
                 <h4>Order Summary</h4>
                 <div className="subtotal">
                   Subtotal
-                  <span className="number">{subtotal}</span>
+                  <span className="number">{itemSubtotal}</span>
                 </div>
                 <div className="shipping">
                   Shipping
@@ -74,7 +73,7 @@ const Cart = () => {
                 </div>
                 <div className="total">
                   Estimated total
-                  <span className="number">${total}</span>
+                  <span className="number">${totalAmount}</span>
                 </div>
 
                 <button>Checkout</button>

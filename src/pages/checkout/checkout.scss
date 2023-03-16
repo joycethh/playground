@@ -1,12 +1,11 @@
 @import "../../style.scss";
 
-.wrapper {
+.checkout-container {
     display: flex;
+    padding-top: 1.5rem;
     flex-direction: row;
-    margin: 0 auto;
-    max-width: 80rem;
-    zoom: 1;
-   
+    margin: 0 6rem;
+
 
     @media phone {
         margin-top: 2rem;
@@ -45,228 +44,186 @@
             padding-top: 4rem;
             padding-bottom: 4rem;
             width: 32%;
-            padding-left: 4%;
+            padding-left: 1%;
             float: right;
+            position: relative;
+            background-color:  #f5f5f5;
+            background-position: left top;
+            border-left: 1px solid themed('border');
+            
+            
+            .summary-content {
+                padding: 0 1rem;
+                position: sticky;
+                 
+           
+                .table-wrapper {
+                    margin-top: 0.75rem;
+                    margin-bottom: 1.5rem;
+                    width: 100%;
 
-            //TODO: need to add grey background color
-            // background-color: beige;
-            // background-position: left top;
-            // position: relative;
-            // color: #4f4f4f;
-        
+                    //common
+                    table {
+                        font-size: 1rem;
+                        display: table;
+                        box-sizing: border-box;
+                        text-indent: initial;
+                        width: 100%;
+                        // border-color: themed('border'); ///second table needs border
 
-           .table-wrapper {
-            margin-top: 0.75rem;
-            margin-bottom: 1.5rem;
-            width: 100%;
-            // position: relative;
-            // z-index: 1;
+                        caption {
+                            text-transform: capitalize;
+                            font-weight: bold;
+                            font-size: 1.5rem;
+                            line-height: 3rem;
+                            text-align: left;
+                            padding-bottom: 3rem;
+                        }
 
-            table {
-                font-size: 1rem;
-                display: table;
-                box-sizing: border-box;
-                text-indent: initial;
-                width: 100%;
-                // border-color: themed('border'); ///second table needs border
+                        tbody {
+                            display: table-row-group;
+                            vertical-align: middle;
+                            border-color: inherit;
+                             // border-bottom: 1px solid themed('border');
 
-                caption {
-                    text-transform: capitalize;
-                    font-weight: bold;
-                    font-size: 1.5rem;
-                    line-height: 3rem;
-                    text-align: left;
-                    padding-bottom: 3rem;
-                }
-
-                tbody {
-                    display: table-row-group;
-                    vertical-align: middle;
-                    border-color: inherit;
-                    // border-bottom: 1px solid themed('border');
-
-                    tr {
-                        display: table-row;
-                        vertical-align: inherit;
-                        border-color: inherit;
+                            tr {
+                                display: table-row;
+                                vertical-align: inherit;
                         
-                        td {
-                            display: table-cell;
-                            padding: 0;
+                                td {
+                                    display: table-cell;
+                                    padding: 0;
     
-                            &:last-of-type {
-                                text-align: right;
+                                    &:last-of-type {
+                                        text-align: right;
+                                    }
+                                }
+    
+                                th {
+                                    display: table-cell;
+                                    text-align: left;
+                                    max-width: 80px;
+                                    min-width: 80px;
+                                }
                             }
                         }
-    
-                        th {
-                            display: table-cell;
-                            text-align: left;
-                            max-width: 80px;
-                            min-width: 80px;
-                        }
                     }
-                }
-
-                tfoot {
-                    display: table-footer-group;
-                    // display: table;
-                    // margin-top: 1rem;
-                    // border-top: 1px solid themed('border');
-                    // min-width: 100%;
-                    // TODO need to fix the footer width
-                    vertical-align: middle;
-                    border-color: inherit; 
-                    height: 40px;
                     
-                }
-            }
-
-            .table-item-list{
-                border-collapse: separate;
-                border-spacing: 0 1em;
-              
-                .item-thumbnail {
-                    width: 4.6em;
-                    height: 4.6em;
-                    border-radius: 8px;
-                    background: #fff;
-                    position: relative;
-
-                    .img-wrapper {
-                        width: 100%;
-                        height: 100%;
-                        position: relative;
-                        overflow: hidden;
-                        border-radius: 8px;
-                        z-index: 1;
-                    }
-
-                    img {
-                        position: absolute;
-                        top: 0;
-                        left: 0;
-                        right: 0;
-                        bottom: 0;
-                        max-width: 100%;
-                        max-height: 100%;
-                        margin: auto;
-                    }
-
-                    .item-thumbnail-qty {
-                        font-size: 0.8rem;
-                        font-weight: 500;
-                        line-height: 1.75em;
-                        white-space: nowrap;
-                        text-align: center;
-                        border-radius: 1.75em;
-                        background-color: rgba(119, 116, 116, 0.9);
-                        color: themed ('textContrast');
-                        box-sizing: border-box;
-                        min-width: 1.75em;
-                        height: 1.75em;
-                        padding: 0 0.5rem;
-                        position: absolute;
-                        right: -0.75em;
-                        top: -0.75em;
-                        z-index: 3;
-                    }
-
-                    .item-description-name {
-                        width: 1em;
-                        min-width: 100%;                        
+                    //item
+                    .cartItem-table{
+                        border-collapse: separate;
+                        border-spacing: 0 1em;
+                    
+                        .itemImage-thumbnail {
+                            width: 4.6em;
+                            height: 4.6em;
+                            border-radius: 8px;
+                            background: #fff;
+                            position: relative;
+                            border: 1px solid themed('border');
                         
+                            .itemImg-wrapper {
+                                width: 100%;
+                                height: 100%;
+                                position: relative;
+                                overflow: hidden;
+                                border-radius: 8px;
+                                z-index: 1;
+                           
+
+                                img {
+                                    position: absolute;
+                                    top: 0;
+                                    left: 0;
+                                    right: 0;
+                                    bottom: 0;
+                                    max-width: 100%;
+                                    max-height: 100%;
+                                    margin: auto;
+                                }
+                            }
+
+                            .item-qty {
+                                font-size: 0.8rem;
+                                font-weight: 500;
+                                line-height: 1.75em;
+                                white-space: nowrap;
+                                text-align: center;
+                                border-radius: 1.75em;
+                                background-color: themed('highlight');
+                                color: themed ('textColor');
+                                box-sizing: border-box;
+                                min-width: 1.75em;
+                                height: 1.75em;
+                                padding: 0 0.5rem;
+                                position: absolute;
+                                right: -0.75em;
+                                top: -0.75em;
+                                z-index: 3;
+                            }
+
+                            .itemName {
+                                width: 1em;
+                                min-width: 100%;                        
+
+                            }  
+
+                            .itemTotalPrice {
+                                font-weight: 500;
+                            
+                            }    
+                        }       
                     }
 
-                    .item-price-number {
-                        font-weight: 500;
-                     
-                    }    
-                }
-            }
+                    //total
+                    .cartItemTotal-table{
+                        border-collapse: separate;
+                        border-spacing: 0 1em;
+                        font-size: 1rem;
+                        border-top: 1px solid themed('border');
+                    
+                        .totalHeader {
+                            font-weight: 400;
+                            text-align: left;
+                        }
+                    
+                        .totalNumber {
+                            text-align: right;
+                        }
+                    
+                        .total-line {
+                            font-weight: bold;
+                        }
 
-            .table-item-total{
-                border-collapse: collapse;
-                border-spacing: 0 1em;
-                font-size: 1rem;
-                // border-top: 1px solid themed('border');
+                    }
 
-                .item-total-name {
-                    font-weight: 400;
-                    text-align: left;
-                }
-
-                .item-total-number {
-                    text-align: right;
-                }
-
-                .total-line {
-                    font-weight: bold;
                 }
 
-            }
-
-            }
-
-            .button-wrapper {
-                display: flex;
-                justify-content: center;
-                margin: 3rem auto;
+                .button-wrapper {
+                    display: flex;
+                    justify-content: center;
+                    margin: 3rem auto;
                 
-                button {
-                    width: 100%;
-                    border-radius: 8px;
-                    background-color: themed('highlight');
-                    border: none;
-                    padding: 1rem;
-                    text-transform: uppercase;
-                    font-weight: bold;
-                    line-height: 1rem;
-                    letter-spacing: 1px;
-                    word-spacing: 2px;
+                    button {
+                        width: 100%;
+                        border-radius: 8px;
+                        background-color: themed('highlight');
+                        border: none;
+                        padding: 1rem;
+                        text-transform: uppercase;
+                        font-weight: bold;
+                        line-height: 1rem;
+                        letter-spacing: 1px;
+                        word-spacing: 2px;
+                    }
 
                 }
 
-            }
-
-            .services-wrapper {  
-                padding-top: 3rem;
-                // border-top: 1px solid themed('border');
-                display: flex;
-                flex-direction: column;
-                justify-content: center; 
-                gap: 1rem;
-                align-items: center;
-                
-
-                .title {
-                    font-size: 1.5rem;
-                    font-weight: 500;
-                  
+                .services-wrapper {  
+                    display: flex;
                 }
-
-
-                .icon {
-                   display: flex;
-                   align-items: center; 
-                   padding: 0.5rem;
-
-                   svg {
-                    font-size: 1.8rem;
-                   }
-        
-
-                   a {
-                    padding-left: 5px;
-                    text-transform: capitalize;
-                   }
-                }
-            }
-           
-            
-        
+            }  
         }
-
     }
 }
 

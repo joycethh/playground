@@ -1,10 +1,15 @@
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import Input from "../../components/input/Input";
 import "./checkout.scss";
 import necklace from "../../assets/jewelery.jpg";
 import { FcCustomerSupport } from "react-icons/fc";
 import { Link } from "react-router-dom";
+import Badge from "../../components/badge/Badge";
 const Checkout = () => {
+  const { cartItems, itemSubtotal, totalQty } = useSelector(
+    (state) => state.cart
+  );
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -24,158 +29,158 @@ const Checkout = () => {
   };
 
   return (
-    <section>
-      <div className="wrapper">
-        <div className="details-section">
-          <h6>Shipping Address</h6>
-          <form>
-            <Input
-              name="name"
-              type="text"
-              placeHolder="Name"
-              autoFocus
-              required
-              handleChange={handleChange}
-            />
-            <Input
-              name="email"
-              type="text"
-              placeHolder="Email"
-              required
-              handleChange={handleChange}
-            />
-            <Input
-              name="phone"
-              type="text"
-              placeHolder="Phone Number"
-              required
-              handleChange={handleChange}
-            />
-            <Input
-              name="streetAddress"
-              type="text"
-              placeHolder="Street Address"
-              required
-              handleChange={handleChange}
-            />
-            <Input
-              name="city"
-              type="text"
-              placeHolder="City"
-              required
-              handleChange={handleChange}
-            />
-            <Input
-              name="postalCode"
-              type="text"
-              placeHolder="Potal Code"
-              required
-              handleChange={handleChange}
-            />
-            <Input
-              name="country"
-              type="text"
-              placeHolder="Country"
-              required
-              handleChange={handleChange}
-            />
-          </form>
-        </div>
-
-        <div className="summary-section">
-          <div className="table-wrapper">
-            <table className="table-item-list">
-              <caption>Order Summary</caption>
-              <tbody className="item-section">
-                <tr className="item">
-                  <td className="item-img">
-                    <div className="item-thumbnail">
-                      <div className="img-wrapper">
-                        <img src={necklace} alt="" />
-                      </div>
-                      <span className="item-thumbnail-qty">1</span>
-                    </div>
-                  </td>
-                  <th className="item-description">
-                    <span className="item-description-name">
-                      Classic Natural Pearl Necklace
-                    </span>
-                  </th>
-                  <td className="item-price">
-                    <span className="item-price-number">$99.00</span>
-                  </td>
-                </tr>
-
-                <tr className="item">
-                  <td className="item-img">
-                    <div className="item-thumbnail">
-                      <div className="img-wrapper">
-                        <img src={necklace} alt="" />
-                      </div>
-                      <span className="item-thumbnail-qty">1</span>
-                    </div>
-                  </td>
-                  <th className="item-description">
-                    <span className="item-description-name">
-                      Classic Natural Pearl Necklace
-                    </span>
-                  </th>
-                  <td className="item-price">
-                    <span className="item-price-number">$99.00</span>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+    <Badge title="checkout">
+      <section className="checkout-section">
+        <div className="checkout-container">
+          <div className="details-section">
+            <h6>Shipping Address</h6>
+            <form>
+              <Input
+                name="name"
+                type="text"
+                placeHolder="Name"
+                autoFocus
+                required
+                handleChange={handleChange}
+              />
+              <Input
+                name="email"
+                type="text"
+                placeHolder="Email"
+                required
+                handleChange={handleChange}
+              />
+              <Input
+                name="phone"
+                type="text"
+                placeHolder="Phone Number"
+                required
+                handleChange={handleChange}
+              />
+              <Input
+                name="streetAddress"
+                type="text"
+                placeHolder="Street Address"
+                required
+                handleChange={handleChange}
+              />
+              <Input
+                name="city"
+                type="text"
+                placeHolder="City"
+                required
+                handleChange={handleChange}
+              />
+              <Input
+                name="postalCode"
+                type="text"
+                placeHolder="Potal Code"
+                required
+                handleChange={handleChange}
+              />
+              <Input
+                name="country"
+                type="text"
+                placeHolder="Country"
+                required
+                handleChange={handleChange}
+              />
+            </form>
           </div>
 
-          <div className="table-wrapper">
-            <table className="table-item-total">
-              <tbody>
-                <tr>
-                  <th className="item-total-name">Subtotal</th>
-                  <td colSpan="2">
-                    <span className="item-total-number">$218.00</span>
-                  </td>
-                </tr>
+          <div className="summary-section">
+            <div className="summary-content">
+              <div className="table-wrapper">
+                <table className="cartItem-table">
+                  <caption>Order Summary</caption>
+                  <tbody>
+                    {cartItems.length &&
+                      cartItems.map((item, idx) => (
+                        <tr key={idx}>
+                          <td>
+                            <div className="itemImage-thumbnail">
+                              <div className="itemImg-wrapper">
+                                <img src={item.image} alt="" />
+                              </div>
+                              <span className="item-qty">{item.qty}</span>
+                            </div>
+                          </td>
+                          <th>
+                            <span className="itemName">{item.productName}</span>
+                          </th>
+                          <td>
+                            <span className="itemTotalPrice">
+                              {item.totalPrice}
+                            </span>
+                          </td>
+                        </tr>
+                      ))}
+                  </tbody>
+                </table>
+              </div>
 
-                <tr>
-                  <th className="item-total-name">Shipping</th>
-                  <td colSpan="2">
-                    <span className="item-total-number">$7.00</span>
-                  </td>
-                </tr>
+              <div className="table-wrapper">
+                <table className="cartItemTotal-table">
+                  <tbody>
+                    <tr>
+                      <th>
+                        <span className="totalHeader">Subtotal</span>
+                      </th>
+                      <td colSpan="2">
+                        <span className="totalNumber">{itemSubtotal}</span>
+                      </td>
+                    </tr>
 
-                <tr>
-                  <th className="item-total-name">Est. Tax</th>
-                  <td colSpan="2">
-                    <span className="item-total-number">$10.00</span>
-                  </td>
-                </tr>
-              </tbody>
+                    <tr>
+                      <th>
+                        {" "}
+                        <span className="totalHeader">Shipping</span>
+                      </th>
+                      <td colSpan="2">
+                        <span className="totalNumber">$0.00</span>
+                      </td>
+                    </tr>
 
-              <tfoot>
-                <td className="item-total-name total-line">Total</td>
-                <td>
-                  <span className="item-total-number total-line">$235.00</span>
-                </td>
-              </tfoot>
-            </table>
-          </div>
+                    <tr>
+                      <th>
+                        {" "}
+                        <span className="totalHeader">Est. Tax</span>
+                      </th>
+                      <td colSpan="2">
+                        <span className="totalNumber">
+                          $
+                          {Math.round(
+                            (itemSubtotal * 0.08 + Number.EPSILON) * 100
+                          ) / 100}
+                        </span>
+                      </td>
+                    </tr>
 
-          <div className="button-wrapper">
-            <button onClick={submitOrder}>Place Order</button>
-          </div>
+                    <tr>
+                      <th className="total-line">Total</th>
+                      <td>
+                        <span className="totalNumber total-line">
+                          $
+                          {Math.round(
+                            (itemSubtotal * 1.08 + Number.EPSILON) * 100
+                          ) / 100}
+                        </span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
 
-          <div className="services-wrapper">
-            <div className="title">Need Help?</div>
-            <div className="icon">
-              <FcCustomerSupport />
-              <Link to="/contact-us">contact us</Link>
+              <div className="button-wrapper">
+                <button onClick={submitOrder}>Place Order</button>
+              </div>
+
+              <div className="services-wrapper"></div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </Badge>
   );
 };
 

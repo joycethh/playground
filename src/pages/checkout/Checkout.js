@@ -32,7 +32,10 @@ const Checkout = () => {
       <section className="checkout-section">
         <div className="checkout-container">
           <div className="checkout-left">
-            <MdKeyboardArrowLeft /> <Link to="/cart">Return to Cart</Link>
+            <Link to="/cart">
+              {" "}
+              <MdKeyboardArrowLeft /> Return to Cart
+            </Link>
             <h6>Shipping Address</h6>
             {/* <form> */}
             {/* <div className="formInput-wrapper">

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { MdKeyboardArrowLeft } from "react-icons/md";
+import { MdKeyboardArrowLeft, MdOutlineShoppingCart } from "react-icons/md";
 import { useSelector } from "react-redux";
 import Input from "../../components/input/Input";
 import "./checkout.scss";
@@ -18,6 +18,8 @@ const Checkout = () => {
     phone: "",
   });
 
+  const [open, setOpen] = useState(false);
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
     console.log("formData", formData);
@@ -33,9 +35,46 @@ const Checkout = () => {
         <div className="checkout-container">
           <div className="checkout-left">
             <Link to="/cart">
-              {" "}
               <MdKeyboardArrowLeft /> Return to Cart
             </Link>
+            <button className="toggle" onClick={() => setOpen((prev) => !prev)}>
+              <MdOutlineShoppingCart /> Show order summary
+            </button>
+            {open && (
+              <div className="mobile table-wrapper">
+                <table className="cartItem-table">
+                  <tbody>
+                    {cartItems.length ? (
+                      cartItems.map((item, idx) => (
+                        <tr key={idx}>
+                          <td>
+                            <div className="itemImage-thumbnail">
+                              <div className="itemImg-wrapper">
+                                <img src={item.image} alt="" />
+                              </div>
+                              <span className="item-qty">{item.qty}</span>
+                            </div>
+                          </td>
+                          <th>
+                            <span className="itemName">{item.productName}</span>
+                          </th>
+                          <td>
+                            <span className="itemTotalPrice">
+                              {item.totalPrice}
+                            </span>
+                          </td>
+                        </tr>
+                      ))
+                    ) : (
+                      <tr>
+                        <td>0</td>
+                      </tr>
+                    )}
+                  </tbody>
+                </table>
+              </div>
+            )}
+
             <h6>Shipping Address</h6>
             {/* <form> */}
             {/* <div className="formInput-wrapper">
@@ -47,6 +86,7 @@ const Checkout = () => {
                   handleChange={handleChange}
                 />
               </div> */}
+
             <div className="form-wrapper">
               <div className="formInput-wrapper half">
                 <Input

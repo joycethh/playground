@@ -4,11 +4,13 @@
     display: flex;
     padding-top: 1.5rem;
     flex-direction: row;
-    margin: 0 6rem;
+    margin: auto;
+    width: 75%;
+    align-items: center;
 
 
     @media phone {
-        margin-top: 2rem;
+        width: 100;
     }
 
     @media tablet {
@@ -18,29 +20,65 @@
     }
 
     @include themify($themes) {
-        .details-section {
-            padding-top: 4rem;
-            width: 50%;
-            padding-right: 6%;
+        .checkout-left {
+            max-width: 50%;
             float: left;
+            flex-grow: 1;
+            padding-right: 5rem;
         
             h6 {
                 font-weight: 500;
                 font-size: 1.5rem;
                 line-height: 2rem;
             }
+
         
-            form {
-                padding-bottom: 1rem;
-                
-                input {
-                   margin-bottom: 1rem;
-                }
+            .form-wrapper {
+                display: flex;
+                flex-direction: column;
+                position: relative;
+                background-color: antiquewhite;
+                width: 100%;
+                padding:1rem;  
             }
+            .formInput-wrapper {
+                margin-bottom: 1rem;
+                box-sizing: border-box;
+
+            }
+            .half {
+                display: flex;
+                justify-content: space-between;
+                gap: 1rem;
+            }
+                
+               
+            
+
+            .button-wrapper {
+                display: flex;
+                justify-content: center;
+                margin: 2rem auto 3rem;
+            
+                button {
+                    width: 100%;
+                    border-radius: 8px;
+                    background-color: themed('highlight');
+                    border: none;
+                    padding: 1rem;
+                    text-transform: uppercase;
+                    font-weight: bold;
+                    line-height: 1rem;
+                    letter-spacing: 1px;
+                    word-spacing: 2px;
+                }
+
+            }
+
         
         }
 
-        .summary-section { 
+        .checkout-right { 
             padding-top: 4rem;
             padding-bottom: 4rem;
             width: 460px;
@@ -199,26 +237,7 @@
 
                 }
 
-                .button-wrapper {
-                    display: flex;
-                    justify-content: center;
-                    margin: 3rem auto;
-                
-                    button {
-                        width: 100%;
-                        border-radius: 8px;
-                        background-color: themed('highlight');
-                        border: none;
-                        padding: 1rem;
-                        text-transform: uppercase;
-                        font-weight: bold;
-                        line-height: 1rem;
-                        letter-spacing: 1px;
-                        word-spacing: 2px;
-                    }
-
-                }
-
+              
                 .services-wrapper {  
                     display: flex;
                 }

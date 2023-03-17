@@ -1,27 +1,26 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { MdKeyboardArrowLeft } from "react-icons/md";
 import { useSelector } from "react-redux";
 import Input from "../../components/input/Input";
 import "./checkout.scss";
-import necklace from "../../assets/jewelery.jpg";
-import { FcCustomerSupport } from "react-icons/fc";
-import { Link } from "react-router-dom";
 import Badge from "../../components/badge/Badge";
 const Checkout = () => {
-  const { cartItems, itemSubtotal, totalQty } = useSelector(
-    (state) => state.cart
-  );
+  const { cartItems, itemSubtotal } = useSelector((state) => state.cart);
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
+    firstName: "",
+    lastName: "",
     streetAddress: "",
     city: "",
-    postalCode: "",
+    state: "",
+    zipCode: "",
     country: "",
+    phone: "",
   });
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+    console.log("formData", formData);
   };
 
   const submitOrder = () => {
@@ -29,72 +28,106 @@ const Checkout = () => {
   };
 
   return (
-    <Badge title="checkout">
+    <Badge title="Checkout">
       <section className="checkout-section">
         <div className="checkout-container">
-          <div className="details-section">
+          <div className="checkout-left">
+            <MdKeyboardArrowLeft /> <Link to="/cart">Return to Cart</Link>
             <h6>Shipping Address</h6>
-            <form>
-              <Input
-                name="name"
-                type="text"
-                placeHolder="Name"
-                autoFocus
-                required
-                handleChange={handleChange}
-              />
-              <Input
-                name="email"
-                type="text"
-                placeHolder="Email"
-                required
-                handleChange={handleChange}
-              />
-              <Input
-                name="phone"
-                type="text"
-                placeHolder="Phone Number"
-                required
-                handleChange={handleChange}
-              />
-              <Input
-                name="streetAddress"
-                type="text"
-                placeHolder="Street Address"
-                required
-                handleChange={handleChange}
-              />
-              <Input
-                name="city"
-                type="text"
-                placeHolder="City"
-                required
-                handleChange={handleChange}
-              />
-              <Input
-                name="postalCode"
-                type="text"
-                placeHolder="Potal Code"
-                required
-                handleChange={handleChange}
-              />
-              <Input
-                name="country"
-                type="text"
-                placeHolder="Country"
-                required
-                handleChange={handleChange}
-              />
-            </form>
+            {/* <form> */}
+            {/* <div className="formInput-wrapper">
+                <Input
+                  name="email"
+                  type="text"
+                  placeHolder="Email"
+                  required
+                  handleChange={handleChange}
+                />
+              </div> */}
+            <div className="form-wrapper">
+              <div className="formInput-wrapper half">
+                <Input
+                  name="firstName"
+                  type="text"
+                  placeHolder="First Name"
+                  autoFocus
+                  required
+                  handleChange={handleChange}
+                />
+                <Input
+                  name="lastName"
+                  type="text"
+                  placeHolder="Last Name"
+                  required
+                  handleChange={handleChange}
+                />
+              </div>
+
+              <div className="formInput-wrapper">
+                <Input
+                  name="streetAddress"
+                  type="text"
+                  placeHolder="Street Address"
+                  required
+                  handleChange={handleChange}
+                />
+              </div>
+              <div className="formInput-wrapper half">
+                <Input
+                  name="city"
+                  type="text"
+                  placeHolder="City"
+                  required
+                  handleChange={handleChange}
+                />
+                <Input
+                  name="state"
+                  type="text"
+                  placeHolder="State"
+                  required
+                  handleChange={handleChange}
+                />
+              </div>
+              <div className="formInput-wrapper half">
+                <Input
+                  name="zipCode"
+                  type="text"
+                  placeHolder="Zip Code"
+                  required
+                  handleChange={handleChange}
+                />
+
+                <Input
+                  name="country"
+                  type="text"
+                  placeHolder="Country"
+                  required
+                  handleChange={handleChange}
+                />
+              </div>
+              <div className="formInput-wrapper">
+                <Input
+                  name="phone"
+                  type="text"
+                  placeHolder="Phone Number"
+                  required
+                  handleChange={handleChange}
+                />
+              </div>
+            </div>
+            <div className="button-wrapper">
+              <button onClick={submitOrder}>Continue</button>
+            </div>
+            {/* </form> */}
           </div>
 
-          <div className="summary-section">
+          <div className="checkout-right">
             <div className="summary-content">
               <div className="table-wrapper">
                 <table className="cartItem-table">
                   <caption>Order Summary</caption>
                   <tbody>
-                    {cartItems.length &&
+                    {cartItems.length ? (
                       cartItems.map((item, idx) => (
                         <tr key={idx}>
                           <td>
@@ -114,7 +147,12 @@ const Checkout = () => {
                             </span>
                           </td>
                         </tr>
-                      ))}
+                      ))
+                    ) : (
+                      <tr>
+                        <td>0</td>
+                      </tr>
+                    )}
                   </tbody>
                 </table>
               </div>
@@ -169,10 +207,6 @@ const Checkout = () => {
                     </tr>
                   </tbody>
                 </table>
-              </div>
-
-              <div className="button-wrapper">
-                <button onClick={submitOrder}>Place Order</button>
               </div>
 
               <div className="services-wrapper"></div>

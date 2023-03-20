@@ -2,12 +2,14 @@
 
  input {
     @include themify($themes) {
-    
-    border: 1px solid themed('border');
-    padding: 20px 10px;
-    width: 100%;
-    border-radius: 5px;
-    box-sizing: border-box;
-
+        border: 1px solid themed('border');
+        padding: 20px 10px;
+        width: 100%;
+        border-radius: 5px;
+        box-sizing: border-box;
+        margin-bottom: 1rem;
+        @include mobile {
+            margin-bottom: 0.5rem;
+        }
     }
 }

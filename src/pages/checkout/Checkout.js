@@ -37,9 +37,18 @@ const Checkout = () => {
             <Link to="/cart">
               <MdKeyboardArrowLeft /> Return to Cart
             </Link>
-            <button className="toggle" onClick={() => setOpen((prev) => !prev)}>
-              <MdOutlineShoppingCart /> Show order summary
-            </button>
+            <div className="toggleSummary">
+              <button
+                className="toggle"
+                onClick={() => setOpen((prev) => !prev)}
+              >
+                <MdOutlineShoppingCart /> Show order summary
+              </button>
+              <div className="total">
+                $
+                {Math.round((itemSubtotal * 0.08 + Number.EPSILON) * 100) / 100}
+              </div>
+            </div>
             {open && (
               <div className="mobile table-wrapper">
                 <table className="cartItem-table">
@@ -75,17 +84,9 @@ const Checkout = () => {
               </div>
             )}
 
-            <h6>Shipping Address</h6>
-            {/* <form> */}
-            {/* <div className="formInput-wrapper">
-                <Input
-                  name="email"
-                  type="text"
-                  placeHolder="Email"
-                  required
-                  handleChange={handleChange}
-                />
-              </div> */}
+            <div className="header-wrapper">
+              <h1>Shipping Address</h1>
+            </div>
 
             <div className="form-wrapper">
               <div className="formInput-wrapper half">
@@ -161,7 +162,6 @@ const Checkout = () => {
             <div className="button-wrapper">
               <button onClick={submitOrder}>Continue</button>
             </div>
-            {/* </form> */}
           </div>
 
           <div className="checkout-right">

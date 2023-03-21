@@ -4,98 +4,94 @@ main{
     @include themify($themes) {
         .hero-section {
             .banner-wrapper {
+                display: flex;
+                align-items: center;
+                background:linear-gradient(
+                    to bottom,
+                    rgba(240, 234, 252, 0.1),
+                    rgba(253, 223, 219, 0.3)
+                  ), url("../../assets/ring.png") no-repeat center bottom ;
+                background-size: cover;
+                width: 100%;
+                height: 300px;
                 position: relative;
-            
-            
-                img {
-                    width: 100%;
-                    height: auto;
-                    object-fit: cover; 
-                    
+                padding: 100px 0px;
+
+                .flex-container {
+                    display: flex;
+                    flex-direction: row;
+                    margin: auto;
+                    width: 75%;
+                    align-items: center;
+                   
+                
                     @include mobile {
-                        height: 400px;
+                        flex-direction: column;
                         width: 100%;
                     }
-                }
-    
-                .caption {
-                    display: block;
-                    position: absolute;
-                    top: 15%;
-                    left: 10%;
-                    width: 40%;
-    
-                    @include mobile {
-                        width: 50%;
-                    }
-    
-                    span{
-                        font-size: 1rem;
-    
-                        @include mobile {
-                            font-size: 0.8rem;
-                        }
-                    }
-    
-                    h2 {
-                        display: block;
-                        margin-top: 10px;
-                        font-size: 2.5rem;
-                        font-weight: 500;
-                        text-transform: capitalize;
-    
-                        @include tablet {
-                           font-size: 1.1rem;
-                        }  
-                        
-                        @include mobile {
-                            font-size: 1.1rem;
-                        }
-                    }
-    
-                    p {
-                        font-size: 1.1rem;
-                        padding-top: 1rem;
-    
-                        @include tablet {
-                            font-size: 0.9rem;
-                        }
-    
-                        @include mobile {
-                            font-size: 0.9rem;
-                        }
-                        
-                    }
-    
-                    .shop-now {
-                        padding-top: 2rem;;
-                        width: 60%;
+
+                    .left {
+                        max-width: 50%;
+                        float: left;
+                        flex-grow: 1;
+                        padding-right: 5rem;
                        
-                        button {
-                            border: none;
-                            background-color: themed('highlight');
-                            border-radius: 8px;
-                            padding: 1rem;
-                            width: 100%;
-                            text-transform: uppercase;
-                            font-weight: bold;
-                            transition: all .2s ease-in-out;
-                            cursor: pointer;
-    
-                            &:hover {
-                                background-color: themed('logo')
+                       
+                
+                        @include mobile {
+                            min-width: 100%;
+                            padding-right: 0;
+                            
+                        }
+
+                        .caption {
+                            text-align: left;
+                            padding: 0 1.5rem;
+            
+                            span{
+                                font-size: 1rem;
                             }
-                          
-                            a {
-                                text-decoration: none;
-                                color: themed('textColor')    
+            
+                            h2 {
+                                font-size: 2.5rem;
+                                line-height: 3.2rem;
+                                font-weight: 500;
+                                text-transform: capitalize;
+            
+                                @include mobile {
+                                   font-size: 1.87rem; 
+                                   line-height: 3.2rem;    
+                                }  
                             }
+            
+                            .shop-now {
+                                padding-top: 2rem;;
+                            
+                                button {
+                                    border: none;
+                                    background-color: themed('highlight');
+                                    border-radius: 8px;
+                                    padding: 1rem;
+                                    text-transform: uppercase;
+                                    font-weight: bold;
+                                    transition: all .2s ease-in-out;
+                                    cursor: pointer;
+            
+                                    &:hover {
+                                        background-color: themed('logo')
+                                    }
+                                  
+                                    a {
+                                        text-decoration: none;
+                                        color: themed('textColor')    
+                                    }
+                                }
+                            }
+            
                         }
                     }
-    
+                
                 }
-    
-               
             }
         }
         

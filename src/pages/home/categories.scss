@@ -1,0 +1,43 @@
+@import "../../style.scss";
+
+.mt-15 {
+    margin-top: 1.5rem;
+    .grid-container {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0,1fr));
+        flex-direction: row;
+        gap: 2rem;
+     
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 22px;
+    
+      
+    
+        .img-title {
+            text-align: center;
+    
+            img {
+                width: 378px;
+                height: 284px;     
+                vertical-align: middle;
+                overflow: hidden;
+            }
+            h3 {
+                font-size: 1.2rem;
+                text-transform: uppercase;
+                margin-bottom: 1rem;
+                margin-top: 1rem;
+            }
+        }
+
+    
+        .subtitle {
+             text-align: center;
+            margin-top: 1rem;
+            box-sizing: border-box;
+            border-width: 0;
+        }
+    }
+}
+

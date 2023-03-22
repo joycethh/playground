@@ -7,10 +7,13 @@
         grid-template-columns: repeat(3, minmax(0,1fr));
         flex-direction: row;
         gap: 2rem;
-     
         max-width: 1200px;
         margin: 0 auto;
         padding: 0 22px;
+
+        @include mobile {
+            grid-template-columns: repeat(1, minmax(0,1fr));
+        }
     
       
     

@@ -31,6 +31,8 @@
 
 .image-container {
     position: relative;
+    overflow: hidden;
+
 
     @include themify($themes) {
         .image {

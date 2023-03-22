@@ -7,18 +7,18 @@ import "./categories.scss";
 
 const categories = [
   {
-    title: "Jewelry",
+    title: "jewelry",
     subtitle: "Classic designs for daily and up wears. ",
     imgUrl: jeweleryCategory,
   },
 
   {
-    title: "Women",
+    title: "women",
     subtitle: "Stylish and comfortable mordern finery. ",
     imgUrl: womenCategory,
   },
   {
-    title: "Electronics",
+    title: "electronics",
     subtitle: "Powerful high tech products in mordern styles. ",
     imgUrl: electronic,
   },
@@ -27,19 +27,6 @@ const categories = [
 const Categories = () => {
   return (
     <div className="mt-15">
-      {/* <div className="grid-container">
-        {categories.map((item, idx) => (
-          <div key={idx}>
-            <div className="img-title">
-              <img src={item.imgUrl} alt="" />
-              <h3>{item.title}</h3>
-            </div>
-            <div className="subtitle">
-              <p>{item.subtitle}</p>
-            </div>
-          </div>
-        ))}
-      </div> */}
       <div className="grid-container">
         {categories.map((item, idx) => (
           <div key={idx}>

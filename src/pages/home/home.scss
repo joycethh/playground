@@ -39,18 +39,17 @@ main{
                         float: left;
                         flex-grow: 1;
                         padding-right: 5rem;
-                       
-                       
-                
+
                         @include mobile {
                             min-width: 100%;
-                            padding-right: 0;
-                            
+                            padding-right: 0;       
                         }
 
                         .caption {
                             text-align: left;
-                            padding: 0 1.5rem;
+                            @include mobile {
+                                padding: 0 1.5rem;
+                            }
             
                             span{
                                 font-size: 1rem;

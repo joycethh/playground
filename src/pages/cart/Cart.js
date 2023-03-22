@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { MdKeyboardArrowLeft, MdDeleteOutline } from "react-icons/md";
+import { Button, LinkButton } from "../../components/button/Button";
 import "./cart.scss";
 import Badge from "../../components/badge/Badge";
 import { DELETE_FROM_CART } from "../../redux/feature/cartSlice";
@@ -34,6 +35,7 @@ const Cart = () => {
                       >
                         <MdDeleteOutline />
                       </button>
+
                       <div className="item-details-left">
                         <div className="img-wrapper">
                           <Link to={`/shop/`}>
@@ -87,9 +89,14 @@ const Cart = () => {
                   </span>
                 </div>
 
-                <button>
+                {/* <button>
                   <Link to="/checkout">Checkout</Link>
-                </button>
+                </button> */}
+                <LinkButton
+                  path="/checkout"
+                  name="Checkout"
+                  className="checkout-btn"
+                />
               </div>
 
               <div className="service-wrapper">

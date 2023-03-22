@@ -6,7 +6,7 @@ import Input from "../../components/input/Input";
 import "./checkout.scss";
 import Badge from "../../components/badge/Badge";
 import OrderSummary from "./OrderSummary";
-
+import { LinkButton } from "../../components/button/Button";
 const Checkout = () => {
   const { itemSubtotal } = useSelector((state) => state.cart);
   const [formData, setFormData] = useState({
@@ -132,15 +132,18 @@ const Checkout = () => {
                 />
               </div>
             </div>
-            <div className="button-wrapper">
-              <button onClick={submitOrder}>Continue</button>
-            </div>
+
+            <LinkButton
+              onClick={submitOrder}
+              name="Continue"
+              path="/payment"
+              className="checkout-btn"
+            />
           </div>
 
           <div className="checkout-right">
             <div className="summary-content">
               <OrderSummary />
-
               <div className="services-wrapper"></div>
             </div>
           </div>

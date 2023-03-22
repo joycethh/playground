@@ -1,5 +1,5 @@
 import React from "react";
-import { Button } from "../../components/button/Button";
+import { ImageWithOverlayButton } from "../../components/button/Button";
 import jeweleryCategory from "../../assets/jewelery-cate.jpg";
 import womenCategory from "../../assets/women-cate.jpg";
 import electronic from "../../assets/electronic-cate.jpg";
@@ -27,11 +27,28 @@ const categories = [
 const Categories = () => {
   return (
     <div className="mt-15">
-      <div className="grid-container">
+      {/* <div className="grid-container">
         {categories.map((item, idx) => (
           <div key={idx}>
             <div className="img-title">
               <img src={item.imgUrl} alt="" />
+              <h3>{item.title}</h3>
+            </div>
+            <div className="subtitle">
+              <p>{item.subtitle}</p>
+            </div>
+          </div>
+        ))}
+      </div> */}
+      <div className="grid-container">
+        {categories.map((item, idx) => (
+          <div key={idx}>
+            <div className="img-title">
+              <ImageWithOverlayButton
+                imageSrc={item.imgUrl}
+                path={`/${item.title}`}
+                buttonLabel={`Shop ${item.title}`}
+              />
               <h3>{item.title}</h3>
             </div>
             <div className="subtitle">

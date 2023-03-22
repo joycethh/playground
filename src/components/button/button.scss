@@ -28,3 +28,51 @@
     }
    
 }
+
+.image-container {
+    position: relative;
+
+    @include themify($themes) {
+        .image {
+            width: 100%;
+            height: auto;
+        }
+
+        button {
+            border: none;
+            background-color: themed('bgContrast');
+            border-radius: 8px;
+            padding: 1rem 1.1rem;
+            text-transform: uppercase;
+            font-weight: bold;
+            transition: all .2s ease-in-out;
+            cursor: pointer;
+            line-height: 1rem;
+            letter-spacing: 1px;
+            word-spacing: 1px;  
+
+   
+            &:hover {
+                background-color: themed('textColorSoft')
+            }
+
+            a {
+                text-decoration: none;
+                color: themed('textContrast');   
+            }
+        }
+
+        .overlay-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            transition: opacity 0.2s ease-in-out;
+        }
+
+        &:hover .overlay-button {
+            opacity: 1;
+        }
+    }
+}

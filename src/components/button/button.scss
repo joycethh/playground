@@ -6,14 +6,14 @@
             border: none;
             background-color: themed('highlight');
             border-radius: 8px;
-            padding: 1rem;
+            padding: 1rem 1.2rem;
             text-transform: uppercase;
             font-weight: bold;
             transition: all .2s ease-in-out;
             cursor: pointer;
             line-height: 1rem;
             letter-spacing: 1px;
-            word-spacing: 2px;
+            
    
             &:hover {
                 background-color: themed('logo')

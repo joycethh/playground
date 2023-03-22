@@ -24,6 +24,10 @@ main{
                     width: 75%;
                     align-items: center;
                    
+                    @include tablet {
+                        flex-direction: column;
+                        width: 100%;
+                    }
                 
                     @include mobile {
                         flex-direction: column;
@@ -66,26 +70,6 @@ main{
             
                             .shop-now {
                                 padding-top: 2rem;;
-                            
-                                button {
-                                    border: none;
-                                    background-color: themed('highlight');
-                                    border-radius: 8px;
-                                    padding: 1rem;
-                                    text-transform: uppercase;
-                                    font-weight: bold;
-                                    transition: all .2s ease-in-out;
-                                    cursor: pointer;
-            
-                                    &:hover {
-                                        background-color: themed('logo')
-                                    }
-                                  
-                                    a {
-                                        text-decoration: none;
-                                        color: themed('textColor')    
-                                    }
-                                }
                             }
             
                         }

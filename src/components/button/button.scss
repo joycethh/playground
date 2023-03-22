@@ -1,0 +1,27 @@
+@import "../../style.scss";
+
+.button-wrapper {
+    @include themify($themes) {
+        button {
+            border: none;
+            background-color: themed('highlight');
+            border-radius: 8px;
+            padding: 1rem;
+            text-transform: uppercase;
+            font-weight: bold;
+            transition: all .2s ease-in-out;
+            cursor: pointer;
+    
+            &:hover {
+                background-color: themed('logo')
+            }
+
+            a {
+                text-decoration: none;
+                color: themed('textColor')    
+            }
+        }
+
+    }
+   
+}

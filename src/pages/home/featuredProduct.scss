@@ -1,0 +1,34 @@
+@import "../../style.scss";
+
+.pt-3 {
+    padding-top: 3rem;
+    .page-width {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 22px;
+
+        @include mobile {
+          
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            text-align: center;
+            font-weight: 400;
+        }
+
+        .mt-3 {
+            margin-top: 3rem;
+        }
+        .mb-3 {
+            margin-bottom: 3rem;
+        }
+    
+      
+    
+
+    }
+}
+

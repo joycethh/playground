@@ -7,6 +7,7 @@ import ProductList from "../../components/ui/ProductList";
 import useProductData from "../../customHooks/useProductData";
 import Categories from "./Categories";
 import { LinkButton } from "../../components/button/Button";
+import FeaturedProducts from "./FeaturedProduct";
 
 const Home = () => {
   const { apiData } = useProductData();
@@ -40,6 +41,9 @@ const Home = () => {
         {/* <section className="products-section">
           <ProductList data={apiData} />
         </section> */}
+        <section className="product-lists">
+          <FeaturedProducts />
+        </section>
       </main>
     </Badge>
   );

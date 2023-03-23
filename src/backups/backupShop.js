@@ -1,10 +1,10 @@
 import React, { useState, useRef } from "react";
 import { Link } from "react-router-dom";
-import CommonSection from "../../components/ui/CommonSection";
-import Badge from "../../components/badge/Badge";
+import CommonSection from "../components/ui/CommonSection";
+import Badge from "../components/badge/Badge";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import "./shop.scss";
-import { useOnHoverOutside } from "../../customHooks/useOnHoverOutside";
+import { useOnHoverOutside } from "../customHooks/useOnHoverOutside";
 
 const Shop = () => {
   const dropdownRef = useRef(null);

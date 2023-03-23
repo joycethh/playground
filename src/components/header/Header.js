@@ -77,17 +77,16 @@ const Header = () => {
           <NavLink to="/home" className={activeLink}>
             <span>Home</span>
           </NavLink>
-          <NavLink to="/shop" className={activeLink}>
-            <span>Shop</span>
+          <NavLink to="/jewelery" className={activeLink}>
+            <span>Jewelery</span>
           </NavLink>
 
-          {/* <NavLink to="/electronics" className={activeLink}>
+          <NavLink to="/women" className={activeLink}>
+            Women
+          </NavLink>
+          <NavLink to="/electronics" className={activeLink}>
             Electronics
           </NavLink>
-
-          <NavLink to="/cloth" className={activeLink}>
-            Cloth
-          </NavLink> */}
         </div>
 
         <div className="icons">

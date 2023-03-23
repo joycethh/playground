@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { BsFillCartPlusFill } from "react-icons/bs";
+import { BsCartPlus } from "react-icons/bs";
 import { useDispatch } from "react-redux";
 import "./product.scss";
 import { ADD_TO_CART } from "../../redux/feature/cartSlice";
@@ -33,16 +33,18 @@ const ProductCard = ({ item }) => {
             </Link>
           </div>
           <div className="product-info-wrapper">
-            <h3 className="product-name">{item.title}</h3>
-            <div className="tag">
-              <span>{item.category}</span>
-            </div>
+            <h4>
+              {item.title.length > 50
+                ? item.title.slice(0, 50) + "..."
+                : item.title.slice(0, 50)}
+            </h4>
+            <span>{item.category}</span>
           </div>
 
-          <div className="product-bottom-wrapper">
+          <div className="product-bottom-wrapper" onClick={addItem}>
             <span className="price">${item.price}</span>
-            <span onClick={addItem}>
-              <BsFillCartPlusFill />
+            <span>
+              <BsCartPlus />
             </span>
           </div>
         </div>

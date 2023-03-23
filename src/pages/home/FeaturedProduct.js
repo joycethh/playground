@@ -8,11 +8,10 @@ const FeaturedProducts = () => {
   const [products, setProducts] = useState(apiData);
 
   useEffect(() => {
-    const filltered =
-      apiData && apiData.filter((item) => item.category === "jewelery");
+    const filltered = apiData.filter((item) => item.category === "jewelery");
 
     setProducts(filltered);
-  });
+  }, [apiData]);
 
   return (
     <div className="pt-3">

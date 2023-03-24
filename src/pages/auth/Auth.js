@@ -8,6 +8,7 @@ import {
 } from "firebase/auth";
 import { auth } from "../../firebase/configure";
 import Input from "../../components/input/Input";
+import { Button } from "../../components/button/Button";
 import Loader from "../../components/loader/Loader";
 import "./auth.scss";
 
@@ -103,7 +104,7 @@ const Auth = () => {
           </div>
 
           <form onSubmit={handleSubmit}>
-            <div className="grid-container form">
+            <div className="grid-container form mt-15">
               <div className="grid-item">
                 {isRegister && (
                   <Input
@@ -151,10 +152,11 @@ const Auth = () => {
                 </div>
               )}
 
-              <div className="grid-item">
-                <button type="submit" onClick={handleSubmit}>
-                  {isRegister ? "Register" : "Sign In"}
-                </button>
+              <div className="btn-wrapper">
+                <Button
+                  name={isRegister ? "Register" : "Sign In"}
+                  handleClick={handleSubmit}
+                />
               </div>
             </div>
           </form>

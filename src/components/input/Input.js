@@ -8,16 +8,21 @@ const Input = ({
   placeHolder,
   autoFocus,
   required,
+  icon,
 }) => {
   return (
-    <input
-      name={name}
-      type={type}
-      placeholder={placeHolder}
-      autoFocus={autoFocus}
-      required={required}
-      onChange={handleChange}
-    />
+    <div className="inputWrapper">
+      <input
+        name={name}
+        type={type}
+        placeholder={placeHolder}
+        autoFocus={autoFocus}
+        required={required}
+        onChange={handleChange}
+        className="textFiled"
+      />
+      <span>{icon}</span>
+    </div>
   );
 };
 

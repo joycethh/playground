@@ -104,7 +104,7 @@ const Auth = () => {
           </div>
 
           <form onSubmit={handleSubmit}>
-            <div className="grid-container form mt-15">
+            <div className="grid-container form">
               <div className="grid-item">
                 {isRegister && (
                   <Input
@@ -152,7 +152,7 @@ const Auth = () => {
                 </div>
               )}
 
-              <div className="btn-wrapper">
+              <div className="auth-btn">
                 <Button
                   name={isRegister ? "Register" : "Sign In"}
                   handleClick={handleSubmit}
@@ -161,7 +161,7 @@ const Auth = () => {
             </div>
           </form>
 
-          <div className="google">
+          <div className="google mt-15">
             <span>-- or --</span>
             <button>login in with google</button>
           </div>

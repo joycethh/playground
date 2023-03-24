@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { toast } from "react-toastify";
 import { sendPasswordResetEmail } from "firebase/auth";
+import Input from "../../components/input/Input";
+import { Button } from "../../components/button/Button";
 import { auth } from "../../firebase/configure";
-import "./reset.scss";
 
 const Reset = () => {
   const [email, setEmail] = useState("");
@@ -19,23 +20,25 @@ const Reset = () => {
       });
   };
   return (
-    <div className="container">
+    <div className="container reset">
       <div className="card">
-        <h6>Reset Password</h6>
+        <div className="title">
+          <h6>Reset Password</h6>
+        </div>
 
         <form onSubmit={resetPS}>
-          <div className="input-wrapper">
-            <input
-              name="email"
-              type="email"
-              placeholder="Email"
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </div>
-          <div className="button-wrapper">
-            <button type="submit" onClick={resetPS}>
-              Send Confirmation
-            </button>
+          <div className="grid-container form">
+            <div className="grid-item">
+              <Input
+                name="email"
+                type="email"
+                placeHolder="Enter email"
+                handleChange={(e) => setEmail(e.target.value)}
+              />
+            </div>
+            <div className="auth-btn">
+              <Button name="send confirmation" handleClick={resetPS} />
+            </div>
           </div>
         </form>
       </div>

@@ -13,6 +13,7 @@
             cursor: pointer;
             line-height: 1rem;
             letter-spacing: 1px;
+            color: themed('textContrast');  
             
    
             &:hover {
@@ -21,7 +22,7 @@
 
             a {
                 text-decoration: none;
-                color: themed('textColor')    
+                // color: themed('textContrast')    
             }
         }
 

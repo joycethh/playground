@@ -1,0 +1,46 @@
+@import "../../style.scss";
+
+.commonBanner-section {
+    @include themify($themes) {
+   
+        .banner {
+            position: relative;
+            height: 300px;
+            overflow: hidden;
+        
+            .banner-image {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                background: linear-gradient(0deg, rgba(244,160,57,0.2) 0%,
+                 rgba(247,223,219,0.2) 100%);
+                background-position: center center; 
+            }
+
+            .banner-title {
+                position: absolute;
+                width: 90%;
+                max-width: 800px;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                font-size: 2rem;
+                font-weight: bold;
+                color: themed('textContrast');
+                text-align: center;
+                text-shadow: 2px 2px #fca729;
+                text-transform: uppercase;
+
+                @include tablet {
+                    font-size: 1.5rem;
+                }
+                @include tablet {
+                    font-size: 1rem;
+                }
+
+            }
+        }
+   
+
+    }
+}

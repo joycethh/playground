@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-import CommonSection from "../../components/ui/CommonSection";
+import CommonBanner from "../../components/ui/CommonBanner";
 import Badge from "../../components/badge/Badge";
 import { RiSearch2Line } from "react-icons/ri";
 import "./shop.scss";
 import useProductData from "../../customHooks/useProductData";
-
+import jewelryCommon from "../../assets/jewelry-white-common.jpg";
 import ProductList from "../../components/ui/ProductList";
 
-const Shop = () => {
+const Jewelry = () => {
   const { apiData } = useProductData();
 
   const [filterData, setFilterData] = useState(apiData);
@@ -57,8 +57,8 @@ const Shop = () => {
 
   return (
     <Badge title="shop">
-      <CommonSection title="product" />
-      <section className="filter-section">
+      <CommonBanner imageUrl={jewelryCommon} title="jewelry" />
+      {/* <section className="filter-section">
         <div className="filterSection-container">
           <div className="filterBy-wrapper">Filter By:</div>
           <div className="filterOption-wrapper">
@@ -93,7 +93,7 @@ const Shop = () => {
             </span>
           </div>
         </div>
-      </section>
+      </section> */}
       <section>
         {filterData?.length ? (
           <ProductList data={filterData} />
@@ -107,4 +107,4 @@ const Shop = () => {
   );
 };
 
-export default Shop;
+export default Jewelry;

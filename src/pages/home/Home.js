@@ -1,17 +1,12 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import "./home.scss";
 // import { Loader } from "../../components/index";
 import Badge from "../../components/badge/Badge";
-import ProductList from "../../components/ui/ProductList";
-import useProductData from "../../customHooks/useProductData";
 import Categories from "./Categories";
 import { LinkButton } from "../../components/button/Button";
 import FeaturedProducts from "./FeaturedProduct";
 
 const Home = () => {
-  const { apiData } = useProductData();
-  // console.log("apiData in home", apiData);
   return (
     <Badge title={"Home"}>
       <main>
@@ -24,10 +19,7 @@ const Home = () => {
                   <span>Aqua treasures are waiting for you</span>
                   <h2>Adorn yourself with the natural beauty of pearls</h2>
                   <div className="shop-now">
-                    {/* <button>
-                      <Link to="/shop">Shop Now</Link>
-                    </button> */}
-                    <LinkButton name="Shop Now" path="/shop" />
+                    <LinkButton name="Shop Now" path="/jewelery" />
                   </div>
                 </div>
               </div>
@@ -38,9 +30,7 @@ const Home = () => {
         <section className="categories-section">
           <Categories />
         </section>
-        {/* <section className="products-section">
-          <ProductList data={apiData} />
-        </section> */}
+
         <section className="product-lists">
           <FeaturedProducts />
         </section>

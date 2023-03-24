@@ -1,7 +1,7 @@
 import React from "react";
 import { AiFillStar } from "react-icons/ai";
 import { useParams } from "react-router";
-import CommonSection from "../../components/ui/CommonSection";
+import CommonBanner from "../../components/ui/CommonBanner";
 import Badge from "../../components/badge/Badge";
 import useProductData from "../../customHooks/useProductData";
 import "./productDetail.scss";
@@ -31,7 +31,7 @@ const ProductDetails = () => {
   return (
     apiData && (
       <Badge title="detail">
-        <CommonSection title={item.title} />
+        <CommonBanner title={item.title} />
         <section className="productDetail-section">
           <div className="productDetail">
             <div className="img-wrapper">

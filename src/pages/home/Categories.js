@@ -1,6 +1,6 @@
 import React from "react";
 import { ImageWithOverlayButton } from "../../components/button/Button";
-import jeweleryCategory from "../../assets/jewelery-cate.jpg";
+import jeweleryCategory from "../../assets/jewelry-cate.jpg";
 import womenCategory from "../../assets/women-cate.jpg";
 import electronic from "../../assets/electronic-cate.jpg";
 import "./categories.scss";

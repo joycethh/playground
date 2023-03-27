@@ -34,16 +34,16 @@
                 }
             }
             
-            .form {
+            .authForm {
                 display: flex;
                 flex-direction: column;
                 gap: 1rem;
                 align-items: center;
                 
-                .grid-item {
-                    display: flex;
-                    align-items: center;
-                }
+                // .formInput {
+                //     display: flex;
+                //     align-items: center;
+                // }
 
                 input {
                     background-color:themed('bgSoft');

@@ -104,50 +104,51 @@ const Auth = () => {
           </div>
 
           <form onSubmit={handleSubmit}>
-            <div className="grid-container form">
-              <div className="grid-item">
+            <div className="authForm">
+              <div className="formInput">
                 {isRegister && (
                   <Input
                     name="username"
                     type="text"
                     placeHolder="Username"
-                    autoFocus
-                    required
+                    required={true}
+                    autoFocus={true}
                     handleChange={handleChange}
                   />
                 )}
               </div>
-              <div className="grid-item">
+              <div className="formInput">
                 <Input
                   name="email"
                   type="text"
                   placeHolder="Email"
-                  required
-                  autoFucus
+                  required={true}
+                  autoFocus={true}
                   handleChange={handleChange}
                 />
               </div>
-              <div className="grid-item">
+              <div className="formInput">
                 <Input
                   name="password"
                   type="password"
                   placeHolder="Password"
-                  required
+                  required={true}
                   handleChange={handleChange}
                 />
               </div>
-              <div className="grid-item">
+              <div className="formInput">
                 {isRegister && (
                   <Input
                     name="repeatPassword"
                     type="password"
                     placeHolder="Repeat Password"
+                    required={true}
                     handleChange={handleChange}
                   />
                 )}
               </div>
               {!isRegister && (
-                <div className="grid-item link">
+                <div className="formInput link">
                   <Link to="/reset-password">I forgot my password</Link>
                 </div>
               )}
@@ -161,7 +162,7 @@ const Auth = () => {
             </div>
           </form>
 
-          <div className="google mt-15">
+          <div className="google mt-2">
             <span>-- or --</span>
             <button>login in with google</button>
           </div>

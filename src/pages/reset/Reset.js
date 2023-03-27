@@ -36,7 +36,7 @@ const Reset = () => {
                 handleChange={(e) => setEmail(e.target.value)}
               />
             </div>
-            <div className="auth-btn">
+            <div className="auth-btn mt-15">
               <Button name="send confirmation" handleClick={resetPS} />
             </div>
           </div>

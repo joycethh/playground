@@ -1,7 +1,7 @@
 @import "../../style.scss";
 
 .inputWrapper {
-    background-color: bisque;
+    // background-color: bisque;
 
     @include themify($themes) {
         display: flex;
@@ -19,6 +19,7 @@
             border: none;
             outline: none;
             font-size: 16px;
+            background-color:inherit;
         }
 
         .icon {

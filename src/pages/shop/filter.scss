@@ -1,0 +1,79 @@
+@import "../../style.scss";
+
+.filter-section {
+    @include themify($themes) {
+    .filterSection-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        min-height: 6rem;
+        height: auto;
+        position: relative;
+    
+        align-items: center;
+        background-color: beige;
+        
+        @include mobile {
+            flex-direction: column;
+        }
+
+        // .filterBy-wrapper {
+        //     display: flex;
+        //     font-size: 0.8rem;
+        //     align-items: center;
+        //     width: 6rem;
+        //     color: themed('textColorSoft');
+        //     padding-left: 1rem;
+        // }
+        .filter-left {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+           
+            .select-wrapper{
+                min-width: 15rem;
+                position: relative;  
+            }
+    
+            select {
+                text-transform: capitalize;
+                padding: 0.5rem 1.2rem;
+                border: 0;
+                cursor: pointer;
+                border-radius: 5px;
+
+                &:focus {
+                    outline: none;
+                }
+
+                option {
+                    font-size: 0.9rem;
+
+                    &:first-child {
+                        text-transform: uppercase;
+                    }
+                }
+
+            }
+        }
+
+        .search-right {
+         
+        }
+
+    }
+
+}
+
+
+}
+
+.info-wrapper {
+    margin: 3rem 3rem;
+    padding-left: 1rem;
+
+    h2 {
+        font-size: 1.3rem;
+    }
+   
+}

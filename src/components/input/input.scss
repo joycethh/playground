@@ -1,29 +1,16 @@
 @import "../../style.scss";
 
-// .textFiled {
-//     @include themify($themes) {
-//         border: 1px solid themed('border');
-//         padding: 20px 10px;
-//         width: 100%;
-//         border-radius: 5px;
-//         box-sizing: border-box;
-//         margin-bottom: 1rem;
-//         @include mobile {
-//             margin-bottom: 0.5rem;
-//         }
-//     }
-// }
-
 .inputWrapper {
+    background-color: bisque;
 
     @include themify($themes) {
         display: flex;
         align-items: center;
         border: 1px solid themed('border');
         border-radius: 8px;
-        width: 100%;
+        // width: 100%;
         max-width: 400px;
-        min-width: 300px;
+        min-width: 290px;
         height: 40px;
         padding: 5px 10px;
 

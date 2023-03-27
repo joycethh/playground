@@ -1,27 +1,34 @@
 import React from "react";
 import "./input.scss";
 
-const Input = ({
-  name,
-  type,
-  handleChange,
-  placeHolder,
-  autoFocus,
-  required,
-  icon,
-}) => {
+const Input = (props) => {
+  const {
+    icon,
+    name,
+    type,
+    placeHolder,
+    autoFocus,
+    required,
+    handleChange,
+    handleClick,
+    ...rest
+  } = props;
   return (
     <div className="inputWrapper">
       <input
         name={name}
         type={type}
         placeholder={placeHolder}
-        autoFocus={autoFocus}
+        autofocus={autoFocus}
         required={required}
         onChange={handleChange}
-        className="textFiled"
+        {...rest}
       />
-      <span>{icon}</span>
+      {icon && (
+        <span className="icon" onClick={handleClick}>
+          {icon}
+        </span>
+      )}
     </div>
   );
 };

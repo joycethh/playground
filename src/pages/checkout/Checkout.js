@@ -27,7 +27,8 @@ const Checkout = () => {
     console.log("formData", formData);
   };
 
-  const submitOrder = () => {
+  const submitForm = (e) => {
+    e.preventDefault();
     console.log("submit order button clicked");
   };
 
@@ -61,80 +62,81 @@ const Checkout = () => {
               <h1>Shipping Address</h1>
             </div>
 
-            <div className="form-wrapper">
-              <div className="formInput-wrapper half">
-                <Input
-                  name="firstName"
-                  type="text"
-                  placeHolder="First Name"
-                  autoFocus
-                  required
-                  handleChange={handleChange}
-                />
-                <Input
-                  name="lastName"
-                  type="text"
-                  placeHolder="Last Name"
-                  required
-                  handleChange={handleChange}
-                />
-              </div>
+            <form onSubmit={submitForm} className="shippingForm">
+              <Input
+                name="firstName"
+                type="text"
+                placeHolder="First Name"
+                autoFocus
+                required
+                handleChange={handleChange}
+                className="form-addressInput"
+              />
+              <Input
+                name="lastName"
+                type="text"
+                placeHolder="Last Name"
+                required
+                handleChange={handleChange}
+                className="form-addressInput"
+              />
 
-              <div className="formInput-wrapper">
-                <Input
-                  name="streetAddress"
-                  type="text"
-                  placeHolder="Street Address"
-                  required
-                  handleChange={handleChange}
-                />
-              </div>
-              <div className="formInput-wrapper half">
-                <Input
-                  name="city"
-                  type="text"
-                  placeHolder="City"
-                  required
-                  handleChange={handleChange}
-                />
-                <Input
-                  name="state"
-                  type="text"
-                  placeHolder="State"
-                  required
-                  handleChange={handleChange}
-                />
-              </div>
-              <div className="formInput-wrapper half">
-                <Input
-                  name="zipCode"
-                  type="text"
-                  placeHolder="Zip Code"
-                  required
-                  handleChange={handleChange}
-                />
+              <Input
+                name="streetAddress"
+                type="text"
+                placeHolder="Street Address"
+                required
+                handleChange={handleChange}
+                className="form-addressInput"
+              />
 
-                <Input
-                  name="country"
-                  type="text"
-                  placeHolder="Country"
-                  required
-                  handleChange={handleChange}
-                />
-              </div>
-              <div className="formInput-wrapper">
-                <Input
-                  name="phone"
-                  type="text"
-                  placeHolder="Phone Number"
-                  required
-                  handleChange={handleChange}
-                />
-              </div>
-            </div>
+              <Input
+                name="city"
+                type="text"
+                placeHolder="City"
+                required
+                handleChange={handleChange}
+                className="form-addressInput"
+              />
+
+              <Input
+                name="state"
+                type="text"
+                placeHolder="State"
+                required
+                handleChange={handleChange}
+                className="form-addressInput"
+              />
+
+              <Input
+                name="country"
+                type="text"
+                placeHolder="Country"
+                required
+                handleChange={handleChange}
+                className="form-addressInput"
+              />
+              <Input
+                name="zipCode"
+                type="text"
+                placeHolder="Zip Code"
+                required
+                handleChange={handleChange}
+                className="form-addressInput"
+              />
+
+              <Input
+                name="phone"
+                type="text"
+                placeHolder="Phone Number"
+                required
+                handleChange={handleChange}
+                className="form-addressInput"
+              />
+            </form>
 
             <LinkButton
-              onClick={submitOrder}
+              onClick={submitForm}
               name="Continue"
               path="/payment"
               className="checkout-btn"

@@ -9,12 +9,16 @@ import jewelryCommon from "../../assets/jewelry-white-common.jpg";
 const Jewelry = () => {
   const { apiData } = useProductData();
   const categories = [...new Set(apiData?.map((product) => product.category))];
-  console.log("categories", categories);
 
   const [selectedCategory, setSelectedCategory] = useState("");
+  const [searchQuery, setSearchQuery] = React.useState("");
 
   const handleSelectCategory = (category) => {
     setSelectedCategory(category);
+  };
+
+  const handleSearchTitle = (title) => {
+    setSearchQuery(title);
   };
 
   return (
@@ -23,10 +27,16 @@ const Jewelry = () => {
       <Filter
         categories={categories}
         selectedCategory={selectedCategory}
+        searchQuery={searchQuery}
         onSelectCategory={handleSelectCategory}
+        onSearchQuery={handleSearchTitle}
       />
       <section>
-        <ProductList products={apiData} selectedCategory={selectedCategory} />
+        <ProductList
+          products={apiData}
+          selectedCategory={selectedCategory}
+          searchQuery={searchQuery}
+        />
       </section>
     </Badge>
   );

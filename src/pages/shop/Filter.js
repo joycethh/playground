@@ -3,12 +3,21 @@ import { RiSearch2Line } from "react-icons/ri";
 import Input from "../../components/input/Input";
 import "./filter.scss";
 
-const Filter = ({ categories, selectedCategory, onSelectCategory }) => {
-  const handleSelect = (event) => {
+const Filter = ({
+  categories,
+  selectedCategory,
+  searchQuery,
+  onSelectCategory,
+  onSearchQuery,
+}) => {
+  const handleSelectChange = (event) => {
     onSelectCategory(event.target.value);
   };
 
-  console.log("categories", categories);
+  const handleSearchQueryChange = (e) => {
+    onSearchQuery(e.target.value);
+  };
+
   return (
     <>
       <section className="filter-section">
@@ -16,7 +25,10 @@ const Filter = ({ categories, selectedCategory, onSelectCategory }) => {
           <div className="flex-left">
             <div className="select-wrapper">
               <label htmlFor="category-select">Filter by:</label>
-              <select value={selectedCategory} onChange={handleSelect}>
+              <select
+                value={selectedCategory || ""}
+                onChange={handleSelectChange}
+              >
                 {categories.map((category) => (
                   <option key={category} value={category}>
                     {category}
@@ -37,7 +49,8 @@ const Filter = ({ categories, selectedCategory, onSelectCategory }) => {
             <div className="search-wrapper">
               <Input
                 name="search"
-                onChange={() => {}}
+                value={searchQuery}
+                onChange={handleSearchQueryChange}
                 type="text"
                 placeholder="Search..."
                 icon={<RiSearch2Line className="searchInput" />}

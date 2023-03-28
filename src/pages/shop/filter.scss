@@ -1,17 +1,21 @@
 @import "../../style.scss";
 
 .filter-section {
-    @include themify($themes) {
 
+
+    @include themify($themes) {
     .flex-container {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+        margin: auto;
+        width: 90%;
         min-height: 6rem;
         height: auto;
         position: relative;
         align-items: center;
-        background-color: beige;
+        margin-bottom: 2rem;
+
         
         @include mobile {
             flex-direction: column;
@@ -20,9 +24,13 @@
         .flex-left {
             flex-grow: 1;
             display: flex;
-            justify-content: space-between;
+            gap: 3rem;
             align-items: center;
-            background-color: bisque;
+  
+            @include mobile {
+                flex-direction: column;
+                gap: 1rem;
+            }
            
             .select-wrapper{
                 min-width: 15rem;
@@ -47,8 +55,7 @@
                 cursor: pointer;
                 background-color: inherit;
             
-                &:hover, &:active {
-                 
+                &:hover {
                     border-bottom: 1px solid themed('highlight');
                 }
 
@@ -62,12 +69,11 @@
 
         .flex-right {
             flex-grow: 1;
-           
-            background-color: azure;
 
             .search-wrapper {
                 display: flex;
                 float: right;
+                padding:1rem;
             }
         }
 

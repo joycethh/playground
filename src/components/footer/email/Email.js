@@ -8,7 +8,7 @@ const Email = () => {
   const handleChange = (e) => {
     setEmail(e.target.value);
   };
-  console.log("email in footer", email);
+  // console.log("email in footer", email);
   return (
     <div className="left">
       <h3>Offers, new arrivals and more.</h3>

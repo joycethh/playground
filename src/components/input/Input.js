@@ -19,7 +19,7 @@ const Input = (props) => {
         name={name}
         type={type}
         placeholder={placeHolder}
-        autofocus={autoFocus}
+        autoFocus={autoFocus}
         required={required}
         onChange={handleChange}
         {...rest}

@@ -37,7 +37,7 @@ const Checkout = () => {
       <section className="checkout-section">
         <div className="checkout-container">
           <div className="checkout-left">
-            <Link to="/cart">
+            <Link to="/cart" className="returnLink">
               <MdKeyboardArrowLeft /> Return to Cart
             </Link>
             <div className="toggleSummary">
@@ -135,12 +135,14 @@ const Checkout = () => {
               />
             </form>
 
-            <LinkButton
-              onClick={submitForm}
-              name="Continue"
-              path="/payment"
-              className="checkout-btn"
-            />
+            <div className="auth-btn mt-15">
+              <LinkButton
+                onClick={submitForm}
+                name="Continue"
+                path="/payment"
+                className="checkout-btn"
+              />
+            </div>
           </div>
 
           <div className="checkout-right">

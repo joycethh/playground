@@ -27,7 +27,7 @@
                 padding-right: 0;
             }
 
-            a {
+            .returnLink {
                 text-decoration: none;
                 display: flex;
                 align-items: center;
@@ -94,17 +94,14 @@
                 gap: 0.5rem;
                 width: 100%;
             }
-                
-            .button-wrapper {
-                display: flex;
-                justify-content: center;
-                margin: 2rem auto 3rem;
-                
-                @include mobile {
-                    padding: 0 1.0rem;
-                }
-            }
 
+            .auth-btn {
+                width: 100%; 
+                button {
+                    width: 100%;
+                }
+               
+            }
         
         }
 

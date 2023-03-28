@@ -8,30 +8,25 @@ import jewelryCommon from "../../assets/jewelry-white-common.jpg";
 
 const Jewelry = () => {
   const { apiData } = useProductData();
-  const [category, setCategory] = useState("");
-  const [filteredProducts, setFilteredProducts] = useState(apiData);
+  const categories = [...new Set(apiData?.map((product) => product.category))];
+  console.log("categories", categories);
 
-  const handleCategoryChange = (e) => {
-    setCategory(e.target.value);
-    console.log("e.target.value", e.target.value);
-    console.log("category", category);
+  const [selectedCategory, setSelectedCategory] = useState("");
 
-    if (category === "jewelry") {
-      setFilteredProducts(
-        apiData?.filter((product) => product.category === category)
-      );
-    }
-    setFilteredProducts(apiData);
+  const handleSelectCategory = (category) => {
+    setSelectedCategory(category);
   };
-
-  console.log("filteredProducts", filteredProducts);
 
   return (
     <Badge title="shop">
       <CommonBanner imageUrl={jewelryCommon} title="jewelry" />
-      <Filter filterValue="jewelry" handleSelect={handleCategoryChange} />
+      <Filter
+        categories={categories}
+        selectedCategory={selectedCategory}
+        onSelectCategory={handleSelectCategory}
+      />
       <section>
-        <ProductList data={filteredProducts} />
+        <ProductList products={apiData} selectedCategory={selectedCategory} />
       </section>
     </Badge>
   );

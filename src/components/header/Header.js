@@ -1,6 +1,6 @@
 import React, { useContext, useState, useRef, useEffect } from "react";
 import { Link, useNavigate, NavLink } from "react-router-dom";
-import { BiUser, BiSearch, BiMenuAltLeft } from "react-icons/bi";
+import { BiUser, BiMenuAltLeft } from "react-icons/bi";
 import {
   HiOutlineLightBulb,
   HiOutlineMoon,

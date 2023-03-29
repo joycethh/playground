@@ -8,4 +8,6 @@ export { default as Checkout } from "./checkout/Checkout";
 export { default as ProductDetails } from "./productDetails/ProductDetails";
 export { default as Jewelry } from "./shop/Jewelry";
 export { default as Electronics } from "./shop/Electronics";
+export { default as Women } from "./shop/Women";
+export { default as Men } from "./shop/Men";
 export { default as ProductsPage } from "./shop/ProductsPage";

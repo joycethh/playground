@@ -77,11 +77,8 @@ const Header = () => {
           <NavLink to="/home" className={activeLink}>
             <span>Home</span>
           </NavLink>
-          <NavLink to="/shop" className={activeLink}>
-            <span>Shop</span>
-          </NavLink>
-          {/* <NavLink to="/products/jewelery " className={activeLink}>
-            <span>Jewelery</span>
+          <NavLink to="/products/jewelry " className={activeLink}>
+            <span>Jewelry</span>
           </NavLink>
           <NavLink to="/products/electronics" className={activeLink}>
             Electronics
@@ -91,7 +88,7 @@ const Header = () => {
           </NavLink>
           <NavLink to="/products/men's clothing" className={activeLink}>
             Men
-          </NavLink> */}
+          </NavLink>
         </div>
 
         <div className="icons">

@@ -14,7 +14,7 @@ const Electronics = () => {
     [apiData]
   );
 
-  const [selectedCategory, setSelectedCategory] = useState("electronics");
+  const [selectedCategory, setSelectedCategory] = useState(`women's clothing`);
   const [searchQuery, setSearchQuery] = useState("");
 
   const handleSelectCategory = (categorySelect) => {
@@ -26,8 +26,8 @@ const Electronics = () => {
   };
 
   return (
-    <Badge title="Electronics">
-      <CommonBanner imageUrl={electronicsCommon} title="Electronics" />
+    <Badge title="Women's Clothing">
+      <CommonBanner imageUrl={electronicsCommon} title="Women's Clothing" />
       <Filter
         categories={categories}
         selectedCategory={selectedCategory}

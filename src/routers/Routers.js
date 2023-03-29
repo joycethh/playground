@@ -9,7 +9,10 @@ import {
   Reset,
   Checkout,
   ProductDetails,
-  ProductsPage,
+  Jewelry,
+  Electronics,
+  Women,
+  Men,
 } from "../pages/index";
 
 const Routers = () => {
@@ -17,10 +20,11 @@ const Routers = () => {
     <Routes>
       <Route path="/" element={<Navigate to="/home" />} />
       <Route path="/home" element={<Home />} />
-      <Route path="/shop" element={<ProductsPage />} />
       {/* <Route path="/products/:category" element={<ProductsPage />} /> */}
-      {/* <Route path="/products/:category" element={<Jewelry />} /> */}
-      {/* <Route path="/products/:category" element={<Electronics />} /> */}
+      <Route path="/products/jewelry" element={<Jewelry />} />
+      <Route path="/products/electronics" element={<Electronics />} />
+      <Route path="/products/women's clothing" element={<Women />} />
+      <Route path="/products/men's clothing" element={<Men />} />
       <Route path="/product/:id" element={<ProductDetails />} />
       <Route path="/contact-us" element={<Contact />} />
       <Route path="/admin" element={<Admin />} />

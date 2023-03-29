@@ -7,3 +7,5 @@ export { default as Reset } from "./reset/Reset";
 export { default as Checkout } from "./checkout/Checkout";
 export { default as ProductDetails } from "./productDetails/ProductDetails";
 export { default as Jewelry } from "./shop/Jewelry";
+export { default as Electronics } from "./shop/Electronics";
+export { default as ProductsPage } from "./shop/ProductsPage";

@@ -4,9 +4,12 @@ import useProductData from "../../customHooks/useProductData";
 import Badge from "../../components/badge/Badge";
 import Filter from "./Filter";
 import ProductList from "../../components/ui/ProductList";
-import electronicCommon from "../../assets/electronics-blue-common.jpg";
-const ProductsPage = ({ category }) => {
-  //category is paramter passed from jewelry, electornics page
+import jewelryCommon from "../../assets/jewelry-white-common.jpg";
+import { useParams } from "react-router-dom";
+
+const ProductsPage = () => {
+  const { category } = useParams(); // parameter
+  // console.log("category", category);
 
   const { apiData } = useProductData();
 
@@ -19,8 +22,7 @@ const ProductsPage = ({ category }) => {
   const [searchQuery, setSearchQuery] = useState("");
 
   const handleSelectCategory = (categorySelect) => {
-    //dropdown select options
-    setSelectedCategory(categorySelect);
+    setSelectedCategory(categorySelect); //dropdown select options
   };
 
   const handleSearchTitle = (title) => {
@@ -29,7 +31,7 @@ const ProductsPage = ({ category }) => {
 
   return (
     <Badge title={category}>
-      <CommonBanner imageUrl={electronicCommon} title={category} />
+      <CommonBanner imageUrl={jewelryCommon} title={category} />
       <Filter
         categories={categories}
         selectedCategory={selectedCategory}

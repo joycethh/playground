@@ -10,6 +10,7 @@ import {
   Checkout,
   ProductDetails,
   Jewelry,
+  ProductsPage,
 } from "../pages/index";
 
 const Routers = () => {
@@ -17,8 +18,10 @@ const Routers = () => {
     <Routes>
       <Route path="/" element={<Navigate to="/home" />} />
       <Route path="/home" element={<Home />} />
-      <Route path="/jewelry" element={<Jewelry />} />
-      <Route path="/shop/:id" element={<ProductDetails />} />
+      {/* <Route path="/jewelry" element={<Jewelry />} /> */}
+      {/* <Route path="/:category" element={<Jewelry />} /> */}
+      <Route path="/products/:category" element={<ProductsPage />} />
+      <Route path="/product/:id" element={<ProductDetails />} />
       <Route path="/contact-us" element={<Contact />} />
       <Route path="/admin" element={<Admin />} />
       <Route path="/cart" element={<Cart />} />

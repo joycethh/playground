@@ -26,7 +26,7 @@ const ProductCard = ({ item }) => {
       <div className="product-item-col" key={item.id}>
         <div className="product-card-wrapper">
           <div className="product-img-wrapper">
-            <Link to={`/shop/${item.id}`}>
+            <Link to={`/product/${item.id}`}>
               <div className="img">
                 <img src={item.image} alt="" />
               </div>

@@ -1,9 +1,9 @@
 import React, { useState, useMemo } from "react";
-import CommonBanner from "../../components/ui/CommonBanner";
-import useProductData from "../../customHooks/useProductData";
-import Badge from "../../components/badge/Badge";
-import Filter from "./Filter";
-import ProductList from "../../components/ui/ProductList";
+import CommonBanner from "../components/ui/CommonBanner";
+import useProductData from "../customHooks/useProductData";
+import Badge from "../components/badge/Badge";
+import Filter from "../pages/shop/Filter";
+import ProductList from "../components/ui/ProductList";
 import banner from "../../assets/banner-jewelry.jpg";
 // import { useParams } from "react-router-dom";
 

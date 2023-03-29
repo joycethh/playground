@@ -3,6 +3,7 @@ import { AiFillStar } from "react-icons/ai";
 import { useParams } from "react-router";
 import CommonBanner from "../../components/ui/CommonBanner";
 import Badge from "../../components/badge/Badge";
+import banner from "../../assets/banner-detail.jpg";
 import useProductData from "../../customHooks/useProductData";
 import "./productDetail.scss";
 import { ADD_TO_CART } from "../../redux/feature/cartSlice";
@@ -31,7 +32,7 @@ const ProductDetails = () => {
   return (
     apiData && (
       <Badge title="detail">
-        <CommonBanner title={item.title} />
+        <CommonBanner imageUrl={banner} title={item.title} />
         <section className="productDetail-section">
           <div className="productDetail">
             <div className="img-wrapper">

@@ -77,15 +77,17 @@ const Header = () => {
           <NavLink to="/home" className={activeLink}>
             <span>Home</span>
           </NavLink>
-          <NavLink to="/jewelry " className={activeLink}>
-            <span>Jewelry</span>
+          <NavLink to="/products/jewelery " className={activeLink}>
+            <span>Jewelery</span>
           </NavLink>
-
-          <NavLink to="/women" className={activeLink}>
+          <NavLink to="/products/electronics" className={activeLink}>
+            Electronics
+          </NavLink>
+          <NavLink to="/products/women's clothing" className={activeLink}>
             Women
           </NavLink>
-          <NavLink to="/electronics" className={activeLink}>
-            Electronics
+          <NavLink to="/products/men's clothing" className={activeLink}>
+            Men
           </NavLink>
         </div>
 
@@ -115,7 +117,6 @@ const Header = () => {
             <span className="cart-thunmbnail-qty"> {totalQty} </span>
           </div>
 
-          <BiSearch />
           <span onClick={toggle}>
             {isDarkMode ? <HiOutlineLightBulb /> : <HiOutlineMoon />}
           </span>

@@ -29,6 +29,7 @@ const Filter = ({
                 value={selectedCategory || ""}
                 onChange={handleSelectChange}
               >
+                <option value="">All Categories</option>
                 {categories.map((category) => (
                   <option key={category} value={category}>
                     {category}
@@ -36,14 +37,14 @@ const Filter = ({
                 ))}
               </select>
             </div>
-            <div className="select-wrapper">
+            {/* <div className="select-wrapper">
               <label htmlFor="sort-select">Sort by:</label>
               <select onChange={() => {}}>
                 <option value="price">Price ascending</option>
                 <option value="price">Price decending</option>
                 <option value="decending">Recommended</option>
               </select>
-            </div>
+            </div> */}
           </div>
           <div className="flex-right">
             <div className="search-wrapper">

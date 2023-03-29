@@ -19,7 +19,7 @@ const Home = () => {
                   <span>Aqua treasures are waiting for you</span>
                   <h2>Adorn yourself with the natural beauty of pearls</h2>
                   <div className="shop-now">
-                    <LinkButton name="Shop Now" path="/jewelery" />
+                    <LinkButton name="Shop Now" path="/products/jewelry" />
                   </div>
                 </div>
               </div>

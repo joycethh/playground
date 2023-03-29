@@ -4,7 +4,7 @@ import useProductData from "../../customHooks/useProductData";
 import Badge from "../../components/badge/Badge";
 import Filter from "./Filter";
 import ProductList from "../../components/ui/ProductList";
-import jewelryCommon from "../../assets/jewelry-white-common.jpg";
+import banner from "../../assets/banner-jewelry.jpg";
 
 const Jewelry = () => {
   const { apiData } = useProductData();
@@ -27,7 +27,7 @@ const Jewelry = () => {
 
   return (
     <Badge title="Jewelry">
-      <CommonBanner imageUrl={jewelryCommon} title="Jewelry" />
+      <CommonBanner imageUrl={banner} title="Jewelry" />
       <Filter
         categories={categories}
         selectedCategory={selectedCategory}

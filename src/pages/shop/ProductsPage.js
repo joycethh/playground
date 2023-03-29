@@ -4,7 +4,7 @@ import useProductData from "../../customHooks/useProductData";
 import Badge from "../../components/badge/Badge";
 import Filter from "./Filter";
 import ProductList from "../../components/ui/ProductList";
-import jewelryCommon from "../../assets/jewelry-white-common.jpg";
+import banner from "../../assets/banner-jewelry.jpg";
 // import { useParams } from "react-router-dom";
 
 const ProductsPage = ({ paramFilteredProducts, param }) => {
@@ -31,7 +31,7 @@ const ProductsPage = ({ paramFilteredProducts, param }) => {
 
   return (
     <Badge title={param}>
-      <CommonBanner imageUrl={jewelryCommon} title={param} />
+      <CommonBanner imageUrl={banner} title={param} />
       <Filter
         categories={categories}
         selectedCategory={selectedCategory}

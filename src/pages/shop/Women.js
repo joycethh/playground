@@ -4,7 +4,7 @@ import useProductData from "../../customHooks/useProductData";
 import Badge from "../../components/badge/Badge";
 import Filter from "./Filter";
 import ProductList from "../../components/ui/ProductList";
-import electronicsCommon from "../../assets/electronics-blue-common.jpg";
+import banner from "../../assets/banner-women.jpg";
 
 const Electronics = () => {
   const { apiData } = useProductData();
@@ -27,7 +27,7 @@ const Electronics = () => {
 
   return (
     <Badge title="Women's Clothing">
-      <CommonBanner imageUrl={electronicsCommon} title="Women's Clothing" />
+      <CommonBanner imageUrl={banner} title="Women's Clothing" />
       <Filter
         categories={categories}
         selectedCategory={selectedCategory}

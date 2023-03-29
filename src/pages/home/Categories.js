@@ -1,8 +1,8 @@
 import React from "react";
 import { ImageWithOverlayButton } from "../../components/button/Button";
-import jeweleryCategory from "../../assets/jewelry-cate.jpg";
-import womenCategory from "../../assets/women-cate.jpg";
-import electronic from "../../assets/electronic-cate.jpg";
+import jeweleryCategory from "../../assets/imgBtn-jewelry.jpg";
+import womenCategory from "../../assets/imgBtn-women.jpg";
+import electronic from "../../assets/imgBtn-electronics.jpg";
 import "./categories.scss";
 
 const categories = [
@@ -13,7 +13,7 @@ const categories = [
   },
 
   {
-    title: "women",
+    title: "women's clothing",
     subtitle: "Stylish and comfortable mordern finery. ",
     imgUrl: womenCategory,
   },
@@ -33,7 +33,7 @@ const Categories = () => {
             <div className="img-title">
               <ImageWithOverlayButton
                 imageSrc={item.imgUrl}
-                path={`/${item.title}`}
+                path={`/products/${item.title}`}
                 buttonLabel={`Shop ${item.title}`}
               />
               <h3>{item.title}</h3>

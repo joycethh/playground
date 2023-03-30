@@ -4,7 +4,7 @@
     @include themify($themes) {
         button {
             border: none;
-            background-color: themed('highlight');
+            background-color: themed('highLight');
             border-radius: 8px;
             padding: 1rem 1.2rem;
             text-transform: uppercase;
@@ -13,11 +13,10 @@
             cursor: pointer;
             line-height: 1rem;
             letter-spacing: 1px;
-            color: themed('textContrast');  
-            
+            color: themed('textContrast');    
    
             &:hover {
-                background-color: themed('logo')
+                background-color: themed('highLightSoft');
             }
 
             a {
@@ -43,7 +42,7 @@
 
         button {
             border: none;
-            background-color: themed('bgContrast');
+            background-color:#FCFCEC;
             border-radius: 8px;
             padding: 1rem 1.1rem;
             text-transform: uppercase;
@@ -56,12 +55,12 @@
 
    
             &:hover {
-                background-color: themed('textColorSoft')
+                background-color: themed('bgSoft'); 
             }
 
             a {
                 text-decoration: none;
-                color: themed('textContrast');   
+                color: themed('textColor');   
             }
         }
 

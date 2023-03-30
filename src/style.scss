@@ -1,25 +1,21 @@
 $themes: (
     light: (
-        textColor: #000,
+        textColor: #1D201F,
+        textContrast: #fff, //#DCF4F4, //iceberg
         bg: #fff,
-        logo: #4d77ff,
-        bgSoft: #f6f3f3,
-        bgContrast: #2d313f,
-        textContrast: #fff,
-        textColorSoft: #555,
-        border: #D3D3D3,
-        highlight: #FFA500,
-        bgHighlight: rgb(255 196 89),
-        danger: #FF1818,
-     
+        bgSoft: #F8F8D9, //chestnut
+        border: #ccc,
+        highLight: #3CA9AB, 
+        highLightSoft: #59CCC5, 
       ),
     dark: (
-      textColor: #def3f6,
-      bg: #253f4b,
-      logo: #0081C9, 
-      bgSoft: #f2fdff,
-      textColorSoft: #fff,
-      border: lightgray,
+        textColor: #def3f6,
+        textContrast: #1D201F,
+        bg: #203d4b,
+        bgSoft: #205255,
+        border: #205255, //blue dianne
+        logoTheme: #3CA9AB, // keppel
+        logoThemeSoft:#547C7C //cutty sark
       ),
 );
 

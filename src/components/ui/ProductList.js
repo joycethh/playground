@@ -11,9 +11,6 @@ const ProductList = ({ products, selectedCategory, searchQuery }) => {
       product.title.toLowerCase().includes(searchQuery.toLowerCase());
     return categoryMatch && searchMatch;
   });
-  // const filteredProducts = selectedCategory
-  //   ? products.filter((product) => product.category === selectedCategory)
-  //   : products;
 
   return (
     <section className="products-section">

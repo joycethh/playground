@@ -2,27 +2,28 @@
 
 .flex-grid {
     @include themify($themes) {
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(4,minmax(0,1fr));
-    gap: 2rem;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(4,minmax(0,1fr));
+        gap: 2rem;
+        grid-row-gap: 4rem;
+       
 
-    @include tablet {
-        grid-template-columns: repeat(2,minmax(0,1fr));
-    }
+        @include tablet {
+            grid-template-columns: repeat(2,minmax(0,1fr));
+        }
 
-    @include mobile {
-        grid-template-columns: repeat(1, minmax(0,1fr));
-    }
-
+        @include mobile {
+            grid-template-columns: repeat(1, minmax(0,1fr));
+        }
 
     .product-item-col {
-        
+     
         .product-card-wrapper {
-            border:  1px solid rgba(250, 248, 248, 0.72);
+            border:  1px solid rgba(255, 254, 254, 0.72);
             transition: border-color 0.4s ease-in-out;
             &:hover {
-                border-color:themed('bgHighlight');
+                border-color:themed('highLight');
             }
 
             .product-img-wrapper{
@@ -46,48 +47,79 @@
 
        
         .product-info-wrapper{
-            display: flex;    
-            flex-direction: column;
-            gap: 1px;
-            padding: 0 4px;
-        
-            h4 {
-                font-weight: 500;
-                font-size: 0.9rem;
-                line-height: 1rem;
-                min-height: 32px;
+            width: 100%;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            padding: 0 3px;
+
+            
+            &:hover {
+                width: auto;
+                overflow: visible;
+                white-space: normal;
+                text-overflow: clip;
             }
 
-            span {
-                font-size: 0.8rem;
-                text-transform: capitalize;
-                color: themed('bgContrast');
-                margin-top: -15px;
+            h4 {
+                font-weight: 400;
+                font-size: 0.9rem;
+                line-height: 1.34rem;
+                margin-bottom: 0;
+                padding: 0 3px;
             }
-            
         }
 
         .product-bottom-wrapper {
+         
+            margin:3px 5px 0;
             display: flex;
+            flex-direction: row;
             justify-content: space-between;
-            align-items: center;
-            background-color: themed('bgHighlight');
-            padding: 10px 4px;
-            margin-top: 0.89rem;
-            cursor: pointer; 
-            
-            span {
-                color: themed('textColor');
-                font-weight: 500;
-                font-size: 1.0rem; 
-          
-                &:last-of-type {
-                    font-size: 1.2rem;
-                    padding-right: 2px;
-                } 
-                
+
+            .product-price {
+                display: flex;
+                align-items: center;
+               
+                span {
+                    font-size: 1rem;
+                    font-weight: 500;
+                }
+            }  
+            .addBtn {
+                padding: 7px;
+                font-size: 1rem;
+                border-radius: 50%;
+                width: 35px;
+                height: 35px;
+
+                &:hover {
+                    scale: (1.2);
+                }
             }
         }
+
+        // .product-bottom-wrapper {
+        //     display: flex;
+        //     justify-content: space-between;
+        //     align-items: center;
+        //     background-color: themed('bgHighlight');
+        //     padding: 10px 4px;
+        //     margin-top: 0.89rem;
+        //     cursor: pointer; 
+            
+        //     span {
+        //         color: themed('textColor');
+        //         font-weight: 500;
+        //         font-size: 1.0rem; 
+          
+        //         &:last-of-type {
+        //             font-size: 1.2rem;
+        //             padding-right: 2px;
+        //         } 
+                
+        //     }
+        // }
         
 
 

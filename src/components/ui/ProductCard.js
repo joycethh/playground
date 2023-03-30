@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { BsCartPlus } from "react-icons/bs";
 import { useDispatch } from "react-redux";
+import { Button } from "../button/Button";
 import "./product.scss";
 import { ADD_TO_CART } from "../../redux/feature/cartSlice";
 import { toast } from "react-toastify";
@@ -34,18 +35,23 @@ const ProductCard = ({ item }) => {
           </div>
           <div className="product-info-wrapper">
             <h4>
-              {item.title.length > 50
-                ? item.title.slice(0, 50) + "..."
-                : item.title.slice(0, 50)}
+              {item.title}
+              {/* {item.title.length > 35
+                ? item.title.slice(0, 35) + " ..."
+                : item.title.slice(0, 35)} */}
             </h4>
-            <span>{item.category}</span>
+            {/* <span>{item.category}</span> */}
           </div>
 
-          <div className="product-bottom-wrapper" onClick={addItem}>
-            <span className="price">${item.price}</span>
-            <span>
-              <BsCartPlus />
-            </span>
+          <div className="product-bottom-wrapper">
+            <div className="product-price">
+              <span className="price">${item.price}</span>
+            </div>
+            <Button
+              name={<BsCartPlus />}
+              handleClick={addItem}
+              className="addBtn"
+            />
           </div>
         </div>
       </div>

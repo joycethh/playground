@@ -1,29 +1,26 @@
 @import "../../style.scss";
 
-.header{
+header{
     @include themify($themes) {
+    height: 50px;
+    background-color: themed('bg');
+    border-bottom: 1px solid themed('border');
+    transition: top 0.3s ease-in-out;
+    
         .navbar{
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 10px 20px;
-            height: 40px;
-            border-bottom: 1px solid themed('border');
-            background-color: themed("bg");
-            color: themed('textColor');
             position: relative;
     
             .logo{
                 a {
                     font-weight: bold;
-                    font-size: 20px;
+                    font-size: 1.2rem;
+                    line-height: 1.5rem;
                     text-decoration: none;
-                    color: themed('highlight');
+                    color: themed('textColor');
                     cursor: pointer;
-
-                    span {
-                        color: themed('logo'),
-                    }
                 }       
             }
 
@@ -35,18 +32,22 @@
                 gap: 1rem;
                
                 a {
-                    font-size: 0.875rem;
+                    font-size: 0.9rem;
+                    text-transform: uppercase;
+                    line-height: 1.3rem;
                     text-decoration: none;
                     color: themed('textColor');
                     cursor: pointer;
-                    padding: 0 15px;
-             
+                    padding: 8px 5px;
+                    margin-right: 1rem;
+
                     &:hover {
-                        color: themed('highlight');
+                        scale: (1.1);
+                        color: themed('highLight');
                     }
                     &.active {
-                        border-bottom: 2px solid themed('highlight');
-                      }
+                        border-bottom: 1.7px solid themed('highLight');
+                    }
                 }
 
                 @include mobile{
@@ -173,13 +174,14 @@
     }   
 }
 
-.sticky-header {
-    width: 100%;
-    height: 50px;
-    line-height: 50px;
-    position: sticky;
+.sticky {
+    // height: 50px;
+    // line-height: 50px;
+    position: fixed;
     top: 0;
     left: 0;
+    width: 100%;
     z-index: 999;
-    box-shadow: 3px 3px 8px -3px #ddd;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+     
 }

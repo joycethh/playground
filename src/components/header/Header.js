@@ -23,32 +23,23 @@ const Header = () => {
 
   const totalQty = useSelector((state) => state.cart.totalQty);
 
-  const headerRef = useRef();
-
   const activeLink = ({ isActive }) => (isActive ? "active" : null);
 
-  const stickyHeader = () => {
-    window.addEventListener("scroll", () => {
-      if (
-        (document.body.scrollTop > 80 ||
-          document.documentElement.scrollTop > 80) &&
-        headerRef &&
-        headerRef.current
-      ) {
-        headerRef.current.classList.add("sticky-header");
-      } else {
-        headerRef.current.classList.remove("sticky-header");
-      }
-    });
-  };
+  const headerRef = useRef(null);
 
   useEffect(() => {
-    stickyHeader();
-    return () => window.removeEventListener("scroll", stickyHeader);
-  });
+    const handleScroll = () => {
+      if (window.pageYOffset > headerRef.current.offsetTop) {
+        headerRef.current.classList.add("sticky");
+      } else {
+        headerRef.current.classList.remove("sticky");
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const nativgate = useNavigate();
-  // const dispatch = useDispatch();
 
   const toggleModal = () => {
     setOpenModal(!openModal);
@@ -65,11 +56,11 @@ const Header = () => {
   };
 
   return (
-    <header className="header" ref={headerRef}>
+    <header ref={headerRef}>
       <div className="navbar">
         <div className="logo">
           <Link to="/">
-            <span> Grit</span> Grace
+            <span> Grit & Grace </span>
           </Link>
         </div>
 

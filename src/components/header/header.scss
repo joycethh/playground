@@ -12,6 +12,7 @@ header{
             align-items: center;
             justify-content: space-between;
             position: relative;
+            padding: 0 1rem;
     
             .logo{
                 a {
@@ -93,7 +94,7 @@ header{
                         line-height: 1.1rem;
                         white-space: nowrap;
                         text-align: center;
-                        background-color: themed('highlight');
+                        background-color: themed('highLight');
                         color: themed('textContrast');
                         width: 1.1rem;
                         height: 1.1rem;

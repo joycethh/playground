@@ -105,7 +105,7 @@ const Header = () => {
             <Link to="/cart">
               <HiOutlineShoppingCart />
             </Link>
-            <span className="cart-thunmbnail-qty"> {totalQty} </span>
+            <span className="cart-thunmbnail-qty">{totalQty}</span>
           </div>
 
           <span onClick={toggle}>

@@ -48,6 +48,7 @@ const ProductCard = ({ item }) => {
               <span className="price">${item.price}</span>
             </div>
             <Button
+              // name="Add to Cart"
               name={<BsCartPlus />}
               handleClick={addItem}
               className="addBtn"

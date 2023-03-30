@@ -71,8 +71,7 @@
         }
 
         .product-bottom-wrapper {
-         
-            margin:3px 5px 0;
+            margin:3px 5px ;
             display: flex;
             flex-direction: row;
             justify-content: space-between;
@@ -87,14 +86,16 @@
                 }
             }  
             .addBtn {
-                padding: 7px;
+                // width: 100%;
+                // font-size:0.7rem; //for words btn
+                padding: 3px;
                 font-size: 1rem;
                 border-radius: 50%;
                 width: 35px;
                 height: 35px;
 
                 &:hover {
-                    scale: (1.2);
+                    scale: (1.1);
                 }
             }
         }

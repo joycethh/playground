@@ -36,18 +36,18 @@ const Jewelry = () => {
           onSelectCategory={handleSelectCategory}
           onSearchQuery={handleSearchTitle}
         />
-        <section>
-          <div className="pt-3">
-            <div className="page-width mb-3">
-              <ProductList
-                products={apiData}
-                selectedCategory={selectedCategory}
-                searchQuery={searchQuery}
-              />
-            </div>
-          </div>
-        </section>
       </div>
+      <section>
+        <div className="pt-3">
+          <div className="page-width mb-3">
+            <ProductList
+              products={apiData}
+              selectedCategory={selectedCategory}
+              searchQuery={searchQuery}
+            />
+          </div>
+        </div>
+      </section>
     </Badge>
   );
 };

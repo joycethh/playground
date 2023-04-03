@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { HiOutlineArrowRight } from "react-icons/hi";
 import "./email.scss";
-import Input from "../../input/Input";
+
 const Email = () => {
   const [email, setEmail] = useState("");
 
@@ -10,17 +10,20 @@ const Email = () => {
   };
   // console.log("email in footer", email);
   return (
-    <div className="left">
+    <div className="subscription">
       <h3>Offers, new arrivals and more.</h3>
-      <div className="mt-15">
-        <Input
+      <div className="subscriptInputWrapper mt-15">
+        <input
           name="email"
           type="text"
-          autoFocus={true}
+          value={email}
+          autoFocus
           placeHolder="Enter email to subscribe"
           handleChange={handleChange}
-          icon={<HiOutlineArrowRight />}
         />
+        <span className="icon" onClick={() => {}}>
+          <HiOutlineArrowRight />
+        </span>
       </div>
     </div>
   );

@@ -1,12 +1,38 @@
 @import "../../../style.scss";
 
-.left {
+.subscription {
     @include themify($themes) {
             display: flex;
             flex-direction: column;
+            background-color: coral;
     
-            input {
+            .subscriptInputWrapper {
                 background-color:inherit;
+                display: flex;
+                align-items: center;
+                border: 1px solid themed('border');
+                border-radius: 8px;
+                height: 40px;
+                padding: 5px 10px;
+
+                input {
+                    flex: 1;
+                    border: none;
+                    outline: none;
+                    font-size: 16px;
+                    background-color:inherit;
+                }
+        
+                .icon {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 30px;
+                    height: 30px;
+                    margin-left: 10px; 
+                    cursor: pointer;
+                
+                }
             }
         }
  

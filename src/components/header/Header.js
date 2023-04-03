@@ -118,25 +118,28 @@ const Header = () => {
         </div>
       </div>
 
-      <div className={openModal ? "modal display-block" : "modal display-none"}>
-        <div className="modal-nav">
-          <div className="modal-nav-wrapper" onClick={toggleModal}>
-            <NavLink to="/home" className={activeLink}>
-              <span>Home</span>
-            </NavLink>
-            <NavLink to="/shop" className={activeLink}>
-              <span>Shop</span>
-            </NavLink>
-
-            {/* <NavLink to="/electronics" className={activeLink}>
-            Electronics
-          </NavLink>
-
-          <NavLink to="/cloth" className={activeLink}>
-            Cloth
-          </NavLink> */}
+      <div className={openModal ? "display-block" : "display-none"}>
+        {openModal && (
+          <div className="modal-nav">
+            <div className="modal-nav-wrapper" onClick={toggleModal}>
+              <NavLink to="/home" className={activeLink}>
+                <span>Home</span>
+              </NavLink>
+              <NavLink to="/products/jewelry " className={activeLink}>
+                <span>Jewelry</span>
+              </NavLink>
+              <NavLink to="/products/electronics" className={activeLink}>
+                Electronics
+              </NavLink>
+              <NavLink to="/products/women's clothing" className={activeLink}>
+                Women
+              </NavLink>
+              <NavLink to="/products/men's clothing" className={activeLink}>
+                Men
+              </NavLink>
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </header>
   );

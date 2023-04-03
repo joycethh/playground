@@ -152,18 +152,31 @@ header{
                 flex-direction: column;
                 gap: 10px;
                 position: absolute;
-                top: 60px;
+                top: 50px;
                 right: 0;
                 width: 100%;
-                background-color: themed('bgSoft');
+                background-color: themed('bg');
                 z-index: 999;
                 transition: all 0.3s ease-out;
            
                 a {
-                    padding: 5px 8px;
+                    padding: 0.7rem 1rem;
                     text-decoration: none;
+                    font-weight: 500;
                     color: themed('textColor');
-                    padding: 8px;
+                    cursor: pointer;
+
+                    &:hover {
+                        color: themed('highLight');
+                    }
+                    &.active {
+                        border-bottom: 1 px solid themed('highLight');
+                    }
+                
+
+                    &:first-of-type {
+                        border-top: 1px solid themed('border');
+                    }
             
                     &:hover {
                         border-bottom: 2px solid themed('highlight');
@@ -176,8 +189,6 @@ header{
 }
 
 .sticky {
-    // height: 50px;
-    // line-height: 50px;
     position: fixed;
     top: 0;
     left: 0;

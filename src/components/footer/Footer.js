@@ -43,7 +43,6 @@ const MobileNav = ({ title, isOpen, openMenu, category }) => {
             {item}
           </Link>
         ))}
-      </section>
     </div>
   );
 };

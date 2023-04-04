@@ -4,7 +4,6 @@
     @include themify($themes) {
             display: flex;
             flex-direction: column;
-            background-color: coral;
     
             .subscriptInputWrapper {
                 background-color:inherit;

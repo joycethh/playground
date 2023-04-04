@@ -1,11 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-
 import { FaFacebookSquare, FaInstagram } from "react-icons/fa";
-import { RiArrowDropDownLine, RiArrowDropUpLine } from "react-icons/ri";
 import logo from "../../assets/seashell.png";
 import Email from "./email/Email";
-
+import DropdownMenu from "./DropdownMenu";
 import "./footer.scss";
 
 const products = ["best sellers", "gift card"];
@@ -26,26 +24,7 @@ const Nav = ({ title, category }) => {
     </div>
   );
 };
-const MobileNav = ({ title, isOpen, openMenu, category }) => {
-  return (
-    <div className="mobile-nav">
-      <header>
-        <span>{title}</span>
-        <div className="icon-wrapper" onClick={openMenu}>
-          {isOpen ? <RiArrowDropUpLine /> : <RiArrowDropDownLine />}
-        </div>
-      </header>
-      <section
-        className={isOpen ? "mobile display-block" : "mobile display-none"}
-      >
-        {category.map((item, idx) => (
-          <Link to={`${item.replace(/\s/g, "-")}`} key={idx}>
-            {item}
-          </Link>
-        ))}
-    </div>
-  );
-};
+
 const Social = () => {
   return (
     <div className="social">
@@ -60,21 +39,18 @@ const Social = () => {
 };
 
 const Footer = () => {
-  const [isOpen, setIsMenu] = useState(true);
-
-  const openMenu = () => {
-    setIsMenu((prev) => !prev);
-  };
   return (
     <footer>
       <section className="main">
-        <Email />
+        <div className="left">
+          <Email />
+        </div>
         <div className="right">
           <Nav title="products" category={products} />
           <Nav title="Grit & Grace" category={brand} />
           <div className="nav">
             <Nav title="customer service" category={service} />
-            <div>
+            <div className="socialWrapper">
               <h6>Follow Us</h6>
               <Social />
             </div>
@@ -82,29 +58,9 @@ const Footer = () => {
         </div>
       </section>
 
-      <div className="mobile-main">
-        <Email />
-        <section className="mobile-right">
-          <MobileNav
-            title="Products"
-            isOpen={isOpen}
-            openMenu={openMenu}
-            category={products}
-          />
-          <MobileNav
-            title="Grit & Grace"
-            isOpen={isOpen}
-            openMenu={openMenu}
-            category={brand}
-          />
-          <MobileNav
-            title="Customer Service"
-            isOpen={isOpen}
-            openMenu={openMenu}
-            category={service}
-          />
-        </section>
-      </div>
+      <section className="mobile-main">
+        <DropdownMenu />
+      </section>
 
       <section className="mobile-logo-social">
         <img src={logo} alt="" />
@@ -118,7 +74,9 @@ const Footer = () => {
       </section>
 
       <section className="footer">
-        <div>© {new Date().getFullYear()} Seashell. All Rights Reserverd.</div>
+        <div>
+          © {new Date().getFullYear()} Grit & Grace Created By Joyce Tang
+        </div>
       </section>
     </footer>
   );

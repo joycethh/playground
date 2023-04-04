@@ -9,51 +9,52 @@ const menuItems = [
   },
   {
     title: "Grit & Grace ",
-    ssubmenuItems: ["about us"],
+    submenuItems: ["about us"],
   },
   {
     title: "Customer Services",
     submenuItems: ["my account", "contact us"],
   },
 ];
+
 const DropdownMenu = () => {
-  const [activeMenu, setActiveMenu] = useState(false);
-  const [menuHeight, setMenuHeight] = useState(null);
+  const [openMenu, setOpenMenu] = useState(null);
 
-  const toggleMenu = () => {
-    setActiveMenu(!activeMenu);
+  const handleOpenMenu = (index) => {
+    setOpenMenu(openMenu === index ? null : index);
   };
-
-  //   const calcHeight = (el) => {
-  //     const height = el.offsetHeight;
-  //     console.log("height", height);
-  //     setMenuHeight(height);
-  //   };
 
   return (
     <div className="click-dropdown-menu mobile-nav">
       <ul className="menu-items">
         {menuItems.map((menuItem, index) => (
           <li key={index}>
-            <Link onClick={toggleMenu}>
-              {menuItem.title}
-              {activeMenu ? <RiArrowDropUpLine /> : <RiArrowDropDownLine />}
-            </Link>
-            {menuItem.submenuItems && (
-              <ul
-                className={`submenu ${activeMenu ? "active" : "inactive"}`}
-                style={{ maxHeight: activeMenu ? menuHeight + "px" : "0px" }}
-                // ref={calcHeight}
+            <header>
+              <span> {menuItem.title}</span>
+              <div
+                className="icon-wrapper"
+                onClick={handleOpenMenu(index)}
+                aria-expanded={openMenu === index ? "true" : "false"}
+                aria-controls={`submenu-${index}`}
               >
-                {menuItem.submenuItems.map((submenuItem, index) => (
-                  <li key={index}>
-                    <Link to={`/products/${submenuItem.replace(/\s/g, "-")}`}>
-                      {submenuItem}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            )}
+                {openMenu ? <RiArrowDropUpLine /> : <RiArrowDropDownLine />}
+              </div>
+            </header>
+            {/* {menuItem.submenuItems && ( */}
+            <ul
+              className="mobile submenu-items"
+              id={`submenu-${index}`}
+              hidden={openMenu !== index}
+            >
+              {menuItem?.submenuItems?.map((submenuItem, subIdx) => (
+                <li key={subIdx}>
+                  <Link to={`/products/${submenuItem.replace(/\s/g, "-")}`}>
+                    {submenuItem}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            {/* )} */}
           </li>
         ))}
       </ul>

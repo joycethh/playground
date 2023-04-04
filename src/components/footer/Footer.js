@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { FaFacebookSquare, FaInstagram } from "react-icons/fa";
+import { RiArrowDropDownLine, RiArrowDropUpLine } from "react-icons/ri";
 import logo from "../../assets/seashell.png";
 import Email from "./email/Email";
 import DropdownMenu from "./DropdownMenu";
@@ -25,6 +26,27 @@ const Nav = ({ title, category }) => {
   );
 };
 
+const MobileNav = ({ title, isOpen, openMenu, category }) => {
+  return (
+    <div className="mobile-nav">
+      <header>
+        <span>{title}</span>
+        <div className="icon-wrapper" onClick={openMenu}>
+          {isOpen ? <RiArrowDropUpLine /> : <RiArrowDropDownLine />}
+        </div>
+      </header>
+      <section
+        className={isOpen ? "mobile display-block" : "mobile display-none"}
+      >
+        {category.map((item, idx) => (
+          <Link to={`/products/${item.replace(/\s/g, "-")}`} key={idx}>
+            {item}
+          </Link>
+        ))}
+      </section>
+    </div>
+  );
+};
 const Social = () => {
   return (
     <div className="social">

@@ -1,6 +1,5 @@
-import React, { useState } from "react";
-
-import logo from "../../assets/seashell.png";
+import React from "react";
+import { Link } from "react-router-dom";
 import Email from "./email/Email";
 import { Menu, DropdownMenu, Social } from "./DropdownMenu";
 import "./footer.scss";
@@ -22,14 +21,12 @@ const Footer = () => {
       </section>
 
       <section className="mobile-logo-social">
-        <img src={logo} alt="" />
-        <Social />
-      </section>
-
-      <section className="logo">
         <div className="logo">
-          <img src={logo} alt="" />
+          <Link to="/">
+            <span> Grit & Grace </span>
+          </Link>
         </div>
+        <Social />
       </section>
 
       <section className="footer">

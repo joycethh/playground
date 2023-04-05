@@ -84,34 +84,68 @@ footer {
     }
 
     .mobile-main {
-        background-color: bisque;
- 
-        .mobile-nav {
-            padding: 2rem 0;
-            border-bottom: 0.75px solid themed('border');  
-            
-            header {
-                display: flex;
-                justify-content: flex-start;
-                align-items: center;
-                background-color: inherit;
+        display: none; 
+        padding:  3.4rem 2.9rem 2.8rem;;
 
-                span {
-                    font-size: 0.9rem;
-                    line-height: 0.9rem;
-                    font-weight: 500;
-                    text-transform: uppercase;
-                    letter-spacing: .06rem;
-                }
+        @include mobile {
+            display: block;
+        }
 
-                .icon-wrapper {
-                    display: flex;
-                    align-items: center;
-                    font-size: 2rem;
-                }
+        .mobile-right {
+            display: flex;
+            flex-direction: column;
+            margin-top: 3rem;
+
+            &:first-of-type {
+                border-top: 0.75px solid themed('border'); 
             }
 
+            .mobile-nav {
+                // border-bottom: 0.75px solid themed('border');  
+                
+                header {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    background-color: inherit;
 
+                    span {
+                        font-size: 0.9rem;
+                         line-height: 0.9rem;
+                         font-weight: 500;
+                         text-transform: uppercase;
+                         letter-spacing: .06rem;
+                    }
+
+                    .icon-wrapper {
+                        display: flex;
+                        align-items: center;
+                        font-size: 2rem;
+                    }
+                }
+
+                .display-block {
+                    margin-top: 1.5rem;
+                    display: flex;
+                    flex-direction: column;
+
+                    a {
+                        color: themed('textContrast');
+                        text-decoration: none;
+                        padding-bottom: 2px;
+                        cursor: pointer;
+                        font-size: 0.8rem;
+                        line-height: 0.7rem;
+                        margin-bottom: 0.7rem;
+                        text-transform: capitalize;
+                    }
+
+                }
+
+                .display-none {
+                    display: none;
+                }
+            }
         }
     }
 

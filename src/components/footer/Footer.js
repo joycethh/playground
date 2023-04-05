@@ -1,15 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { FaFacebookSquare, FaInstagram } from "react-icons/fa";
 import { RiArrowDropDownLine, RiArrowDropUpLine } from "react-icons/ri";
 import logo from "../../assets/seashell.png";
 import Email from "./email/Email";
-import DropdownMenu from "./DropdownMenu";
+
 import "./footer.scss";
 
-const products = ["best sellers", "gift card"];
-const brand = ["about us", "our values"];
-const service = ["my account", "my orders", "contact us"];
+const products = ["Jewelry", "Electronics"];
+const brand = ["about us"];
+const service = ["contact us"];
 
 const Nav = ({ title, category }) => {
   return (
@@ -26,24 +26,21 @@ const Nav = ({ title, category }) => {
   );
 };
 
-const MobileNav = ({ title, isOpen, openMenu, category }) => {
+const MobileNav = ({ title, openMenu, handleOpenMenu, category }) => {
   return (
     <div className="mobile-nav">
       <header>
         <span>{title}</span>
-        <div className="icon-wrapper" onClick={openMenu}>
-          {isOpen ? <RiArrowDropUpLine /> : <RiArrowDropDownLine />}
+        <div className="icon-wrapper" onClick={handleOpenMenu(category)}>
+          {openMenu ? <RiArrowDropUpLine /> : <RiArrowDropDownLine />}
         </div>
       </header>
-      <section
-        className={isOpen ? "mobile display-block" : "mobile display-none"}
-      >
-        {category.map((item, idx) => (
-          <Link to={`/products/${item.replace(/\s/g, "-")}`} key={idx}>
-            {item}
-          </Link>
-        ))}
-      </section>
+
+      {category.map((item, idx) => (
+        <section id={idx} className="display-block" key={idx}>
+          <Link to={`/products/${item.replace(/\s/g, "-")}`}>{item}</Link>
+        </section>
+      ))}
     </div>
   );
 };
@@ -61,6 +58,12 @@ const Social = () => {
 };
 
 const Footer = () => {
+  const [openMenu, setOpenMenu] = useState(false);
+
+  const handleOpenMenu = (id) => {
+    console.log(`${id} is clicked`, id);
+    setOpenMenu(openMenu === id ? true : false);
+  };
   return (
     <footer>
       <section className="main">
@@ -80,9 +83,26 @@ const Footer = () => {
         </div>
       </section>
 
-      <section className="mobile-main">
-        <DropdownMenu />
-      </section>
+      <div className="mobile-main">
+        <Email />
+        <section className="mobile-right">
+          <MobileNav
+            title="Products"
+            handleOpenMenu={handleOpenMenu}
+            category={products}
+          />
+          <MobileNav
+            title="Grit & Grace"
+            handleOpenMenu={handleOpenMenu}
+            category={brand}
+          />
+          <MobileNav
+            title="Customer Service"
+            handleOpenMenu={handleOpenMenu}
+            category={service}
+          />
+        </section>
+      </div>
 
       <section className="mobile-logo-social">
         <img src={logo} alt="" />

@@ -47,41 +47,41 @@ export const DropdownMenu = () => {
   };
   return (
     <div className="mobile-menu">
-      <div className="menu-items">
-        {menuItems.map((menuItem, index) => (
-          <div key={index}>
-            <div className="menu-item-header">
-              <span> {menuItem.title}</span>
-              <div
-                className="icon-wrapper"
-                onClick={() => handleOpenMenu(index)}
-                aria-expanded={openMenu === index ? "true" : "false"}
-                aria-controls={`submenu-${index}`}
-              >
-                {openMenu === index ? (
-                  <RiArrowDropUpLine />
-                ) : (
-                  <RiArrowDropDownLine />
-                )}
-              </div>
-            </div>
+      {menuItems.map((menuItem, index) => (
+        <div key={index} className="menu-items">
+          <div className="header">
+            {/* <header> */}
+            <span> {menuItem.title}</span>
             <div
-              className="mobile-submenu"
-              id={`submenu-${index}`}
-              hidden={openMenu !== index}
+              className="icon-wrapper"
+              onClick={() => handleOpenMenu(index)}
+              aria-expanded={openMenu === index ? "true" : "false"}
+              aria-controls={`submenu-${index}`}
             >
-              {openMenu === index &&
-                menuItem.submenuItems.map((submenuItem, subIdx) => (
-                  <div key={subIdx} className="links">
-                    <Link to={`/products/${submenuItem.replace(/\s/g, "-")}`}>
-                      {submenuItem}
-                    </Link>
-                  </div>
-                ))}
+              {openMenu === index ? (
+                <RiArrowDropUpLine />
+              ) : (
+                <RiArrowDropDownLine />
+              )}
             </div>
+            {/* </header> */}
           </div>
-        ))}
-      </div>
+          <div
+            className="mobile-submenu"
+            id={`submenu-${index}`}
+            hidden={openMenu !== index}
+          >
+            {openMenu === index &&
+              menuItem.submenuItems.map((submenuItem, subIdx) => (
+                <div key={subIdx} className="links">
+                  <Link to={`/products/${submenuItem.replace(/\s/g, "-")}`}>
+                    {submenuItem}
+                  </Link>
+                </div>
+              ))}
+          </div>
+        </div>
+      ))}
     </div>
   );
 };

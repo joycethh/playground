@@ -56,8 +56,7 @@ footer {
             grid-template-columns: repeat( 3 ,minmax(0,1fr));
             gap: 2rem;
 
-            @include mobile { // will not need this if fix the handleOpenMenu f
-                grid-template-columns: repeat(1, minmax(0,1fr));
+            @include mobile { 
                 display: none;
             }
 
@@ -85,12 +84,16 @@ footer {
             }
     
             .mobile-menu {
-                // &:first-child {
-                //     border-top: 0.75px solid themed('border'); 
-                // }
-                // border-bottom: 0.75px solid themed('border'); 
-                
-                .menu-item-header { ///header has border bottom inherit from the Header
+
+                .menu-items {
+                    border-bottom: 0.75px solid themed('border');
+
+                    &:first-of-type {
+                        border-top: 0.75px solid themed('border');
+                    }
+                }
+
+                .header { 
                     display: flex;
                     align-items: center;
                     justify-content: space-between;

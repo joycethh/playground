@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
+import { FaFacebookSquare, FaInstagram } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { RiArrowDropDownLine, RiArrowDropUpLine } from "react-icons/ri";
 
@@ -16,20 +17,33 @@ const menuItems = [
     submenuItems: ["contact us"],
   },
 ];
-
-const DropdownMenu = () => {
-  const [openMenu, setOpenMenu] = useState(null);
-
-  const handleOpenMenu = (index) => {
-    setOpenMenu(openMenu === index ? null : index);
-  };
-
+export const Menu = () => {
   return (
-    <div className="click-dropdown-menu mobile-nav">
-      <ul className="menu-items">
+    <>
+      {menuItems.map((menuItem, index) => (
+        <div className="menu" key={index}>
+          <h6>{menuItem.title}</h6>
+          <div className="submenu">
+            {menuItem.submenuItems.map((submenuItem, subIdx) => (
+              <div className="links" key={subIdx}>
+                <Link to={`${submenuItem.replace(/\s/g, "-")}`}>
+                  {submenuItem}
+                </Link>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </>
+  );
+};
+export const DropdownMenu = ({ openMenu, handleOpenMenu }) => {
+  return (
+    <div className="mobile-menu">
+      <div className="menu-items">
         {menuItems.map((menuItem, index) => (
-          <li key={index}>
-            <header>
+          <div key={index}>
+            <div className="menu-item-header">
               <span> {menuItem.title}</span>
               <div
                 className="icon-wrapper"
@@ -39,27 +53,39 @@ const DropdownMenu = () => {
               >
                 {openMenu ? <RiArrowDropUpLine /> : <RiArrowDropDownLine />}
               </div>
-            </header>
+            </div>
             {/* {menuItem.submenuItems && ( */}
-            <ul
-              className="mobile submenu-items"
+            <div
+              className="submenu-items"
               id={`submenu-${index}`}
               hidden={openMenu !== index}
             >
-              {menuItem?.submenuItems?.map((submenuItem, subIdx) => (
-                <li key={subIdx}>
-                  <Link to={`/products/${submenuItem.replace(/\s/g, "-")}`}>
-                    {submenuItem}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+              {openMenu === index &&
+                menuItem.submenuItems.map((submenuItem, subIdx) => (
+                  <div key={subIdx} className="submenu-wrapper">
+                    <Link to={`/products/${submenuItem.replace(/\s/g, "-")}`}>
+                      {submenuItem}
+                    </Link>
+                  </div>
+                ))}
+            </div>
             {/* )} */}
-          </li>
+          </div>
         ))}
-      </ul>
+      </div>
     </div>
   );
 };
 
-export default DropdownMenu;
+export const Social = () => {
+  return (
+    <div className="social">
+      <a href="https://www.facebook.com">
+        <FaFacebookSquare />
+      </a>
+      <a href="https://wwww.instagram.com">
+        <FaInstagram />
+      </a>
+    </div>
+  );
+};

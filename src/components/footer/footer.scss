@@ -8,42 +8,46 @@ footer {
     color: themed('textContrast');
     width: 100%;
     overflow: hidden;
+    // align-items: center;
 
     .social {
         display: flex;
         column-gap: 0.4rem;
        
-          a {
-              color: themed('textContrast');
-              text-decoration: none;
-              font-size: 1.4rem;
-          }
-    }
+        a {
+            color: themed('textContrast');
+            text-decoration: none;
+            font-size: 1.4rem;
+        }
     
-    .main {
+    }
+
+    .main { 
         display: flex;
-        justify-content: flex-start;
-        column-gap: 23rem;
+        justify-content: space-between;
         padding: 3rem 4rem 2rem;
+        width: 80%;
 
         @include mobile {
            flex-direction: column;
-           gap: 2rem;
-           padding: 1rem 1.2rem;
+           padding: 3rem 1rem 3rem 2.5rem;
+        }
+
+        .left {
+            padding-right: 2rem;
         }
 
         .right {
-            flex: 1;
             display: grid;
             grid-template-columns: repeat( 3 ,minmax(0,1fr));
             gap: 2rem;
-            
 
-            @include mobile {
+            @include mobile { // will not need this if fix the handleOpenMenu f
                 grid-template-columns: repeat(1, minmax(0,1fr));
+                display: none;
             }
 
-            .nav {
+            .menu {
                 display: flex;
                 flex-direction: column;
 
@@ -51,15 +55,12 @@ footer {
                     line-height: 1.8rem;
                     letter-spacing: .1rem;
                     text-transform: uppercase;
-                    margin-bottom: 1.8rem;
+                    margin-bottom: 1.2rem;
                 }
 
-                ul {
-                    list-style: none;
-                    margin: 0;
-                    padding: 0;
-                    
-                    li {
+                .submenu {
+
+                    .links{
                         padding-bottom:0.5rem;
                         line-height: 1rem;
                         font-size: 0.8rem;
@@ -72,10 +73,9 @@ footer {
                         }
                     }
                 }    
-  
-               
-            }
-            .socialWrapper {
+            }     
+
+            .socialWrapper { ///??
                 @include mobile {
                     display: none;
                 }
@@ -83,68 +83,59 @@ footer {
         }
     }
 
-    .mobile-main {
-        display: none; 
-        padding:  3.4rem 2.9rem 2.8rem;;
+    .mobile-right {
+        display: none;
+        flex-direction: column;
+        margin-top: 3rem;
 
         @include mobile {
-            display: block;
+            display: flex;
         }
 
-        .mobile-right {
-            display: flex;
-            flex-direction: column;
-            margin-top: 3rem;
+        .mobile-menu {
+            // &:first-child {
+            //     border-top: 0.75px solid themed('border'); 
+            // }
+            // border-bottom: 0.75px solid themed('border'); 
+            
+            .menu-item-header { ///header has border bottom inherit from the Header
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                background-color: inherit;
+    
+                span {
+                    font-size: 0.9rem;
+                     line-height: 0.9rem;
+                     font-weight: 500;
+                     text-transform: uppercase;
+                     letter-spacing: .06rem;
+                }
 
-            &:first-of-type {
-                border-top: 0.75px solid themed('border'); 
-            }
-
-            .mobile-nav {
-                // border-bottom: 0.75px solid themed('border');  
-                
-                header {
+                .icon-wrapper {
                     display: flex;
                     align-items: center;
-                    justify-content: space-between;
-                    background-color: inherit;
-
-                    span {
-                        font-size: 0.9rem;
-                         line-height: 0.9rem;
-                         font-weight: 500;
-                         text-transform: uppercase;
-                         letter-spacing: .06rem;
-                    }
-
-                    .icon-wrapper {
-                        display: flex;
-                        align-items: center;
-                        font-size: 2rem;
-                    }
+                    font-size: 2rem;
+                    cursor: pointer;
                 }
+            }
 
-                .display-block {
-                    margin-top: 1.5rem;
-                    display: flex;
-                    flex-direction: column;
+            .submenu-items {
+                margin-top: 1rem;
+                margin-bottom: 1.5rem;
+                display: flex;
+                flex-direction: column;
 
-                    a {
-                        // color: themed('textContrast');
-                        color: lightcoral;
-                        text-decoration: none;
-                        padding-bottom: 2px;
-                        cursor: pointer;
-                        font-size: 0.8rem;
-                        line-height: 0.7rem;
-                        margin-bottom: 0.7rem;
-                        text-transform: capitalize;
-                    }
-
-                }
-
-                .display-none {
-                    display: none;
+                a {
+                    // color: themed('textContrast');
+                    color: lightcoral;
+                    text-decoration: none;
+                    padding-bottom: 2px;
+                    cursor: pointer;
+                    font-size: 0.8rem;
+                    line-height: 0.7rem;
+                    margin-bottom: 0.7rem;
+                    text-transform: capitalize;
                 }
             }
         }
@@ -157,22 +148,9 @@ footer {
         align-items: center;
         padding: 2rem 3.3rem;
     
-        
-        
         @include mobile{
             display: flex;   
         }
-
-        // .social {
-        //    display: flex;
-        //    column-gap: 0.4rem;
-                   
-        //    a {
-        //     color: themed('textContrast');
-        //     text-decoration: none;
-        //     font-size: 1.4rem;
-        //     }
-        // }
     }
 
     .logo {
@@ -200,7 +178,6 @@ footer {
             text-transform: capitalize;
         }
     }
-
+ }
     
-  }
 }

@@ -9,27 +9,15 @@ footer {
     width: 100%;
     overflow: hidden;
 
-    .social {
-        display: flex;
-        column-gap: 0.4rem;
-       
-        a {
-            color: themed('textContrast');
-            text-decoration: none;
-            font-size: 1.4rem;
-        }
-    
-    }
-
     .main { 
         display: flex;
         justify-content: space-between;
         padding: 3rem 4rem 2rem;
         width: 80%;
-
+       
         @include mobile {
            flex-direction: column;
-           padding: 3rem 1rem 3rem 2.5rem;
+           padding: 3rem 1rem 3rem 2rem;
         }
 
         .links{
@@ -50,6 +38,12 @@ footer {
                 text-transform: capitalize;
             }
         }
+        .left {
+            padding-right: 4rem;
+            @include mobile {
+                padding-right: 0;
+            }
+        }
 
         .right {
             display: grid;
@@ -63,6 +57,7 @@ footer {
             .menu {
                 display: flex;
                 flex-direction: column;
+                padding-right: 1rem;
 
                 h6{
                     line-height: 1.8rem;
@@ -124,14 +119,16 @@ footer {
         }
     }
 
-
-
-
     .mobile-logo-social {
         display: flex; 
-        justify-content: space-around;
-        align-items: center;
-        padding: 2rem 4rem;
+        justify-content: flex-start;
+        gap: 8rem;
+        width: 80%;
+        padding: 3rem 4rem 2rem;
+
+        @include mobile {
+            padding: 1rem 1rem 1rem 2rem;
+        }
 
         .logo{
             a {
@@ -142,6 +139,17 @@ footer {
                 color: themed('textContrast');
                 cursor: pointer;
             }       
+        }
+        .social {
+            display: flex;
+            column-gap: 0.4rem;
+           
+            a {
+                color: themed('textContrast');
+                text-decoration: none;
+                font-size: 1.4rem;
+            }
+        
         }
     }
 

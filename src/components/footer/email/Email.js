@@ -12,7 +12,7 @@ const Email = () => {
   return (
     <div className="subscription">
       <h3>Subscribe for new arrivals:</h3>
-      <div className="subscriptInputWrapper mt-15">
+      <div className="subscriptInputWrapper">
         <input
           name="email"
           type="text"

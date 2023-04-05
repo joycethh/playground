@@ -5,7 +5,7 @@ import { RiArrowDropDownLine, RiArrowDropUpLine } from "react-icons/ri";
 
 const menuItems = [
   {
-    title: "Featured Products ",
+    title: "Products ",
     submenuItems: ["Jewelry", "Electronics"],
   },
   {

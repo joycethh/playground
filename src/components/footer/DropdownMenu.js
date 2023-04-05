@@ -65,7 +65,6 @@ export const DropdownMenu = () => {
             </div>
             <div
               className="submenu-items"
-              //   id={index}
               id={`submenu-${index}`}
               hidden={openMenu !== index}
             >

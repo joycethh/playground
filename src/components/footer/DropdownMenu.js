@@ -49,22 +49,20 @@ export const DropdownMenu = () => {
     <div className="mt-15">
       {menuItems.map((menuItem, index) => (
         <div key={index} className="menu-item">
-          <div className="header">
-            {/* <header> */}
+          <div
+            className="header"
+            onClick={() => handleOpenMenu(index)}
+            aria-expanded={openMenu === index ? "true" : "false"}
+            aria-controls={`submenu-${index}`}
+          >
             <span> {menuItem.title}</span>
-            <div
-              className="icon-wrapper"
-              onClick={() => handleOpenMenu(index)}
-              aria-expanded={openMenu === index ? "true" : "false"}
-              aria-controls={`submenu-${index}`}
-            >
+            <div className="icon-wrapper">
               {openMenu === index ? (
                 <RiArrowDropUpLine />
               ) : (
                 <RiArrowDropDownLine />
               )}
             </div>
-            {/* </header> */}
           </div>
           <div
             className="mobile-submenu"

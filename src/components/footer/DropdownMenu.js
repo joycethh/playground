@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaFacebookSquare, FaInstagram } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { RiArrowDropDownLine, RiArrowDropUpLine } from "react-icons/ri";
@@ -17,6 +17,7 @@ const menuItems = [
     submenuItems: ["contact us"],
   },
 ];
+
 export const Menu = () => {
   return (
     <>
@@ -37,7 +38,15 @@ export const Menu = () => {
     </>
   );
 };
-export const DropdownMenu = ({ openMenu, handleOpenMenu }) => {
+
+export const DropdownMenu = () => {
+  const [openMenu, setOpenMenu] = useState(null);
+  console.log("openMenu", openMenu);
+
+  const handleOpenMenu = (index) => {
+    console.log(`submenus-${index} is clicked`, index);
+    setOpenMenu(openMenu === index ? null : index);
+  };
   return (
     <div className="mobile-menu">
       <div className="menu-items">
@@ -47,16 +56,16 @@ export const DropdownMenu = ({ openMenu, handleOpenMenu }) => {
               <span> {menuItem.title}</span>
               <div
                 className="icon-wrapper"
-                onClick={handleOpenMenu(index)}
+                onClick={() => handleOpenMenu(index)}
                 aria-expanded={openMenu === index ? "true" : "false"}
                 aria-controls={`submenu-${index}`}
               >
                 {openMenu ? <RiArrowDropUpLine /> : <RiArrowDropDownLine />}
               </div>
             </div>
-            {/* {menuItem.submenuItems && ( */}
             <div
               className="submenu-items"
+              //   id={index}
               id={`submenu-${index}`}
               hidden={openMenu !== index}
             >
@@ -69,7 +78,6 @@ export const DropdownMenu = ({ openMenu, handleOpenMenu }) => {
                   </div>
                 ))}
             </div>
-            {/* )} */}
           </div>
         ))}
       </div>

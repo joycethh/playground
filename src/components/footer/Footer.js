@@ -6,12 +6,6 @@ import { Menu, DropdownMenu, Social } from "./DropdownMenu";
 import "./footer.scss";
 
 const Footer = () => {
-  const [openMenu, setOpenMenu] = useState(null);
-  console.log("openMenu", openMenu);
-  const handleOpenMenu = (index) => {
-    console.log(`submenus-${index} is clicked`, index);
-    setOpenMenu(openMenu === index ? index : null);
-  };
   return (
     <footer>
       <section className="main">
@@ -23,7 +17,7 @@ const Footer = () => {
         </div>
 
         <div className="mobile-right">
-          <DropdownMenu openMenu={openMenu} handleOpenMenu={handleOpenMenu} />
+          <DropdownMenu />
         </div>
       </section>
 

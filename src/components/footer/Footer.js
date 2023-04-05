@@ -11,6 +11,21 @@ const products = ["Jewelry", "Electronics"];
 const brand = ["about us"];
 const service = ["contact us"];
 
+const menuItems = [
+  {
+    title: "Featured Products ",
+    submenuItems: ["Jewelry", "Electronics"],
+  },
+  {
+    title: "Grit & Grace ",
+    submenuItems: ["about us"],
+  },
+  {
+    title: "Customer Services",
+    submenuItems: ["contact us"],
+  },
+];
+
 const Nav = ({ title, category }) => {
   return (
     <div className="nav">
@@ -26,21 +41,35 @@ const Nav = ({ title, category }) => {
   );
 };
 
-const MobileNav = ({ title, openMenu, handleOpenMenu, category }) => {
+const MobileNav = ({ openMenu, handleOpenMenu }) => {
   return (
     <div className="mobile-nav">
-      <header>
-        <span>{title}</span>
-        <div className="icon-wrapper" onClick={handleOpenMenu(category)}>
-          {openMenu ? <RiArrowDropUpLine /> : <RiArrowDropDownLine />}
-        </div>
-      </header>
+      <div className="menu-items">
+        {menuItems.map((menuItem, index) => (
+          <div key={index}>
+            <header>
+              <span>{menuItem.title}</span>
+              <div className="icon-wrapper" onClick={handleOpenMenu(index)}>
+                {openMenu ? <RiArrowDropUpLine /> : <RiArrowDropDownLine />}
+              </div>
+            </header>
 
-      {category.map((item, idx) => (
-        <section id={idx} className="display-block" key={idx}>
-          <Link to={`/products/${item.replace(/\s/g, "-")}`}>{item}</Link>
-        </section>
-      ))}
+            <div
+              id={`submenus-${index}`}
+              hidden={openMenu !== index}
+              className="submenu"
+            >
+              {menuItem.submenuItems.map((submenuItem, subIdx) => (
+                <div className="display-block" key={subIdx}>
+                  <Link to={`/products/${submenuItem.replace(/\s/g, "-")}`}>
+                    {submenuItem}
+                  </Link>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
@@ -60,9 +89,9 @@ const Social = () => {
 const Footer = () => {
   const [openMenu, setOpenMenu] = useState(false);
 
-  const handleOpenMenu = (id) => {
-    console.log(`${id} is clicked`, id);
-    setOpenMenu(openMenu === id ? true : false);
+  const handleOpenMenu = (index) => {
+    console.log(`submenus-${index} is clicked`, index);
+    setOpenMenu(openMenu === index ? true : false);
   };
   return (
     <footer>
@@ -86,21 +115,7 @@ const Footer = () => {
       <div className="mobile-main">
         <Email />
         <section className="mobile-right">
-          <MobileNav
-            title="Products"
-            handleOpenMenu={handleOpenMenu}
-            category={products}
-          />
-          <MobileNav
-            title="Grit & Grace"
-            handleOpenMenu={handleOpenMenu}
-            category={brand}
-          />
-          <MobileNav
-            title="Customer Service"
-            handleOpenMenu={handleOpenMenu}
-            category={service}
-          />
+          <MobileNav openMenu={openMenu} handleOpenMenu={handleOpenMenu} />
         </section>
       </div>
 

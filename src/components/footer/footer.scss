@@ -130,7 +130,8 @@ footer {
                     flex-direction: column;
 
                     a {
-                        color: themed('textContrast');
+                        // color: themed('textContrast');
+                        color: lightcoral;
                         text-decoration: none;
                         padding-bottom: 2px;
                         cursor: pointer;

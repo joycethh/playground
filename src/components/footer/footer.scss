@@ -33,7 +33,7 @@ footer {
         }
 
         .links{
-            padding-bottom:0.5rem;
+            padding:0.5rem 0;
             line-height: 1rem;
             font-size: 0.8rem;
             font-weight: 400;
@@ -83,10 +83,10 @@ footer {
                 display: flex;
             }
     
-            .mobile-menu {
-
-                .menu-items {
+            .mt-15 {
+                .menu-item {
                     border-bottom: 0.75px solid themed('border');
+                    padding: 1rem 0;
 
                     &:first-of-type {
                         border-top: 0.75px solid themed('border');
@@ -98,6 +98,7 @@ footer {
                     align-items: center;
                     justify-content: space-between;
                     background-color: inherit;
+                    // margin-bottom: 0.8rem;
         
                     span {
                         font-size: 0.9rem;
@@ -116,8 +117,6 @@ footer {
                 }
     
                 .mobile-submenu {
-                    margin-top: 1rem;
-                    margin-bottom: 1.5rem;
                     display: flex;
                     flex-direction: column;
                 }

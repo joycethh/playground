@@ -46,9 +46,9 @@ export const DropdownMenu = () => {
     setOpenMenu(openMenu === index ? null : index);
   };
   return (
-    <div className="mobile-menu">
+    <div className="mt-15">
       {menuItems.map((menuItem, index) => (
-        <div key={index} className="menu-items">
+        <div key={index} className="menu-item">
           <div className="header">
             {/* <header> */}
             <span> {menuItem.title}</span>

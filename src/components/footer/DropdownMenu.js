@@ -41,10 +41,8 @@ export const Menu = () => {
 
 export const DropdownMenu = () => {
   const [openMenu, setOpenMenu] = useState(null);
-  console.log("openMenu", openMenu);
 
   const handleOpenMenu = (index) => {
-    console.log(`submenus-${index} is clicked`, index);
     setOpenMenu(openMenu === index ? null : index);
   };
   return (
@@ -60,7 +58,11 @@ export const DropdownMenu = () => {
                 aria-expanded={openMenu === index ? "true" : "false"}
                 aria-controls={`submenu-${index}`}
               >
-                {openMenu ? <RiArrowDropUpLine /> : <RiArrowDropDownLine />}
+                {openMenu === index ? (
+                  <RiArrowDropUpLine />
+                ) : (
+                  <RiArrowDropDownLine />
+                )}
               </div>
             </div>
             <div

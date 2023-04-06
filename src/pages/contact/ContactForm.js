@@ -5,11 +5,9 @@ import { Button } from "../../components/button/Button";
 
 const ContactForm = () => {
   const form = useRef();
+  console.log("form", form.current);
   const [error, setError] = useState(null);
   const [sucess, setSucess] = useState(null);
-
-  const id = process.env.REACT_APP_TEMPLATE_ID;
-  console.log("id", id);
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -23,11 +21,9 @@ const ContactForm = () => {
       )
       .then(
         (result) => {
-          console.log(result.text);
           setSucess(JSON.stringify(result.text));
         },
         (error) => {
-          console.log(error.text);
           setError(JSON.stringify(error.text));
         }
       );
@@ -50,14 +46,17 @@ const ContactForm = () => {
         </div>
         <Button name="Send" handleClick={sendEmail} className="full-width" />
       </form>
-      <div>
-        {sucess && (
-          <div>
-            Thanks for the message! We will get back to you within 48 hours!
-          </div>
-        )}
-        {error && <div>Something went wrong, please try again!</div>}
-      </div>
+
+      {sucess && (
+        <div style={{ color: "#36BC9B", paddingTop: "0.6rem" }}>
+          Thanks for the message! We will get back to you within 48 hours!
+        </div>
+      )}
+      {error && (
+        <div style={{ color: "#BD3F3A", paddingTop: "0.6rem" }}>
+          Something went wrong, please try again!
+        </div>
+      )}
     </>
   );
 };

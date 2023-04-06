@@ -5,7 +5,7 @@ import { Button } from "../../components/button/Button";
 
 const ContactForm = () => {
   const form = useRef();
-  console.log("form", form.current);
+
   const [error, setError] = useState(null);
   const [sucess, setSucess] = useState(null);
 

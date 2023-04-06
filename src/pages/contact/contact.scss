@@ -1,0 +1,68 @@
+@import "../../style.scss";
+
+section {
+    @include themify($themes) {
+
+        .flex-container {
+            display: flex;
+            flex-direction: row;
+            margin: auto;
+            width: 75%;
+            align-items: center;
+
+            @include tablet {
+                flex-direction: column;
+                width: 100%;
+            }
+        
+            @include mobile {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .left {
+                width: 50%;
+                padding-right: 5rem;
+
+                @include mobile {
+                    width: 80%;
+                    padding-right: 0;
+                }
+
+                article{
+                    padding: 1rem 0;
+
+                    span {
+                        padding-right: 4px;
+                    }
+                }
+            }
+
+            .right {
+
+                form {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 8px;
+
+                    label {
+                        font-size: 0.9rem;
+                        font-weight: 500;
+                    }
+
+                    .full-width {
+                        width: 100%;
+                        margin-top: 1rem;
+
+                        button {
+                            width: 100%;
+                        }
+                    }
+                }
+               
+            }
+
+        }
+
+    }
+}

@@ -5,26 +5,33 @@ import "./email.scss";
 
 const Email = () => {
   const [email, setEmail] = useState("");
-  const [status, setStatus] = useState("");
 
-  const url = "";
+  const url = process.env.REACT_APP_MAILCHIMP_URL;
 
-  // console.log("email in footer", email);
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   jsonp(`${url}&EMAIL=${email}`, { param: 'c' }, (_, data) => {
+  //     const { msg, result } = data
+  //     // do something with response
+  //     alert(msg);
+  // });
+  // }
   return (
     <MailchimpSubscribe
       url={url}
       render={({ subscribe, status, message }) => (
         <div className="subscription">
-          <h3>Subscribe for new arrivals:</h3>
+          <h3>Subscribe</h3>
           <form onSubmit={(email) => subscribe(email)}>
             <div className="subscriptInputWrapper">
               <input
                 type="email"
-                name="email"
-                id="email"
+                name="EMAIL"
+                id="mce-EMAIL"
                 value={email}
                 required
                 placeholder="Enter email to subscribe"
+                className="required email"
                 onChange={(e) => setEmail(e.target.value)}
               />
               <span className="icon" onClick={(email) => subscribe(email)}>

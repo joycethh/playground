@@ -36,7 +36,7 @@ const Checkout = () => {
     <Badge title="Checkout">
       <section className="checkout-section">
         <div className="checkout-container">
-          <div className="checkout-left">
+          <div className="checkout-left mb-3">
             <Link to="/cart" className="returnLink">
               <MdKeyboardArrowLeft /> Return to Cart
             </Link>
@@ -145,7 +145,7 @@ const Checkout = () => {
             </div>
           </div>
 
-          <div className="checkout-right">
+          <div className="checkout-right mb-3">
             <div className="summary-content">
               <OrderSummary />
               <div className="services-wrapper"></div>

@@ -17,7 +17,7 @@ const Cart = () => {
       {/* <CommonSection title="My Cart" /> */}
       <section className="cart-section">
         <div className="cart-container">
-          <div className="cart-left">
+          <div className="cart-left mb-3">
             <Link to="/shop">
               <MdKeyboardArrowLeft /> Continue Shopping
             </Link>
@@ -60,7 +60,7 @@ const Cart = () => {
               )}
             </div>
           </div>
-          <div className="cart-right">
+          <div className="cart-right mb-3">
             <div className="cart-right-content">
               <div id="orderDetails" className="orderDetails-wrapper">
                 <h4>Order Summary</h4>

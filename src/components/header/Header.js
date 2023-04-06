@@ -68,10 +68,10 @@ const Header = () => {
             Electronics
           </NavLink>
           <NavLink to="/products/women's clothing" className={activeLink}>
-            Women
+            Women's
           </NavLink>
           <NavLink to="/products/men's clothing" className={activeLink}>
-            Men
+            Men's
           </NavLink>
         </div>
 
@@ -121,10 +121,10 @@ const Header = () => {
                 Electronics
               </NavLink>
               <NavLink to="/products/women's clothing" className={activeLink}>
-                Women
+                Women's
               </NavLink>
               <NavLink to="/products/men's clothing" className={activeLink}>
-                Men
+                Men's
               </NavLink>
             </div>
           </div>

@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Email from "./email/Email";
+import Subscribe from "./subscribe/Subscribe";
 import { Menu, DropdownMenu, Social } from "./DropdownMenu";
 import "./footer.scss";
 
@@ -9,7 +9,7 @@ const Footer = () => {
     <footer>
       <section className="main">
         <div className="left">
-          <Email />
+          <Subscribe />
         </div>
         <div className="right">
           <Menu />

@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { HiOutlineArrowRight } from "react-icons/hi";
 import MailchimpSubscribe from "react-mailchimp-subscribe";
-import "./email.scss";
+import "./subscribe.scss";
 
-const Email = () => {
+const Subscribe = () => {
   const [email, setEmail] = useState("");
 
   const url = process.env.REACT_APP_MAILCHIMP_URL;
@@ -56,4 +56,4 @@ const Email = () => {
   );
 };
 
-export default Email;
+export default Subscribe;

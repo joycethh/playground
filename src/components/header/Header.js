@@ -1,23 +1,16 @@
-import React, { useContext, useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Link, useNavigate, NavLink } from "react-router-dom";
 import { BiUser, BiMenuAltLeft } from "react-icons/bi";
-import {
-  HiOutlineLightBulb,
-  HiOutlineMoon,
-  HiLogout,
-  HiOutlineShoppingCart,
-} from "react-icons/hi";
+import { HiLogout, HiOutlineShoppingCart } from "react-icons/hi";
 import { toast } from "react-toastify";
 import { signOut } from "firebase/auth";
 import { auth } from "../../firebase/configure";
-import { DarkModeContext } from "../../context/darkModeContext";
 import "./header.scss";
 
 import { useSelector } from "react-redux";
 import { useAuth } from "../../customHooks/useAuth";
 
 const Header = () => {
-  const { toggle, isDarkMode } = useContext(DarkModeContext);
   const [openModal, setOpenModal] = useState(false);
   const { currentUser } = useAuth();
 
@@ -107,10 +100,6 @@ const Header = () => {
             </Link>
             <span className="cart-thunmbnail-qty">{totalQty}</span>
           </div>
-
-          <span onClick={toggle}>
-            {isDarkMode ? <HiOutlineLightBulb /> : <HiOutlineMoon />}
-          </span>
 
           <span onClick={toggleModal} className="menu-icon">
             <BiMenuAltLeft />

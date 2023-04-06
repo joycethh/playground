@@ -1,7 +1,7 @@
 $themes: (
     light: (
         textColor: #1D201F,
-        textContrast: #fff, //#DCF4F4, //iceberg
+        textContrast: #fff, 
         bg: #fff,
         bgSoft: #F8F8D9, //chestnut
         bgDark: #2d313f,//dark blue
@@ -10,13 +10,13 @@ $themes: (
         highLightSoft: #59CCC5, 
       ),
     dark: (
-        textColor: #def3f6,
-        textContrast: #1D201F,
-        bg: #203d4b,
-        bgSoft: #205255,
-        border: #205255, //blue dianne
-        logoTheme: #3CA9AB, // keppel
-        logoThemeSoft:#547C7C //cutty sark
+        // textColor: #def3f6,
+        // textContrast: #1D201F,
+        // bg: #203d4b,
+        // bgSoft: #205255,
+        // border: #205255, 
+        // logoTheme: #3CA9AB, 
+        // logoThemeSoft:#547C7C 
       ),
 );
 

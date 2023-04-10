@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { MdKeyboardArrowLeft, MdDeleteOutline } from "react-icons/md";
 import { LinkButton } from "../../components/button/Button";
@@ -11,6 +11,10 @@ const Cart = () => {
   const { cartItems, itemSubtotal } = useSelector((state) => state.cart);
 
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    localStorage.setItem("previousPage", window.location.pathname);
+  }, []);
 
   return (
     <Badge title="My Cart">

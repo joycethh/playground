@@ -19,7 +19,7 @@ const Auth = () => {
 
   const [isLoading, setIsLoading] = useState(false);
 
-  const { login, register } = useAuth();
+  const { currentUser, login, register } = useAuth();
 
   // const navigate = useNavigate();
   // useEffect(() => {
@@ -30,7 +30,7 @@ const Auth = () => {
   //   } else {
   //     navigate("/");
   //   }
-  // });
+  // }, [currentUser]);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });

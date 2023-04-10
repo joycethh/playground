@@ -13,6 +13,7 @@ import {
   Electronics,
   Women,
   Men,
+  Payment,
 } from "../pages/index";
 
 const Routers = () => {
@@ -34,6 +35,14 @@ const Routers = () => {
         element={
           <ProtectedRoute>
             <Checkout />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/payment"
+        element={
+          <ProtectedRoute>
+            <Payment />
           </ProtectedRoute>
         }
       />

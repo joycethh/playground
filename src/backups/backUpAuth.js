@@ -1,10 +1,15 @@
-import React, { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
-import { useAuth } from "../../customHooks/useAuth";
-import Input from "../../components/input/Input";
-import { Button } from "../../components/button/Button";
-import Loader from "../../components/loader/Loader";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  updateProfile,
+} from "firebase/auth";
+import { auth } from "../firebase/configure";
+import Input from "../components/input/Input";
+import { Button } from "../components/button/Button";
+import Loader from "../components/loader/Loader";
 import "./auth.scss";
 
 const Auth = () => {
@@ -18,19 +23,6 @@ const Auth = () => {
   });
 
   const [isLoading, setIsLoading] = useState(false);
-
-  const { login, register } = useAuth();
-
-  // const navigate = useNavigate();
-  // useEffect(() => {
-  //   const previousPage = localStorage.getItem("previousPage");
-  //   if (previousPage) {
-  //     localStorage.removeItem("previousPage");
-  //     navigate(`${previousPage}`);
-  //   } else {
-  //     navigate("/");
-  //   }
-  // });
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -57,11 +49,20 @@ const Auth = () => {
       setIsLoading(true);
 
       //create user with firebase
-      await register(formData.email, formData.password, formData.username)
-        .then(() => {
+      await createUserWithEmailAndPassword(
+        auth,
+        formData.email,
+        formData.password
+      )
+        .then((userCredential) => {
           // Signed in
+          const user = userCredential.user;
+          console.log("new-user", user);
           setIsLoading(false);
           toast.success("Your account is created!");
+          updateProfile(auth.currentUser, {
+            displayName: formData.username,
+          });
           handleClear();
         })
         .catch((error) => {
@@ -73,8 +74,11 @@ const Auth = () => {
       setIsLoading(true);
 
       // sign in user with firebase
-      await login(formData.email, formData.password)
-        .then(() => {
+      await signInWithEmailAndPassword(auth, formData.email, formData.password)
+        .then((userCredential) => {
+          // Signed in
+          const user = userCredential.user;
+          console.log("login-user", user);
           setIsLoading(false);
           toast.success("Signed in successfully.");
           handleClear();

@@ -86,12 +86,12 @@
                             button {
                                 font-size: 1.5rem;
                                 text-align: center;  
-                                background-color: #fff;
-                                color: themed('bgContrast');
+                                background-color: themed('bg');
                                 border: 0;
-                                transition: all 0.2s ease-in;
+                                cursor: pointer;
                                 &:hover {
-                                   color: themed('highlight');
+                                   color: themed('highLight');
+                                   scale: 1.1;
                                 }        
                             }
 

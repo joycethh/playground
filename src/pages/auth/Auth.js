@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import Input from "../../components/input/Input";
 import { Button } from "../../components/button/Button";
@@ -23,15 +23,19 @@ const Auth = () => {
 
   // const navigate = useNavigate();
 
-  // useEffect(() => {
-  //   const previousPage = localStorage.getItem("previousPage");
-  //   if (previousPage) {
-  //     navigate(`${previousPage}`);
-  //     // localStorage.removeItem("previousPage");
-  //   } else {
-  //     navigate("/");
-  //   }
-  // });
+  // const Redirect = () => {
+  //   useEffect(() => {
+  //     const previousPage = localStorage.getItem("previousPage");
+  //     if (previousPage) {
+  //       localStorage.removeItem("previousPage");
+  //       navigate(`${previousPage}`);
+  //     } else {
+  //       navigate("/");
+  //     }
+  //   });
+
+  //   console.log("redirect is called");
+  // };
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -66,9 +70,7 @@ const Auth = () => {
           handleClear();
         })
         .catch((error) => {
-          console.log("register-error", error);
-          const errorMessage = error.message;
-          toast.error(`Opps, something went wrong-${errorMessage}`);
+          toast.error(`Opps, something went wrong, please try again`);
         });
     } else {
       setIsLoading(true);
@@ -81,9 +83,7 @@ const Auth = () => {
           handleClear();
         })
         .catch((error) => {
-          console.log("login-error", error);
-          const errorMessage = error.message;
-          toast.error(`Opps, something went wrong-${errorMessage}`);
+          toast.error(`Opps, something went wrong, please try again`);
         });
     }
   };
@@ -107,6 +107,7 @@ const Auth = () => {
                   <Input
                     name="username"
                     type="text"
+                    value={formData.username}
                     placeHolder="Username"
                     required={true}
                     autoFocus={true}
@@ -118,6 +119,7 @@ const Auth = () => {
                 <Input
                   name="email"
                   type="text"
+                  value={formData.email}
                   placeHolder="Email"
                   required={true}
                   autoFocus={true}
@@ -128,6 +130,7 @@ const Auth = () => {
                 <Input
                   name="password"
                   type="password"
+                  value={formData.password}
                   placeHolder="Password"
                   required={true}
                   handleChange={handleChange}
@@ -138,6 +141,7 @@ const Auth = () => {
                   <Input
                     name="repeatPassword"
                     type="password"
+                    value={formData.password}
                     placeHolder="Repeat Password"
                     required={true}
                     handleChange={handleChange}

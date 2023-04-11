@@ -14,16 +14,23 @@ export const useAuthContext = () => useContext(AuthContext);
 export const AuthContextProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState();
 
+  // useEffect(() => {
+  //   onAuthStateChanged(auth, (user) => {
+  //     if (user) {
+  //       // console.log("user", user);
+  //       setCurrentUser(user);
+  //     } else {
+  //       // User is signed out
+  //       setCurrentUser(null);
+  //     }
+  //   });
+  // }, []);
+
   useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        // console.log("user", user);
-        setCurrentUser(user);
-      } else {
-        // User is signed out
-        setCurrentUser(null);
-      }
+    const unsuscribe = onAuthStateChanged(auth, (user) => {
+      setCurrentUser(user);
     });
+    return unsuscribe;
   }, []);
 
   const login = async (email, password) => {

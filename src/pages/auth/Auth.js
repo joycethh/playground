@@ -22,15 +22,16 @@ const Auth = () => {
   const { login, register } = useAuthContext();
 
   // const navigate = useNavigate();
+
   // useEffect(() => {
   //   const previousPage = localStorage.getItem("previousPage");
   //   if (previousPage) {
-  //     localStorage.removeItem("previousPage");
   //     navigate(`${previousPage}`);
+  //     // localStorage.removeItem("previousPage");
   //   } else {
   //     navigate("/");
   //   }
-  // }, [currentUser]);
+  // });
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -158,10 +159,10 @@ const Auth = () => {
             </div>
           </form>
 
-          <div className="google mt-2">
+          {/* <div className="google mt-2">
             <span>-- or --</span>
             <button>login in with google</button>
-          </div>
+          </div> */}
 
           <div className="toggle">
             {isRegister ? (

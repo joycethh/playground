@@ -65,13 +65,14 @@
             //item
             .cartItem-table{
                 border-collapse: separate;
-                border-spacing: 0 1em;
+                border-spacing: 1rem;
+                background-color: antiquewhite;
             
                 .itemImage-thumbnail {
                     width: 4.6em;
                     height: 4.6em;
                     border-radius: 8px;
-                    background: #fff;
+                    background: themed('bg');
                     position: relative;
                     border: 1px solid themed('border');
                 
@@ -102,7 +103,7 @@
                         white-space: nowrap;
                         text-align: center;
                         border-radius: 1.75em;
-                        background-color: themed('highlight');
+                        background-color: themed('highLight');
                         color: themed('textColor');
                         box-sizing: border-box;
                         min-width: 1.75em;
@@ -112,17 +113,19 @@
                         right: -0.75em;
                         top: -0.75em;
                         z-index: 3;
-                    }
-    
-                    .itemName {
-                        width: 1em;
-                        min-width: 100%;                        
-                    }  
-    
-                    .itemTotalPrice {
-                        font-weight: 500; 
-                    }    
-                }       
+                    } 
+                } 
+                
+                .itemName {
+                    width: 1em;
+                    min-width: 100%;
+                    font-size: 0.91rem; 
+                    padding-left: 2px;                     
+                }  
+
+                .itemTotalPrice {
+                    font-size: 0.91rem;  
+                }   
             }
     
             //total
@@ -131,10 +134,11 @@
                 border-spacing: 0 1em;
                 font-size: 1rem;
                 border-top: 1px solid themed('border');
+                background-color: azure;
 
                 @include mobile {
-                    border-collapse: collapse;
-                    border-top: 0;
+                    border-collapse: separate;
+                    border-top: 1rem 0.2rem;
                     margin-bottom: 0.75rem;
                 }
             

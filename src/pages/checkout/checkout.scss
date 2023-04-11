@@ -2,10 +2,10 @@
 
 .checkout-container {
     display: flex;
-    padding-top: 1.5rem;
     flex-direction: row;
+    gap: 15rem;
     margin: auto;
-    width: 75%;
+    width: 70%;
     align-items: center;
 
 
@@ -16,15 +16,15 @@
 
     @include themify($themes) {
         .checkout-left {
-            max-width: 50%;
-            float: left;
-            flex-grow: 1;
-            padding-right: 2rem;
+            // max-width: 50%;
+            // float: left;
+            // flex-grow: 1;
+            // padding-right: 2rem;
          
 
             @include mobile {
-                min-width: 100%;
-                padding-right: 0;
+                // padding-right: 0;
+                // width: 100%;
             }
 
             .returnLink {
@@ -38,7 +38,7 @@
                 display: none;
                 justify-content: space-between;
                 background-color:#f5f5f5;
-                padding: 0.7rem 0.5rem;
+                padding: 0.7rem 1rem;
                 margin-top: 0.5rem;
                 border-top: 1px solid themed('border');
                 border-bottom: 1px solid themed('border');
@@ -53,13 +53,16 @@
                     align-items: center;
                     gap: 3px;
                     font-size: 1.01rem;
-                    background-color: #f5f5f5;
-                    color: themed('bgContrast');
+                    background-color: inherit;
                     border: 0;
                     transition: all 0.2s ease-in;
                     &:hover {
-                       color: themed('highlight');
+                       color: themed('highLight');
                     }        
+                }
+
+                .total {
+                    font-weight: 500;
                 }
 
             }

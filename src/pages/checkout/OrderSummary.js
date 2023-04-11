@@ -21,11 +21,11 @@ const OrderSummary = () => {
                       <span className="item-qty">{item.qty}</span>
                     </div>
                   </td>
-                  <th>
-                    <span className="itemName">{item.productName}</span>
-                  </th>
                   <td>
-                    <span className="itemTotalPrice">{item.totalPrice}</span>
+                    <span className="itemName">{item.productName}</span>
+                  </td>
+                  <td>
+                    <span className="itemTotalPrice">${item.totalPrice}</span>
                   </td>
                 </tr>
               ))

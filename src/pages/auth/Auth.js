@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { useAuth } from "../../customHooks/useAuth";
 import Input from "../../components/input/Input";
 import { Button } from "../../components/button/Button";
 import Loader from "../../components/loader/Loader";
 import "./auth.scss";
+import { useAuthContext } from "../../context/authContext";
 
 const Auth = () => {
   const [isRegister, setIsRegister] = useState(false);
@@ -19,7 +19,7 @@ const Auth = () => {
 
   const [isLoading, setIsLoading] = useState(false);
 
-  const { currentUser, login, register } = useAuth();
+  const { login, register } = useAuthContext();
 
   // const navigate = useNavigate();
   // useEffect(() => {

@@ -8,11 +8,11 @@ import { auth } from "../../firebase/configure";
 import "./header.scss";
 
 import { useSelector } from "react-redux";
-import { useAuth } from "../../customHooks/useAuth";
+import { useAuthContext } from "../../context/authContext";
 
 const Header = () => {
   const [openModal, setOpenModal] = useState(false);
-  const { currentUser } = useAuth();
+  const { currentUser } = useAuthContext();
 
   const totalQty = useSelector((state) => state.cart.totalQty);
 

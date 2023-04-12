@@ -1,141 +1,175 @@
 @import "../../style.scss";
 
-.checkout-container {
+.checkout-section {
     display: flex;
-    flex-direction: row;
-    gap: 15rem;
-    margin: auto;
-    width: 70%;
+    flex-direction: column;
+    width: 100%;
+    overflow: hidden;
     align-items: center;
 
 
-    @include mobile {
-        flex-direction: column;
-        width: 100%;
-    }
+    .checkout-container {
+        display: flex;
+        flex-direction: row;
+        gap: 15rem;
+        width: 80%;
 
-    @include themify($themes) {
-        .checkout-left {
-            // max-width: 50%;
-            // float: left;
-            // flex-grow: 1;
-            // padding-right: 2rem;
-         
-
-            @include mobile {
-                // padding-right: 0;
-                // width: 100%;
-            }
-
-            .returnLink {
-                text-decoration: none;
-                display: flex;
-                align-items: center;
-                color: themed('textColor');
-            }
-
-            .toggleSummary {
-                display: none;
-                justify-content: space-between;
-                background-color:#f5f5f5;
-                padding: 0.7rem 1rem;
-                margin-top: 0.5rem;
-                border-top: 1px solid themed('border');
-                border-bottom: 1px solid themed('border');
-
+        @include tablet {
+            width: 100%;
+            gap: 1rem;
+        }
+    
+        @include mobile {
+            flex-direction: column;
+            background-color: #f5f5f5;
+            width: 100%; 
+        }
+    
+        @include themify($themes) {
+            .checkout-left {
+                flex-grow: 1;
+          
+          
+    
                 @include mobile {
-                    display: flex;
-                  
+                    padding-top: 1.5rem;
                 }
-                
-                .toggle {
+    
+                .returnLink {
+                    text-decoration: none;
                     display: flex;
                     align-items: center;
-                    gap: 3px;
-                    font-size: 1.01rem;
-                    background-color: inherit;
-                    border: 0;
-                    transition: all 0.2s ease-in;
-                    &:hover {
-                       color: themed('highLight');
-                    }        
+                    color: themed('textColor');
                 }
-
-                .total {
-                    font-weight: 500;
-                }
-
-            }
-
-        
-            .header-wrapper {
-                margin-bottom: 1.2rem;
-                padding: 0 0.5rem;
-
-                h1 {
-                    font-size: 2rem;
-                    line-height: 48px;
-                    font-weight: 400; 
-
+    
+                .toggleSummary {
+                    display: none;
+                    justify-content: space-between;
+                    background-color:#f5f5f5;
+                    padding: 0.7rem 1rem; // left, right 1rem;
+                    margin-top: 0.5rem;
+                    border-top: 1px solid themed('border');
+                    border-bottom: 1px solid themed('border');
+                 
+    
                     @include mobile {
-                        font-size: 1.4rem;
+                        display: flex;
+                      
+                    }
+                    
+                    .toggle {
+                        display: flex;
+                        align-items: center;
+                        padding-left: 0;
+                        gap: 3px;
+                        font-size: 1rem;
+                        background-color: inherit;
+                        border: 0;
+                        transition: all 0.2s ease-in;
+                        &:hover {
+                           color: themed('highLight');
+                        }
+                        
+                        .icon-wrapper {
+                            display: flex;
+                            align-items: center;
+                            svg {
+                                font-size: 1.2rem;
+                            }
+                        }
+                        
+                    }
+    
+                }
+    
+            
+                .header-wrapper {
+                    margin-bottom: 1.2rem;
+                    padding: 0 1rem;
+    
+                    h1 {
+                        font-size: 2rem;
+                        line-height: 48px;
+                        font-weight: 400; 
+    
+                        @include mobile {
+                            font-size: 1.4rem;
+                        }
                     }
                 }
-            }
-
-            .mobile-summary-content {
-                box-sizing: border-box;
-                background-color: #f5f5f5;
-                border-bottom: 1px solid themed('border');
-            }
-
-            // table-wrapper defined in orderSummary component
-   
-            .shippingForm {
-                display: flex;
-                flex-direction: column;
-                gap: 0.5rem;
-                width: 100%;
-            }
-
-            .auth-btn {
-                width: 100%; 
-                button {
-                    width: 100%;
+    
+                .mobile-summary-content {
+                    box-sizing: border-box;
+                    background-color: #f5f5f5;
+                    border-bottom: 1px solid themed('border');
                 }
-               
-            }
-        
-        }
-
-        .checkout-right { 
-            display: block;
-            padding-top: 4rem;
-            padding-bottom: 4rem;
-            width: 460px;
-            padding-left: 1%;
-            float: right;
-            position: relative;
-            background-color:  #f5f5f5;
-            background-position: left top;
-            border-left: 1px solid themed('border');
-
-            @include mobile {
-              display: none;
-            }
-            
-            
-            .summary-content {
-                padding: 0 1rem;
-                position: sticky;
-
+    
                 // table-wrapper defined in orderSummary component
+                .form-wrapper {
+                    width: 100%;
+                    padding-left: 1rem;
+                    padding-right: 1rem;
+                    min-width: 400px;
+                    max-width: 610px;
+                    background-color: aquamarine;
+
+                    .shippingForm {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 0.5rem;
+
+                
+                    }
+        
+                    .auth-btn {
+                    
+                        .button-wrapper {
+                            width: 100%;
+                        }
                    
-                .services-wrapper {  
-                    display: flex;
+                        button {
+                           width: 100%; 
+                        }
+                       
+                    }
                 }
-            }  
+       
+
+            
+            }
+    
+            .checkout-right { 
+                flex-grow: 1;
+                display: block;
+                padding-top: 4rem;
+                padding-bottom: 4rem;
+                width: 100%;
+                max-width: 460px;
+                float: right;
+                position: relative;
+                background-color:  #f5f5f5;
+                background-position: left top;
+                border-left: 1px solid themed('border');
+    
+                @include mobile {
+                  display: none;
+                }
+                
+                
+                .summary-content {
+                    padding: 0 1rem;
+                    position: sticky;
+    
+                    // table-wrapper defined in orderSummary component
+                       
+                    .services-wrapper {  
+                        display: flex;
+                    }
+                }  
+            }
         }
     }
 }
+
+
 

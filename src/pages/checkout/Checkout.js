@@ -45,11 +45,17 @@ const Checkout = () => {
                 className="toggle"
                 onClick={() => setOpen((prev) => !prev)}
               >
-                <MdOutlineShoppingCart /> Show order summary
+                <div className="icon-wrapper">
+                  <MdOutlineShoppingCart />
+                </div>
+                <span>Show Order Summary</span>
               </button>
               <div className="total">
-                $
-                {Math.round((itemSubtotal * 1.08 + Number.EPSILON) * 100) / 100}
+                <span>
+                  $
+                  {Math.round((itemSubtotal * 1.08 + Number.EPSILON) * 100) /
+                    100}
+                </span>
               </div>
             </div>
             {open && (
@@ -62,86 +68,88 @@ const Checkout = () => {
               <h1>Shipping Address</h1>
             </div>
 
-            <form onSubmit={submitForm} className="shippingForm">
-              <Input
-                name="firstName"
-                type="text"
-                placeHolder="First Name"
-                autoFocus
-                required
-                handleChange={handleChange}
-                className="form-addressInput"
-              />
-              <Input
-                name="lastName"
-                type="text"
-                placeHolder="Last Name"
-                required
-                handleChange={handleChange}
-                className="form-addressInput"
-              />
+            <div className="form-wrapper">
+              <form onSubmit={submitForm} className="shippingForm">
+                <Input
+                  name="firstName"
+                  type="text"
+                  placeHolder="First Name"
+                  autoFocus
+                  required
+                  handleChange={handleChange}
+                  className="form-addressInput"
+                />
+                <Input
+                  name="lastName"
+                  type="text"
+                  placeHolder="Last Name"
+                  required
+                  handleChange={handleChange}
+                  className="form-addressInput"
+                />
 
-              <Input
-                name="streetAddress"
-                type="text"
-                placeHolder="Street Address"
-                required
-                handleChange={handleChange}
-                className="form-addressInput"
-              />
+                <Input
+                  name="streetAddress"
+                  type="text"
+                  placeHolder="Street Address"
+                  required
+                  handleChange={handleChange}
+                  className="form-addressInput"
+                />
 
-              <Input
-                name="city"
-                type="text"
-                placeHolder="City"
-                required
-                handleChange={handleChange}
-                className="form-addressInput"
-              />
+                <Input
+                  name="city"
+                  type="text"
+                  placeHolder="City"
+                  required
+                  handleChange={handleChange}
+                  className="form-addressInput"
+                />
 
-              <Input
-                name="state"
-                type="text"
-                placeHolder="State"
-                required
-                handleChange={handleChange}
-                className="form-addressInput"
-              />
+                <Input
+                  name="state"
+                  type="text"
+                  placeHolder="State"
+                  required
+                  handleChange={handleChange}
+                  className="form-addressInput"
+                />
 
-              <Input
-                name="country"
-                type="text"
-                placeHolder="Country"
-                required
-                handleChange={handleChange}
-                className="form-addressInput"
-              />
-              <Input
-                name="zipCode"
-                type="text"
-                placeHolder="Zip Code"
-                required
-                handleChange={handleChange}
-                className="form-addressInput"
-              />
+                <Input
+                  name="country"
+                  type="text"
+                  placeHolder="Country"
+                  required
+                  handleChange={handleChange}
+                  className="form-addressInput"
+                />
+                <Input
+                  name="zipCode"
+                  type="text"
+                  placeHolder="Zip Code"
+                  required
+                  handleChange={handleChange}
+                  className="form-addressInput"
+                />
 
-              <Input
-                name="phone"
-                type="text"
-                placeHolder="Phone Number"
-                required
-                handleChange={handleChange}
-                className="form-addressInput"
-              />
-            </form>
+                <Input
+                  name="phone"
+                  type="text"
+                  placeHolder="Phone Number"
+                  required
+                  handleChange={handleChange}
+                  className="form-addressInput"
+                />
+              </form>
 
-            <div className="auth-btn mt-15">
-              <LinkButton
-                onClick={submitForm}
-                name="Continue"
-                path="/payment"
-                className="checkout-btn"
-              />
+              <div className="auth-btn mt-15">
+                <LinkButton
+                  onClick={submitForm}
+                  name="Continue"
+                  path="/payment"
+                  className="checkout-btn"
+                />
+              </div>
             </div>
           </div>
 

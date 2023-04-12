@@ -11,8 +11,6 @@ const authSlice = createSlice({
   initialState,
   reducers: {
     AUTH(state, action) {
-      //do something to get the current user's info
-      console.log("auth-action-payload", action.payload);
       state.authData = action.payload;
     },
 

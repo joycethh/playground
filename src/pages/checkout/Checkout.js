@@ -24,12 +24,10 @@ const Checkout = () => {
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
-    console.log("formData", formData);
   };
 
   const submitForm = (e) => {
     e.preventDefault();
-    console.log("submit order button clicked");
   };
 
   return (

@@ -21,22 +21,6 @@ const Auth = () => {
 
   const { login, register } = useAuthContext();
 
-  // const navigate = useNavigate();
-
-  // const Redirect = () => {
-  //   useEffect(() => {
-  //     const previousPage = localStorage.getItem("previousPage");
-  //     if (previousPage) {
-  //       localStorage.removeItem("previousPage");
-  //       navigate(`${previousPage}`);
-  //     } else {
-  //       navigate("/");
-  //     }
-  //   });
-
-  //   console.log("redirect is called");
-  // };
-
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };

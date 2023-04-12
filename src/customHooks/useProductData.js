@@ -8,7 +8,6 @@ const useProductData = () => {
       .then((res) => res.json())
       .then((json) => setApiData(json));
   }, []);
-  // console.log("apiData", apiData);
   return { apiData };
 };
 

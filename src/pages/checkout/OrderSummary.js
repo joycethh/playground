@@ -1,7 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import "./orderSummary.scss";
-const tableItems = ["Subtotal", "Shipping", "Est.Tax", "Total"];
 
 const OrderSummary = () => {
   const { cartItems, itemSubtotal } = useSelector((state) => state.cart);
@@ -43,9 +42,9 @@ const OrderSummary = () => {
         <table className="cartItemTotal-table">
           <tbody>
             <tr>
-              <td>
+              <th>
                 <span className="totalHeader">Subtotal</span>
-              </td>
+              </th>
               <td colSpan="2">
                 <span className="totalNumber">{itemSubtotal}</span>
               </td>

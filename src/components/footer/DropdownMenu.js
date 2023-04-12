@@ -13,7 +13,7 @@ const menuItems = [
     submenuItems: ["about us"],
   },
   {
-    title: "Customer Services",
+    title: "Customer Service",
     submenuItems: ["contact us"],
   },
 ];

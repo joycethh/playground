@@ -50,7 +50,7 @@ $themes: (
     }
   }
   @mixin tablet {
-    @media (max-width: 800px) {
+    @media (max-width: 820px) {
       @content;
     }
   }

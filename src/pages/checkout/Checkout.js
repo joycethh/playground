@@ -70,23 +70,25 @@ const Checkout = () => {
 
             <div className="form-wrapper">
               <form onSubmit={submitForm} className="shippingForm">
-                <Input
-                  name="firstName"
-                  type="text"
-                  placeHolder="First Name"
-                  autoFocus
-                  required
-                  handleChange={handleChange}
-                  className="form-addressInput"
-                />
-                <Input
-                  name="lastName"
-                  type="text"
-                  placeHolder="Last Name"
-                  required
-                  handleChange={handleChange}
-                  className="form-addressInput"
-                />
+                <div className="half">
+                  <Input
+                    name="firstName"
+                    type="text"
+                    placeHolder="First Name"
+                    autoFocus
+                    required
+                    handleChange={handleChange}
+                    className="form-addressInput"
+                  />
+                  <Input
+                    name="lastName"
+                    type="text"
+                    placeHolder="Last Name"
+                    required
+                    handleChange={handleChange}
+                    className="form-addressInput"
+                  />
+                </div>
 
                 <Input
                   name="streetAddress"
@@ -96,41 +98,43 @@ const Checkout = () => {
                   handleChange={handleChange}
                   className="form-addressInput"
                 />
+                <div className="half">
+                  <Input
+                    name="city"
+                    type="text"
+                    placeHolder="City"
+                    required
+                    handleChange={handleChange}
+                    className="form-addressInput"
+                  />
 
-                <Input
-                  name="city"
-                  type="text"
-                  placeHolder="City"
-                  required
-                  handleChange={handleChange}
-                  className="form-addressInput"
-                />
-
-                <Input
-                  name="state"
-                  type="text"
-                  placeHolder="State"
-                  required
-                  handleChange={handleChange}
-                  className="form-addressInput"
-                />
-
-                <Input
-                  name="country"
-                  type="text"
-                  placeHolder="Country"
-                  required
-                  handleChange={handleChange}
-                  className="form-addressInput"
-                />
-                <Input
-                  name="zipCode"
-                  type="text"
-                  placeHolder="Zip Code"
-                  required
-                  handleChange={handleChange}
-                  className="form-addressInput"
-                />
+                  <Input
+                    name="state"
+                    type="text"
+                    placeHolder="State"
+                    required
+                    handleChange={handleChange}
+                    className="form-addressInput"
+                  />
+                </div>
+                <div className="half">
+                  <Input
+                    name="zipCode"
+                    type="text"
+                    placeHolder="Zip Code"
+                    required
+                    handleChange={handleChange}
+                    className="form-addressInput"
+                  />
+                  <Input
+                    name="country"
+                    type="text"
+                    placeHolder="Country"
+                    required
+                    handleChange={handleChange}
+                    className="form-addressInput"
+                  />
+                </div>
 
                 <Input
                   name="phone"

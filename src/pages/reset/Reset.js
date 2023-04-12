@@ -20,29 +20,28 @@ const Reset = () => {
       });
   };
   return (
-    <div className="container reset">
-      <div className="card">
-        <div className="title">
-          <h6>Reset Password</h6>
-        </div>
+    <section className="auth-section">
+      <div className="container mb-3">
+        <div className="card">
+          <div className="title">
+            <h6>Reset Password</h6>
+          </div>
 
-        <form onSubmit={resetPS}>
-          <div className="grid-container form">
-            <div className="grid-item">
-              <Input
-                name="email"
-                type="email"
-                placeHolder="Enter email"
-                handleChange={(e) => setEmail(e.target.value)}
-              />
-            </div>
-            <div className="auth-btn mt-15">
+          <form onSubmit={resetPS}>
+            <Input
+              name="email"
+              type="email"
+              placeHolder="Enter email"
+              handleChange={(e) => setEmail(e.target.value)}
+            />
+
+            <div className="auth-btn">
               <Button name="send confirmation" handleClick={resetPS} />
             </div>
-          </div>
-        </form>
+          </form>
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 

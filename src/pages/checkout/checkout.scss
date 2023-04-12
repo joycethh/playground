@@ -11,8 +11,8 @@
     .checkout-container {
         display: flex;
         flex-direction: row;
-        gap: 5rem;
-        width: 80%;
+        gap: 6rem;
+        width: 75%;
 
         @include tablet {
             width: 100% !important;

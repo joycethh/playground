@@ -1,16 +1,18 @@
 @import "../../style.scss";
 
 .inputWrapper {
-    // background-color: bisque;
+    
 
     @include themify($themes) {
+        background-color: inherit;
         display: flex;
         align-items: center;
         border: 1px solid themed('border');
         border-radius: 8px;
         // width: 100%;
-        max-width: 400px;
-        min-width: 290px;
+        // max-width: 400px;
+        // min-width: 290px;
+        // max-width: 610px;
         height: 40px;
         padding: 5px 10px;
 
@@ -34,8 +36,5 @@
         }
     }
 
-    @include mobile {
-        max-width: none;
-        width: 100%;
-    }
+
 }

@@ -92,81 +92,70 @@ const Auth = () => {
     setIsRegister(!isRegister);
   };
   return (
-    <>
+    <section className="auth-section">
       {isLoading && <Loader />}
-      <div className="container">
+      <div className="container mb-3">
         <div className="card">
           <div className="title">
             <h6>{isRegister ? "Register" : "Welcome Back!"}</h6>
           </div>
 
           <form onSubmit={handleSubmit}>
-            <div className="authForm">
-              <div className="formInput">
-                {isRegister && (
-                  <Input
-                    name="username"
-                    type="text"
-                    value={formData.username}
-                    placeHolder="Username"
-                    required={true}
-                    autoFocus={true}
-                    handleChange={handleChange}
-                  />
-                )}
-              </div>
-              <div className="formInput">
-                <Input
-                  name="email"
-                  type="text"
-                  value={formData.email}
-                  placeHolder="Email"
-                  required={true}
-                  autoFocus={true}
-                  handleChange={handleChange}
-                />
-              </div>
-              <div className="formInput">
-                <Input
-                  name="password"
-                  type="password"
-                  value={formData.password}
-                  placeHolder="Password"
-                  required={true}
-                  handleChange={handleChange}
-                />
-              </div>
-              <div className="formInput">
-                {isRegister && (
-                  <Input
-                    name="repeatPassword"
-                    type="password"
-                    value={formData.password}
-                    placeHolder="Repeat Password"
-                    required={true}
-                    handleChange={handleChange}
-                  />
-                )}
-              </div>
-              {!isRegister && (
-                <div className="formInput link">
-                  <Link to="/reset-password">I forgot my password</Link>
-                </div>
-              )}
+            {isRegister && (
+              <Input
+                name="username"
+                type="text"
+                value={formData.username}
+                placeHolder="Username"
+                required={true}
+                autoFocus={true}
+                handleChange={handleChange}
+              />
+            )}
 
-              <div className="auth-btn">
-                <Button
-                  name={isRegister ? "Register" : "Sign In"}
-                  handleClick={handleSubmit}
-                />
+            <Input
+              name="email"
+              type="text"
+              value={formData.email}
+              placeHolder="Email"
+              required={true}
+              autoFocus={true}
+              handleChange={handleChange}
+            />
+
+            <Input
+              name="password"
+              type="password"
+              value={formData.password}
+              placeHolder="Password"
+              required={true}
+              handleChange={handleChange}
+            />
+
+            {isRegister && (
+              <Input
+                name="repeatPassword"
+                type="password"
+                value={formData.password}
+                placeHolder="Repeat Password"
+                required={true}
+                handleChange={handleChange}
+              />
+            )}
+
+            {!isRegister && (
+              <div className="formInput link">
+                <Link to="/reset-password">I forgot my password</Link>
               </div>
+            )}
+
+            <div className="auth-btn">
+              <Button
+                name={isRegister ? "Register" : "Sign In"}
+                handleClick={handleSubmit}
+              />
             </div>
           </form>
-
-          {/* <div className="google mt-2">
-            <span>-- or --</span>
-            <button>login in with google</button>
-          </div> */}
 
           <div className="toggle">
             {isRegister ? (
@@ -183,7 +172,7 @@ const Auth = () => {
           </div>
         </div>
       </div>
-    </>
+    </section>
   );
 };
 

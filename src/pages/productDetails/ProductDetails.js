@@ -4,6 +4,7 @@ import { useParams } from "react-router";
 import CommonBanner from "../../components/ui/CommonBanner";
 import Badge from "../../components/badge/Badge";
 import banner from "../../assets/banner-detail.jpg";
+import { Button } from "../../components/button/Button";
 import useProductData from "../../customHooks/useProductData";
 import "./productDetail.scss";
 import { ADD_TO_CART } from "../../redux/feature/cartSlice";
@@ -59,11 +60,7 @@ const ProductDetails = () => {
                   <button>+</button>
                 </div>
               </div> */}
-              <div className="addBtn-wrapper">
-                <button className="add-btn" onClick={addItem}>
-                  add to cart
-                </button>
-              </div>
+              <Button name="Add to Cart" handleClick={addItem} />
             </div>
           </div>
         </section>

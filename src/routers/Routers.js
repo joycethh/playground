@@ -21,10 +21,10 @@ const Routers = () => {
       <Route path="/" element={<Navigate to="/home" />} />
       <Route path="/home" element={<Home />} />
       {/* <Route path="/products/:category" element={<ProductsPage />} /> */}
-      <Route path="/products/jewelry" element={<Jewelry />} />
-      <Route path="/products/electronics" element={<Electronics />} />
-      <Route path="/products/women's clothing" element={<Women />} />
-      <Route path="/products/men's clothing" element={<Men />} />
+      <Route path="/jewelry" element={<Jewelry />} />
+      <Route path="/electronics" element={<Electronics />} />
+      <Route path="/women's clothing" element={<Women />} />
+      <Route path="/men's clothing" element={<Men />} />
       <Route path="/product/:id" element={<ProductDetails />} />
       <Route path="/contact-us" element={<Contact />} />
       <Route path="/admin" element={<Admin />} />

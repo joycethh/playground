@@ -5,13 +5,13 @@ import { RiArrowDropDownLine, RiArrowDropUpLine } from "react-icons/ri";
 
 const menuItems = [
   {
-    title: "Products ",
+    title: "Products",
     submenuItems: ["Jewelry", "Electronics"],
   },
-  {
-    title: "Grit & Grace ",
-    submenuItems: ["about us"],
-  },
+  // {
+  //   title: "Grit & Grace ",
+  //   submenuItems: ["about us"],
+  // },
   {
     title: "Customer Service",
     submenuItems: ["contact us"],
@@ -27,7 +27,7 @@ export const Menu = () => {
           <div className="submenu">
             {menuItem.submenuItems.map((submenuItem, subIdx) => (
               <div className="links" key={subIdx}>
-                <Link to={`${submenuItem.replace(/\s/g, "-")}`}>
+                <Link to={`/${submenuItem.replace(/\s/g, "-")}`}>
                   {submenuItem}
                 </Link>
               </div>

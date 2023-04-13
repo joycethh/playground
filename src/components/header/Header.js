@@ -59,18 +59,18 @@ const Header = () => {
 
         <div className="nav">
           <NavLink to="/home" className={activeLink}>
-            <span>Home</span>
+            Home
           </NavLink>
-          <NavLink to="/products/jewelry " className={activeLink}>
-            <span>Jewelry</span>
+          <NavLink to="/jewelry " className={activeLink}>
+            Jewelry
           </NavLink>
-          <NavLink to="/products/electronics" className={activeLink}>
+          <NavLink to="/electronics" className={activeLink}>
             Electronics
           </NavLink>
-          <NavLink to="/products/women's clothing" className={activeLink}>
+          <NavLink to="/women's clothing" className={activeLink}>
             Women's
           </NavLink>
-          <NavLink to="/products/men's clothing" className={activeLink}>
+          <NavLink to="/men's clothing" className={activeLink}>
             Men's
           </NavLink>
         </div>
@@ -112,18 +112,18 @@ const Header = () => {
           <div className="modal-nav">
             <div className="modal-nav-wrapper" onClick={toggleModal}>
               <NavLink to="/home" className={activeLink}>
-                <span>Home</span>
+                Home
               </NavLink>
-              <NavLink to="/products/jewelry " className={activeLink}>
-                <span>Jewelry</span>
+              <NavLink to="/jewelry " className={activeLink}>
+                Jewelry
               </NavLink>
-              <NavLink to="/products/electronics" className={activeLink}>
+              <NavLink to="/electronics" className={activeLink}>
                 Electronics
               </NavLink>
-              <NavLink to="/products/women's clothing" className={activeLink}>
+              <NavLink to="/women's clothing" className={activeLink}>
                 Women's
               </NavLink>
-              <NavLink to="/products/men's clothing" className={activeLink}>
+              <NavLink to="/men's clothing" className={activeLink}>
                 Men's
               </NavLink>
             </div>

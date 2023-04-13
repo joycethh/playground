@@ -34,13 +34,7 @@ const ProductCard = ({ item }) => {
             </Link>
           </div>
           <div className="product-info-wrapper">
-            <h4>
-              {item.title}
-              {/* {item.title.length > 35
-                ? item.title.slice(0, 35) + " ..."
-                : item.title.slice(0, 35)} */}
-            </h4>
-            {/* <span>{item.category}</span> */}
+            <h4>{item.title}</h4>
           </div>
 
           <div className="product-bottom-wrapper">

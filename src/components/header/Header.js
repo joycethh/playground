@@ -77,8 +77,8 @@ const Header = () => {
 
         <div className="icons">
           {currentUser ? (
-            <div className="icon-wrapper">
-              <p className="profile"> Hi, {currentUser.displayName}</p>
+            <div className="user">
+              <span className="profile"> Hi, {currentUser.displayName}</span>
             </div>
           ) : (
             <div className="icon-wrapper">
@@ -101,9 +101,9 @@ const Header = () => {
             <span className="cart-thunmbnail-qty">{totalQty}</span>
           </div>
 
-          <span onClick={toggleModal} className="menu-icon">
+          <div onClick={toggleModal} className="icon-wrapper  menu-icon">
             <BiMenuAltLeft />
-          </span>
+          </div>
         </div>
       </div>
 

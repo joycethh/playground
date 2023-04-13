@@ -67,6 +67,10 @@ header{
                 display: flex;
                 column-gap: 1rem;
 
+                @include mobile {
+                    justify-content: flex-end;
+                }
+
                 .user {
                     display: flex;
                     justify-content: center;

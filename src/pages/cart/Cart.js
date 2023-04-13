@@ -42,7 +42,7 @@ const Cart = () => {
 
                       <div className="item-details-left">
                         <div className="img-wrapper">
-                          <Link to={`/shop/`}>
+                          <Link to={`/product/${item.id}`}>
                             <img src={item.image} alt="" />
                           </Link>
                         </div>

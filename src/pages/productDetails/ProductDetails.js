@@ -9,6 +9,7 @@ import useProductData from "../../customHooks/useProductData";
 import "./productDetail.scss";
 import { ADD_TO_CART } from "../../redux/feature/cartSlice";
 import { useDispatch } from "react-redux";
+import { toast } from "react-toastify";
 
 const ProductDetails = () => {
   const { apiData } = useProductData();
@@ -27,6 +28,7 @@ const ProductDetails = () => {
         image: item.image,
       })
     );
+    toast.success("Item added to the cart successfully!");
   };
 
   return (

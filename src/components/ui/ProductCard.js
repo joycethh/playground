@@ -19,7 +19,7 @@ const ProductCard = ({ item }) => {
         image: item.image,
       })
     );
-    toast.success("The item is waiting for you in the cart");
+    toast.success("Item added to the cart successfully!");
   };
 
   return (

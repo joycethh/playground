@@ -5,12 +5,17 @@ import { LinkButton } from "../../components/button/Button";
 import "./cart.scss";
 import Badge from "../../components/badge/Badge";
 import { DELETE_FROM_CART } from "../../redux/feature/cartSlice";
-
+import { toast } from "react-toastify";
 import { useSelector, useDispatch } from "react-redux";
 const Cart = () => {
   const { cartItems, itemSubtotal } = useSelector((state) => state.cart);
 
   const dispatch = useDispatch();
+
+  const handleDelete = (id) => {
+    dispatch(DELETE_FROM_CART(id));
+    toast.success("The item is deleted!");
+  };
 
   useEffect(() => {
     localStorage.setItem("previousPage", window.location.pathname);
@@ -35,7 +40,7 @@ const Cart = () => {
                     <div className="item-container">
                       <button
                         className="item-delete"
-                        onClick={() => dispatch(DELETE_FROM_CART(item.id))}
+                        onClick={() => handleDelete(item.id)}
                       >
                         <MdDeleteOutline />
                       </button>

@@ -98,7 +98,9 @@ const Header = () => {
             <Link to="/cart">
               <HiOutlineShoppingCart />
             </Link>
-            <span className="cart-thunmbnail-qty">{totalQty}</span>
+            {totalQty !== 0 && (
+              <span className="cart-thunmbnail-qty">{totalQty}</span>
+            )}
           </div>
 
           <div onClick={toggleModal} className="icon-wrapper  menu-icon">

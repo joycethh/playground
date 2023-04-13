@@ -154,13 +154,16 @@ const Checkout = () => {
               </div>
             </div>
           </div>
-
-          <div className="checkout-right mb-3">
-            <div className="summary-content">
-              <OrderSummary />
-              <div className="services-wrapper"></div>
+          {itemSubtotal > 0 ? (
+            <div className="checkout-right mb-3">
+              <div className="summary-content">
+                <OrderSummary />
+                <div className="services-wrapper"></div>
+              </div>
             </div>
-          </div>
+          ) : (
+            <h3>No items in the cart</h3>
+          )}
         </div>
       </section>
     </Badge>

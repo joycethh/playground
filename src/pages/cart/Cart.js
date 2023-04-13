@@ -23,7 +23,6 @@ const Cart = () => {
 
   return (
     <Badge title="My Cart">
-      {/* <CommonSection title="My Cart" /> */}
       <section className="cart-section">
         <div className="cart-container">
           <div className="cart-left">

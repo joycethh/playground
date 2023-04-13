@@ -10,4 +10,3 @@ export { default as Jewelry } from "./shop/Jewelry";
 export { default as Electronics } from "./shop/Electronics";
 export { default as Women } from "./shop/Women";
 export { default as Men } from "./shop/Men";
-export { default as Payment } from "./payment/Payment";

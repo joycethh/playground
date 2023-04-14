@@ -39,7 +39,7 @@ export const AuthContextProvider = ({ children }) => {
   };
 
   const logout = async () => {
-    await signOut();
+    await signOut(auth);
     setCurrentUser(null);
   };
 

@@ -3,8 +3,6 @@ import { Link, useNavigate, NavLink } from "react-router-dom";
 import { BiUser, BiMenuAltLeft } from "react-icons/bi";
 import { HiLogout, HiOutlineShoppingCart } from "react-icons/hi";
 import { toast } from "react-toastify";
-import { signOut } from "firebase/auth";
-import { auth } from "../../firebase/configure";
 import "./header.scss";
 
 import { useSelector } from "react-redux";
@@ -12,7 +10,7 @@ import { useAuthContext } from "../../context/authContext";
 
 const Header = () => {
   const [openModal, setOpenModal] = useState(false);
-  const { currentUser } = useAuthContext();
+  const { currentUser, logout } = useAuthContext();
 
   const totalQty = useSelector((state) => state.cart.totalQty);
 
@@ -38,7 +36,7 @@ const Header = () => {
     setOpenModal(!openModal);
   };
   const handleSignOut = () => {
-    signOut(auth)
+    logout()
       .then(() => {
         toast.success("Log out successfully");
         nativgate("/");

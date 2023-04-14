@@ -72,7 +72,7 @@ export const DropdownMenu = () => {
             {openMenu === index &&
               menuItem.submenuItems.map((submenuItem, subIdx) => (
                 <div key={subIdx} className="links">
-                  <Link to={`/products/${submenuItem.replace(/\s/g, "-")}`}>
+                  <Link to={`/${submenuItem.replace(/\s/g, "-")}`}>
                     {submenuItem}
                   </Link>
                 </div>

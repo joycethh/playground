@@ -1,4 +1,4 @@
-import ProtectedRoute from "./ProtectedRoute";
+// import ProtectedRoute from "./ProtectedRoute";
 import { Routes, Route, Navigate } from "react-router-dom";
 import {
   Home,
@@ -32,9 +32,9 @@ const Routers = () => {
       <Route
         path="/checkout"
         element={
-          <ProtectedRoute>
-            <Checkout />
-          </ProtectedRoute>
+          // <ProtectedRoute>
+          <Checkout />
+          // </ProtectedRoute>
         }
       />
       <Route path="/auth" element={<Auth />} />

@@ -148,7 +148,7 @@ const Checkout = () => {
                 <LinkButton
                   onClick={submitForm}
                   name="Continue"
-                  path="/payment"
+                  path="/auth"
                   className="checkout-btn"
                 />
               </div>

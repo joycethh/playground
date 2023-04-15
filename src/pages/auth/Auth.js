@@ -6,6 +6,7 @@ import { Button } from "../../components/button/Button";
 import Loader from "../../components/loader/Loader";
 import "./auth.scss";
 import { useAuthContext } from "../../context/authContext";
+import { useSelector } from "react-redux";
 
 const Auth = () => {
   const [isRegister, setIsRegister] = useState(false);
@@ -18,6 +19,8 @@ const Auth = () => {
   });
 
   const [isLoading, setIsLoading] = useState(false);
+
+  const cartItemQty = useSelector((state) => state.cart.totalQty);
 
   const { login, register } = useAuthContext();
 
@@ -79,9 +82,11 @@ const Auth = () => {
     <section className="auth-section">
       {isLoading && <Loader />}
       <div className="container mb-3">
+        {cartItemQty !== 0 &&
+          alert("This is a demo website, the payment gateway didn't set up")}
         <div className="card">
           <div className="title">
-            <h6>{isRegister ? "Register" : "Welcome Back!"}</h6>
+            <h6>{isRegister ? "Register" : "Sign In"}</h6>
           </div>
 
           <form onSubmit={handleSubmit}>
